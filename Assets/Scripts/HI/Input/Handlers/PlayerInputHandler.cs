@@ -22,6 +22,13 @@ namespace FPS.HI.Input.Handlers
             playerControls.OnFoot.Disable();
         }
 
+        public void Tick()
+        {
+            Vector2 movementVector = playerControls.OnFoot.Movement.ReadValue<Vector2>();
+            Vector3 movementVector3D = new Vector3(movementVector.x, 0, movementVector.y);
+            playerMovementController.Move(movementVector3D);
+        }
+
         [Inject]
         internal void Bind(PlayerControls playerControls, IPlayerMovementController playerMovementController)
         {
@@ -31,10 +38,6 @@ namespace FPS.HI.Input.Handlers
         }
 
         void IOnFootActions.OnMovement(InputAction.CallbackContext context)
-        {
-            Vector2 movementVector = context.ReadValue<Vector2>();
-            Vector3 movementVector3D = new Vector3(movementVector.x, 0, movementVector.y);
-            playerMovementController.Move(movementVector3D);
-        }
+        { }
     }
 }

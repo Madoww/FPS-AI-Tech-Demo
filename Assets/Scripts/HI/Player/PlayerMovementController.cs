@@ -6,10 +6,12 @@ namespace FPS.HI.Input
     {
         [SerializeReference]
         private CharacterController characterController;
+        [SerializeField]
+        private float speed;
 
         public void Move(Vector3 direction)
         {
-            characterController.Move(direction);
+            characterController.Move(direction * speed);
         }
     }
 }
