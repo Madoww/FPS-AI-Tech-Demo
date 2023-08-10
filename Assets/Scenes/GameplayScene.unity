@@ -381,6 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 14080012}
   - component: {fileID: 14080011}
+  - component: {fileID: 14080013}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -401,8 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 2088311461}
+  _monoInstallers: []
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -435,6 +435,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &14080013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14080010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff38c61e9aefd6446842f32f165711b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneContext: {fileID: 14080011}
+  objectsToQueue:
+  - {fileID: 2088311462}
+  - {fileID: 464356537}
 --- !u!1001 &15461233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1701,6 +1717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 718965752}
   - component: {fileID: 718965753}
+  - component: {fileID: 718965754}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -1737,6 +1754,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 1379600343}
   speed: 0.05
+--- !u!114 &718965754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718965751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3bdc283300e4b4080dc1eaa2bc9c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 2047270977}
+  playerTransform: {fileID: 1379600344}
+  sensitivity: {x: 15, y: 10}
+  maxRotationSpeed: 80
 --- !u!1001 &719329980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3680,6 +3713,7 @@ GameObject:
   - component: {fileID: 2088311460}
   - component: {fileID: 2088311462}
   - component: {fileID: 2088311461}
+  - component: {fileID: 2088311463}
   m_Layer: 0
   m_Name: HIContext
   m_TagString: Untagged
@@ -3716,7 +3750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bindToParent: 1
-  playerMovementController: {fileID: 718965753}
 --- !u!114 &2088311462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3732,9 +3765,25 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 2088311461}
+  - {fileID: 2088311463}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
+--- !u!114 &2088311463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088311459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678a189e9377b6e418236ae14430d24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bindToParent: 1
+  playerMovementController: {fileID: 718965753}
+  playerCameraController: {fileID: 718965754}
 --- !u!1001 &2116893865
 PrefabInstance:
   m_ObjectHideFlags: 0

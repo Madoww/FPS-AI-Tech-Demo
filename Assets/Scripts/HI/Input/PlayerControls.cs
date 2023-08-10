@@ -37,6 +37,15 @@ namespace FPS.HI.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""3bb1ab62-421d-46ab-bac3-4c5a898be3bd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -94,6 +103,17 @@ namespace FPS.HI.Input
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d056619-c085-454b-9c59-aca14bf1131d"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -103,6 +123,7 @@ namespace FPS.HI.Input
             // OnFoot
             m_OnFoot = asset.FindActionMap("OnFoot", throwIfNotFound: true);
             m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
+            m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -165,11 +186,13 @@ namespace FPS.HI.Input
         private readonly InputActionMap m_OnFoot;
         private List<IOnFootActions> m_OnFootActionsCallbackInterfaces = new List<IOnFootActions>();
         private readonly InputAction m_OnFoot_Movement;
+        private readonly InputAction m_OnFoot_Look;
         public struct OnFootActions
         {
             private @PlayerControls m_Wrapper;
             public OnFootActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
+            public InputAction @Look => m_Wrapper.m_OnFoot_Look;
             public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -182,6 +205,9 @@ namespace FPS.HI.Input
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
 
             private void UnregisterCallbacks(IOnFootActions instance)
@@ -189,6 +215,9 @@ namespace FPS.HI.Input
                 @Movement.started -= instance.OnMovement;
                 @Movement.performed -= instance.OnMovement;
                 @Movement.canceled -= instance.OnMovement;
+                @Look.started -= instance.OnLook;
+                @Look.performed -= instance.OnLook;
+                @Look.canceled -= instance.OnLook;
             }
 
             public void RemoveCallbacks(IOnFootActions instance)
@@ -209,6 +238,7 @@ namespace FPS.HI.Input
         public interface IOnFootActions
         {
             void OnMovement(InputAction.CallbackContext context);
+            void OnLook(InputAction.CallbackContext context);
         }
     }
 }

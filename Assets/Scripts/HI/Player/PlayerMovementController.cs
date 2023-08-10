@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FPS.HI.Input
+namespace FPS.HI.Player
 {
     public class PlayerMovementController : MonoBehaviour, IPlayerMovementController
     {
@@ -11,7 +11,10 @@ namespace FPS.HI.Input
 
         public void Move(Vector3 direction)
         {
-            characterController.Move(direction * speed);
+            Vector3 movementVector3D = new Vector3(direction.x, 0, direction.y);
+            var playerTransform = characterController.transform;
+            var actualDirection = playerTransform.TransformDirection(movementVector3D);
+            characterController.Move(actualDirection * speed);
         }
     }
 }
