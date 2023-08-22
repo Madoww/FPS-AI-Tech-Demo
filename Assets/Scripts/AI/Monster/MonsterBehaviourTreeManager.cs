@@ -6,7 +6,7 @@ namespace FPS.AI.Monster
 
     public class MonsterBehaviourTreeManager : MonoBehaviour
     {
-        [SerializeReference]
+        [SerializeReference, ReferencePicker]
         private IBehaviourTreeBuilder behaviourTreeBuilder;
 
         private BehaviourTree behaviourTree;

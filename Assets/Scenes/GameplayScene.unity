@@ -1247,12 +1247,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTreeBuilder:
-    rid: -2
+    rid: 694870973519495168
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 694870973519495168
+      type: {class: MonsterBehaviourTreeBuilder, ns: FPS.AI.Monster, asm: FPS.AI}
+      data:
+        navMeshAgent: {fileID: 2004418568}
+        transform: {fileID: 1379600344}
 --- !u!1 &2047270975
 GameObject:
   m_ObjectHideFlags: 0

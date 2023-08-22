@@ -7,13 +7,21 @@ namespace FPS.AI.Monster
 
     public class ActionSearch : INode
     {
-        //TODO: Rework temporary testing solution.
-        [SerializeField]
         private Transform target;
+
+        //TODO: Rework temporary testing solution.
+        public ActionSearch(Transform target)
+        {
+            this.target = target;
+        }
 
         public NodeState Evaluate(Dictionary<string, object> data)
         {
-            data.Add(Blackboard.POSITION_OF_INTEREST, target.transform);
+            Vector3 targetPosition = target.position;
+            if (!data.TryAdd(Blackboard.POSITION_OF_INTEREST, targetPosition))
+            {
+                data[Blackboard.POSITION_OF_INTEREST] = targetPosition;
+            }
 
             return NodeState.Success;
         }

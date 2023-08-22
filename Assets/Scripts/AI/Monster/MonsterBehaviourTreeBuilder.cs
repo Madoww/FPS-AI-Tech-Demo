@@ -10,12 +10,14 @@ namespace FPS.AI.Monster
     {
         [SerializeField]
         private NavMeshAgent navMeshAgent;
+        [SerializeField]
+        private Transform transform;
 
         public BehaviourTree Build()
         {
             SequenceNode searchSequence = new SequenceNode(new List<INode>()
             {
-                new ActionSearch(),
+                new ActionSearch(transform),
                 new ActionChase(navMeshAgent)
             });
 
