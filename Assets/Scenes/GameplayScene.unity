@@ -1187,8 +1187,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2004418566}
-  - component: {fileID: 2004418569}
   - component: {fileID: 2004418568}
+  - component: {fileID: 2004418569}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -1243,11 +1243,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004418565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a9dc332a6e7f74d99da9137952b328, type: 3}
+  m_Script: {fileID: 11500000, guid: 93369b3ac287f5847993eda150512d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 2004418568}
-  target: {fileID: 1379600344}
+  behaviourTreeBuilder:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &2047270975
 GameObject:
   m_ObjectHideFlags: 0
