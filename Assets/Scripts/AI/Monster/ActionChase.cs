@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
-    using UnityEngine;
+    using FPS.AI.Common;
 
     public class ActionChase : INode
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
+    using FPS.AI.Common;
 
     public class ActionSearch : INode
     {
