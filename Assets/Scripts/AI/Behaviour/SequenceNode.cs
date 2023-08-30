@@ -11,12 +11,12 @@ namespace FPS.AI.Behaviour
             this.nodes = nodes;
         }
 
-        public NodeState Evaluate(Dictionary<string, object> data)
+        public NodeState Evaluate(BehaviourTreeState treeState)
         {
             bool isAnyNodeRunning = false;
             foreach (INode node in nodes)
             {
-                switch (node.Evaluate(data))
+                switch (node.Evaluate(treeState))
                 {
                     case NodeState.Success:
                         break;

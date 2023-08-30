@@ -6,9 +6,9 @@ namespace FPS.AI.Patrol
     public class PatrolDataProvider : MonoBehaviour, IPatrolDataProvider
     {
         [SerializeField]
-        private List<PatrolAreaContext> patrolData;
+        private List<PatrolArea> patrolData;
 
-        public List<PatrolAreaContext> GetPatrolData()
+        public List<PatrolArea> GetPatrolData()
         {
             return patrolData;
         }

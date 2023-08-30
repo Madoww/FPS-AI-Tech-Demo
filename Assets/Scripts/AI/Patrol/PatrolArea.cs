@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace FPS.AI.Patrol
 {
-    [Serializable]
-    public class PatrolArea
+    public class PatrolArea : MonoBehaviour
     {
         [SerializeField]
         private List<PatrolWaypoint> waypoints;

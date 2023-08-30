@@ -1,11 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
-    using FPS.AI.Common;
 
     public class ActionChase : INode
     {
@@ -16,16 +14,9 @@ namespace FPS.AI.Monster
             this.navMeshAgent = navMeshAgent;
         }
 
-        public NodeState Evaluate(Dictionary<string, object> data)
+        public NodeState Evaluate(BehaviourTreeState treeState)
         {
-            data.TryGetValue(Blackboard.POSITION_OF_INTEREST, out var targetPositionObject);
-            if (targetPositionObject == null)
-            {
-                Debug.LogWarning("[AI] Started chase action despite no target position.");
-                return NodeState.Failure;
-            }
-
-            Vector3 targetPosition = (Vector3)targetPositionObject;
+            treeState.TryGetData<Vector3>(Blackboard.POSITION_OF_INTEREST, out var targetPosition);
             navMeshAgent.SetDestination(targetPosition);
             return NodeState.Running;
         }

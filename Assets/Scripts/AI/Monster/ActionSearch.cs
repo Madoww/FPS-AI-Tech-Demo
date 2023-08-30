@@ -1,10 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
-    using FPS.AI.Common;
 
     public class ActionSearch : INode
     {
@@ -16,14 +14,10 @@ namespace FPS.AI.Monster
             this.target = target;
         }
 
-        public NodeState Evaluate(Dictionary<string, object> data)
+        public NodeState Evaluate(BehaviourTreeState treeState)
         {
-            Vector3 targetPosition = target.position;
-            if (!data.TryAdd(Blackboard.POSITION_OF_INTEREST, targetPosition))
-            {
-                data[Blackboard.POSITION_OF_INTEREST] = targetPosition;
-            }
-
+            var targetPosition = target.position;
+            treeState.SetData(Blackboard.POSITION_OF_INTEREST, targetPosition);
             return NodeState.Success;
         }
     }

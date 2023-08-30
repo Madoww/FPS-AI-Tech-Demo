@@ -4,6 +4,6 @@ namespace FPS.AI.Patrol
 {
     public interface IPatrolDataProvider
     {
-        public List<PatrolAreaContext> GetPatrolData();
+        public List<PatrolArea> GetPatrolData();
     }
 }
