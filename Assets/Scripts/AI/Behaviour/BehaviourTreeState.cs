@@ -1,14 +1,14 @@
-using UnityEngine;
+using System.Collections.Generic;
 
 namespace FPS.AI.Behaviour
 {
     public class BehaviourTreeState
     {
-        private SerializedDictionary<string, object> data;
+        private Dictionary<string, object> data;
 
         public BehaviourTreeState()
         {
-            data = new SerializedDictionary<string, object>();
+            data = new Dictionary<string, object>();
         }
 
         public void SetData(string key, object value)
