@@ -18,6 +18,7 @@ namespace FPS.AI.Monster
         {
             var targetPosition = target.position;
             treeState.SetData(Blackboard.POSITION_OF_INTEREST, targetPosition);
+            Debug.Log("Action: Search");
             return NodeState.Success;
         }
     }

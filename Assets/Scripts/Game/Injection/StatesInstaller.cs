@@ -3,6 +3,8 @@ using Zenject;
 namespace FPS.Game.Injection
 {
     using FPS.Common.States;
+    //TODO: Add flow builder
+    using FPS.Game.Flow.Gameplay;
 
     public class StatesInstaller : MonoInstaller
     {

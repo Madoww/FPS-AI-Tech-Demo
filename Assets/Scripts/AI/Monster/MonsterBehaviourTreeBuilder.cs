@@ -20,15 +20,15 @@ namespace FPS.AI.Monster
 
         public BehaviourTree Build()
         {
-            var actionPatrol = new ActionPatrol(patrolDataProvider.GetPatrolData(), selfTransform, navMeshAgent);
+            //var actionPatrol = new ActionPatrol(patrolDataProvider.GetPatrolData(), selfTransform, navMeshAgent);
 
-            var sequenceSearch = new SequenceNode(new List<INode>()
+            var sequenceSearch = new Sequence(new List<INode>()
             {
                 new ActionSearch(playerTransform),
                 new ActionChase(navMeshAgent)
             });
 
-            BehaviourTree tree = new BehaviourTree(actionPatrol);
+            BehaviourTree tree = new BehaviourTree(sequenceSearch);
             return tree;
         }
     }

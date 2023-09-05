@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace FPS.Game
+namespace FPS.Game.Flow.Gameplay
 {
     using FPS.Common.States;
     using FPS.HI.Input;
