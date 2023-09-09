@@ -8,7 +8,7 @@ namespace FPS.AI.Common
     using FPS.AI.Behaviour;
     using FPS.AI.Patrol;
 
-    public class ActionGenericPatrol : INode
+    public class ActionGenericPatrol : Node
     {
         protected readonly Transform targetTransform;
         protected readonly NavMeshAgent navMeshAgent;
@@ -25,7 +25,7 @@ namespace FPS.AI.Common
             this.patrolAreas = patrolAreas;
         }
 
-        public virtual NodeState Evaluate(BehaviourTreeState treeState)
+        public override NodeState Evaluate(BehaviourTreeState treeState)
         {
             var currentPatrolArea = patrolAreas[currentPatrolAreaIndex];
             var currentPatrolWaypoint = currentPatrolArea.Waypoints[currentWaypointIndex];

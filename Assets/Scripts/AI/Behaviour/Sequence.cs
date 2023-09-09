@@ -2,42 +2,35 @@ using System.Collections.Generic;
 
 namespace FPS.AI.Behaviour
 {
-    public class Sequence : INode
+    public class Sequence : Node
     {
-        private ICollection<INode> nodes;
+        private IList<Node> nodes;
 
-        public Sequence(ICollection<INode> nodes)
+        public Sequence(IList<Node> nodes)
         {
             this.nodes = nodes;
         }
 
-        public NodeState Evaluate(BehaviourTreeState treeState)
+        public override NodeState Evaluate(BehaviourTreeState treeState)
         {
-            if (treeState.TryGetRunningChild(this, out var runningChild))
+            if (TryEvaluateRunningNode(treeState, out Node runningChild, out NodeState runningChildState))
             {
-                NodeState runningChildState = runningChild.Evaluate(treeState);
-                if (runningChildState == NodeState.Running)
+                if (runningChildState != NodeState.Success)
                 {
-                    return NodeState.Running;
-                }
-
-                treeState.UnregisterRunningChild(this);
-
-                if (runningChildState == NodeState.Failure)
-                {
-                    return NodeState.Failure;
+                    return runningChildState;
                 }
             }
 
             bool isAnyNodeRunning = false;
-            foreach (INode node in nodes)
+            for (int i = 0; i < nodes.Count; i++)
             {
+                var node = nodes[i];
                 if (runningChild != null)
                 {
-                    if (node != runningChild)
-                    {
-                        continue;
-                    }
+                    var runningChildIndex = nodes.IndexOf(runningChild);
+                    i = runningChildIndex;
+                    runningChild = null;
+                    continue;
                 }
 
                 switch (node.Evaluate(treeState))
@@ -54,6 +47,23 @@ namespace FPS.AI.Behaviour
             }
 
             return isAnyNodeRunning ? NodeState.Running : NodeState.Success;
+        }
+
+        private bool TryEvaluateRunningNode(BehaviourTreeState treeState, out Node runningChild, out NodeState runningChildState)
+        {
+            if (treeState.TryGetRunningChild(this, out runningChild))
+            {
+                runningChildState = runningChild.Evaluate(treeState);
+                if (runningChildState != NodeState.Running)
+                {
+                    treeState.UnregisterRunningChild(this);
+                }
+
+                return true;
+            }
+
+            runningChildState = default;
+            return false;
         }
     }
 }

@@ -4,7 +4,7 @@ namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
 
-    public class ActionSearch : INode
+    public class ActionSearch : Node
     {
         private Transform target;
 
@@ -14,7 +14,7 @@ namespace FPS.AI.Monster
             this.target = target;
         }
 
-        public NodeState Evaluate(BehaviourTreeState treeState)
+        public override NodeState Evaluate(BehaviourTreeState treeState)
         {
             var targetPosition = target.position;
             treeState.SetData(Blackboard.POSITION_OF_INTEREST, targetPosition);

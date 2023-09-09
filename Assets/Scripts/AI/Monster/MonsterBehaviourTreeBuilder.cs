@@ -5,6 +5,7 @@ using UnityEngine.AI;
 namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
+    using FPS.AI.Common;
     using FPS.AI.Patrol;
 
     public class MonsterBehaviourTreeBuilder : IBehaviourTreeBuilder
@@ -22,13 +23,21 @@ namespace FPS.AI.Monster
         {
             //var actionPatrol = new ActionPatrol(patrolDataProvider.GetPatrolData(), selfTransform, navMeshAgent);
 
-            var sequenceSearch = new Sequence(new List<INode>()
+            var sequenceSearch = new Sequence(new List<Node>()
             {
                 new ActionSearch(playerTransform),
                 new ActionChase(navMeshAgent)
             });
 
-            BehaviourTree tree = new BehaviourTree(sequenceSearch);
+            ActionLog logTorchEquipped = new ActionLog("Torch Equipped!");
+            ActionLog logTorchNotEquipped = new ActionLog("Torch Not Equipped!");
+            var selectorTest = new Selector(new List<Node>()
+            {
+                new ConditionIsTorchEquipped(logTorchEquipped),
+                logTorchNotEquipped
+            });
+
+            BehaviourTree tree = new BehaviourTree(selectorTest);
             return tree;
         }
     }
