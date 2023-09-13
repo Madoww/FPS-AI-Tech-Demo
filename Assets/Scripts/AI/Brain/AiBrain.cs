@@ -3,13 +3,17 @@ using UnityEngine;
 
 namespace FPS.AI.Brain
 {
-    using FPS.AI.Detection;
-
     public class AiBrain : MonoBehaviour
     {
-        [SerializeReference, ReferencePicker]
-        private List<ISenseProcessor> senseProcessors;
-        //TODO:
-        // Awareness
+        [SerializeField]
+        private List<Sense> senses;
+
+        private void Update()
+        {
+            foreach (Sense sense in senses)
+            {
+                sense.Evaluate();
+            }
+        }
     }
 }

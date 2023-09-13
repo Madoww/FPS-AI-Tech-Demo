@@ -738,7 +738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 620974581}
   m_Layer: 0
-  m_Name: WorldContext
+  m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1603,6 +1603,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3d9a6647dfaf948be13e9352ceeee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visionProcessor:
+    rid: 5387246647337025537
+  settings: {fileID: 11400000, guid: 34e32b79b0dd6e44e99a6995573417e0, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 5387246647337025537
+      type: {class: DefaultVisionProcessor, ns: FPS.AI.Brain.Senses.Vision, asm: FPS.AI}
 --- !u!1 &2004418565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,15 +1705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1712138ab2d57844282f851c1b9e910a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senseProcessors:
-  - rid: 5387246604561678336
-  references:
-    version: 2
-    RefIds:
-    - rid: 5387246604561678336
-      type: {class: VisionProcessor, ns: FPS.AI.Detection, asm: FPS.AI}
-      data:
-        visionSense: {fileID: 1949448707}
+  senses:
+  - {fileID: 1949448707}
 --- !u!1 &2047270975
 GameObject:
   m_ObjectHideFlags: 0

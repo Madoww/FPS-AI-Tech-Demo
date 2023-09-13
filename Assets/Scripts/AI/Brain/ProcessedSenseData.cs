@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace FPS.AI.Detection
+namespace FPS.AI.Brain
 {
-    public class SensedTargetData
+    public class ProcessedSenseData
     {
         public Vector3 position;
         public float awareness;
