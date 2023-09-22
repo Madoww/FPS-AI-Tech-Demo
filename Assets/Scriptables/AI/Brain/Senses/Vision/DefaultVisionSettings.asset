@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: DefaultVisionSettings
   m_EditorClassIdentifier: 
   range: 15
+  visionAngle: 90
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 320

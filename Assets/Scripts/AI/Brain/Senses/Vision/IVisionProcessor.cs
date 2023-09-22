@@ -4,6 +4,6 @@ namespace FPS.AI.Brain.Senses.Vision
 {
     public interface IVisionProcessor
     {
-        IList<ProcessedSenseData> Process(VisionSenseData visionData);
+        IList<ProcessedSenseData> Process(List<VisionSenseData> visionData);
     }
 }

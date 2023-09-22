@@ -10,9 +10,17 @@ namespace FPS.AI.Brain
 
         private void Update()
         {
+            var sensesData = new List<ProcessedSenseData>();
+
             foreach (Sense sense in senses)
             {
-                sense.Evaluate();
+                var senseData = sense.Evaluate();
+                sensesData.AddRange(senseData);
+            }
+
+            if (sensesData.Count > 0)
+            {
+                Debug.Log("Target detected");
             }
         }
     }

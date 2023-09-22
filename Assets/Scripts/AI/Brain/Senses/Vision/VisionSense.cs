@@ -13,7 +13,7 @@ namespace FPS.AI.Brain.Senses.Vision
         [SerializeField]
         private VisionSettings settings;
 
-        private List<VisionSenseData> data;
+        private List<VisionSenseData> data = new List<VisionSenseData>();
         private IDetectableTargetsManager targetsManager;
         private float cosVisionAngle = -1;
 
@@ -38,7 +38,8 @@ namespace FPS.AI.Brain.Senses.Vision
 
         public override IList<ProcessedSenseData> Evaluate()
         {
-            throw new System.NotImplementedException();
+            Run();
+            return visionProcessor.Process(data);
         }
 
         [Inject]
@@ -47,8 +48,9 @@ namespace FPS.AI.Brain.Senses.Vision
             this.targetsManager = targetsManager;
         }
 
-        private List<VisionSenseData> Run()
+        private void Run()
         {
+            data.Clear();
             var detectableTargets = targetsManager.DetectableTargets;
             foreach (var target in detectableTargets)
             {
@@ -72,7 +74,8 @@ namespace FPS.AI.Brain.Senses.Vision
 
                 var detectionMask = settings.detectionMask;
                 RaycastHit hitResult;
-                if (!Physics.Raycast(selfPosition, vectorToTarget, out hitResult, visionRange, detectionMask))
+                Debug.DrawRay(selfPosition, vectorToTarget * 100, Color.green);
+                if (!Physics.Raycast(selfPosition, vectorToTarget, out hitResult, visionRange, detectionMask, QueryTriggerInteraction.Collide))
                 {
                     continue;
                 }
@@ -85,13 +88,15 @@ namespace FPS.AI.Brain.Senses.Vision
 
                 SaveSeenTarget(target);
             }
-
-            return new List<VisionSenseData>();
         }
 
         private void SaveSeenTarget(DetectableTarget target)
         {
-            //TODO
+            var visionData = new VisionSenseData()
+            {
+                position = target.Position
+            };
+            data.Add(visionData);
         }
     }
 }

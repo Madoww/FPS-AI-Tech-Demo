@@ -23,7 +23,7 @@ namespace FPS.AI.Monster
                 ToggleIsEquipped();
             }
 
-            Debug.Log("Check: Is equipped?");
+            //Debug.Log("Check: Is equipped?");
 
             if (isFlagEquipped)
             {
