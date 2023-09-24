@@ -1,4 +1,3 @@
-using FPS.AI.Detection;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -6,40 +5,31 @@ using Zenject;
 
 namespace FPS.AI.Brain.Senses.Vision
 {
+    using FPS.AI.Detection;
+
     public class VisionSense : Sense
     {
-        [SerializeReference, ReferencePicker]
-        private IVisionProcessor visionProcessor;
         [SerializeField]
-        private VisionSettings settings;
+        private VisionDetectionBehaviour visionProcessor;
+        [SerializeField]
+        private float registerAsExistingMaxRange;
+        [SerializeField]
+        private float certaintyDeteriorationMultiplier = 1f;
 
         private List<VisionSenseData> data = new List<VisionSenseData>();
         private IDetectableTargetsManager targetsManager;
-        private float cosVisionAngle = -1;
-
-        private float CosVisionAngle
-        {
-            get
-            {
-                if (cosVisionAngle == -1)
-                {
-                    cosVisionAngle = Mathf.Cos(settings.visionAngle * Mathf.Rad2Deg);
-                }
-
-                return cosVisionAngle;
-            }
-        }
 
         private void Awake()
         {
-            Assert.IsNotNull(visionProcessor, $"{nameof(IVisionProcessor)} not provided.");
-            Assert.IsNotNull(settings, $"{nameof(VisionSettings)} not provided.");
+            Assert.IsNotNull(visionProcessor, $"{nameof(VisionDetectionBehaviour)} not provided.");
         }
 
         public override IList<ProcessedSenseData> Evaluate()
         {
-            Run();
-            return visionProcessor.Process(data);
+            DeteriorateExistingCertainties();
+            var detectedTargets = visionProcessor.Detect();
+            UpdateDetectedTargets(detectedTargets);
+            return new List<ProcessedSenseData>();
         }
 
         [Inject]
@@ -48,55 +38,61 @@ namespace FPS.AI.Brain.Senses.Vision
             this.targetsManager = targetsManager;
         }
 
-        private void Run()
+        private void UpdateDetectedTargets(IList<DetectableTarget> detectableTargets)
         {
-            data.Clear();
-            var detectableTargets = targetsManager.DetectableTargets;
             foreach (var target in detectableTargets)
             {
-                var selfPosition = transform.position;
-                var targetPosition = target.Position;
-                var vectorToTarget = targetPosition - selfPosition;
-                var visionRange = settings.range;
-                var squaredVisionRange = Mathf.Pow(visionRange, 2);
-                if (vectorToTarget.sqrMagnitude > squaredVisionRange)
+                if (TryUpdateExisting(target))
                 {
-                    continue;
+                    return;
                 }
 
-                vectorToTarget.Normalize();
-                var forwardVector = transform.forward;
-                var dotProduct = Vector3.Dot(vectorToTarget, forwardVector);
-                if (dotProduct < CosVisionAngle)
+                var visionData = new VisionSenseData()
                 {
-                    continue;
-                }
+                    position = target.Position,
+                    certainty = 1
+                };
+                data.Add(visionData);
+            }
 
-                var detectionMask = settings.detectionMask;
-                RaycastHit hitResult;
-                Debug.DrawRay(selfPosition, vectorToTarget * 100, Color.green);
-                if (!Physics.Raycast(selfPosition, vectorToTarget, out hitResult, visionRange, detectionMask, QueryTriggerInteraction.Collide))
-                {
-                    continue;
-                }
-
-                var detectedTarget = hitResult.collider.GetComponent<DetectableTarget>();
-                if (detectedTarget == null || !detectedTarget.Equals(target))
-                {
-                    continue;
-                }
-
-                SaveSeenTarget(target);
+            Debug.Log("===============");
+            foreach (var target in data)
+            {
+                Debug.Log(target.position + " / " + target.certainty);
             }
         }
 
-        private void SaveSeenTarget(DetectableTarget target)
+        private bool TryUpdateExisting(DetectableTarget target)
         {
-            var visionData = new VisionSenseData()
+            foreach (VisionSenseData senseData in data)
             {
-                position = target.Position
-            };
-            data.Add(visionData);
+                var targetPosition = target.Position;
+                var existingSensedTargetPosition = senseData.position;
+                if (Vector3.Distance(targetPosition, existingSensedTargetPosition) < registerAsExistingMaxRange)
+                {
+                    senseData.position = target.Position;
+                    senseData.certainty = 1f;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void DeteriorateExistingCertainties()
+        {
+            foreach (var senseData in data)
+            {
+                senseData.certainty -= Time.deltaTime * certaintyDeteriorationMultiplier;
+            }
+
+            for (int i = data.Count - 1; i >= 0; i--)
+            {
+                if (data[i].certainty <= 0)
+                {
+                    data.RemoveAt(i);
+                }
+            }
         }
     }
 }

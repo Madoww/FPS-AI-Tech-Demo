@@ -1,11 +1,12 @@
-using FPS.Common.Injection;
-using FPS.HI.Player;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Zenject;
 
 namespace FPS.HI.Injection
 {
+    using FPS.Common.Injection;
+    using FPS.HI.Player;
+
     public class ControllersInstaller : ExposableInstaller
     {
         [SerializeField]
