@@ -1114,6 +1114,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 181179022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1077085629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4835886075047306508, guid: 2927d0513fa0cb34092a2889f985b46a, type: 3}
+  m_PrefabInstance: {fileID: 1185599451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077085632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077085629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &1185599451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17686,6 +17714,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4835886075047306508, guid: 2927d0513fa0cb34092a2889f985b46a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077085632}
     - targetCorrespondingSourceObject: {fileID: 4220227602651696585, guid: 2927d0513fa0cb34092a2889f985b46a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 711105501}
@@ -18124,6 +18155,7 @@ MonoBehaviour:
     - rid: 694870973519495168
       type: {class: MonsterBehaviourTreeBuilder, ns: FPS.AI.Monster, asm: FPS.AI}
       data:
+        aiBrain: {fileID: 2004418570}
         navMeshAgent: {fileID: 2004418568}
         playerTransform: {fileID: 1379600344}
         selfTransform: {fileID: 2004418566}

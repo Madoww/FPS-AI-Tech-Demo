@@ -8,19 +8,25 @@ namespace FPS.AI.Brain
         [SerializeField]
         private List<Sense> senses;
 
+        public SenseData MostCertainData { get; private set; }
+
         private void Update()
         {
-            var sensesData = new List<ProcessedSenseData>();
+            var senseDatas = new List<SenseData>();
 
             foreach (Sense sense in senses)
             {
                 var senseData = sense.Evaluate();
-                sensesData.AddRange(senseData);
+                senseDatas.AddRange(senseData);
             }
 
-            if (sensesData.Count > 0)
+            float mostCertainValue = float.MinValue;
+            foreach (SenseData senseData in senseDatas)
             {
-                Debug.Log("Target detected");
+                if (senseData.certainty > mostCertainValue)
+                {
+                    MostCertainData = senseData;
+                }
             }
         }
     }

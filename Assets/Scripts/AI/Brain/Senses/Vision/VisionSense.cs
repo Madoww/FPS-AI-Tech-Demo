@@ -24,12 +24,23 @@ namespace FPS.AI.Brain.Senses.Vision
             Assert.IsNotNull(visionProcessor, $"{nameof(VisionDetectionBehaviour)} not provided.");
         }
 
-        public override IList<ProcessedSenseData> Evaluate()
+        public override IList<SenseData> Evaluate()
         {
             DeteriorateExistingCertainties();
             var detectedTargets = visionProcessor.Detect();
             UpdateDetectedTargets(detectedTargets);
-            return new List<ProcessedSenseData>();
+
+            var senseData = new List<SenseData>();
+            foreach (var visionData in data)
+            {
+                senseData.Add(new SenseData()
+                {
+                    position = visionData.position,
+                    certainty = visionData.certainty
+                });
+            }
+
+            return senseData;
         }
 
         [Inject]

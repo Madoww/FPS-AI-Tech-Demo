@@ -6,18 +6,28 @@ namespace FPS.AI.Behaviour
     {
         private IList<Node> nodes;
 
-        public Sequence(IList<Node> nodes)
+        public Sequence(IList<Node> nodes, OverrideCondition overrideCondition = OverrideCondition.None)
         {
             this.nodes = nodes;
+            OverrideCondition = overrideCondition;
         }
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
-            if (TryEvaluateRunningNode(treeState, out Node runningChild, out NodeState runningChildState))
+            if (treeState.TryGetRunningChild(this, out Node runningChild))
             {
-                if (runningChildState != NodeState.Success)
+                var runningChildIndex = nodes.IndexOf(runningChild);
+                var higherPriorityNodeState = EvaluateHigherPriorityNodes(treeState, runningChildIndex);
+                if (higherPriorityNodeState == NodeState.Failure
+                    || higherPriorityNodeState == NodeState.Running)
                 {
-                    return runningChildState;
+                    return higherPriorityNodeState;
+                }
+
+                NodeState runningChildState = runningChild.Evaluate(treeState);
+                if (runningChildState != NodeState.Running)
+                {
+                    treeState.UnregisterRunningChild(this);
                 }
             }
 
@@ -49,21 +59,33 @@ namespace FPS.AI.Behaviour
             return isAnyNodeRunning ? NodeState.Running : NodeState.Success;
         }
 
-        private bool TryEvaluateRunningNode(BehaviourTreeState treeState, out Node runningChild, out NodeState runningChildState)
+        private NodeState EvaluateHigherPriorityNodes(BehaviourTreeState treeState, int runningChildIndex)
         {
-            if (treeState.TryGetRunningChild(this, out runningChild))
+            for (int i = 0; i < runningChildIndex; i++)
             {
-                runningChildState = runningChild.Evaluate(treeState);
-                if (runningChildState != NodeState.Running)
+                var higherPriorityNode = nodes[i];
+                if (higherPriorityNode.OverrideCondition != OverrideCondition.LowerPriority)
                 {
-                    treeState.UnregisterRunningChild(this);
+                    continue;
                 }
 
-                return true;
+                var higherPriorityNodeResult = higherPriorityNode.Evaluate(treeState);
+                if (higherPriorityNodeResult == NodeState.Success)
+                {
+                    continue;
+                }
+
+                treeState.UnregisterRunningChild(this);
+                if (higherPriorityNodeResult == NodeState.Failure)
+                {
+                    return NodeState.Failure;
+                }
+
+                treeState.RegisterRunningChild(this, higherPriorityNode);
+                return NodeState.Running;
             }
 
-            runningChildState = default;
-            return false;
+            return NodeState.Success;
         }
     }
 }
