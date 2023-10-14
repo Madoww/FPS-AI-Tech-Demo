@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,7 +7,6 @@ namespace FPS.AI.Monster
     using FPS.AI.Behaviour;
     using FPS.AI.Brain;
     using FPS.AI.Patrol;
-    using System.Collections.Generic;
 
     public class MonsterBehaviourTreeBuilder : IBehaviourTreeBuilder
     {
@@ -44,7 +44,7 @@ namespace FPS.AI.Monster
             //    logTorchNotEquipped
             //});
 
-            BehaviourTree tree = new BehaviourTree(rootSelector);
+            BehaviourTree tree = new BehaviourTree(actionPatrol);
             return tree;
         }
     }

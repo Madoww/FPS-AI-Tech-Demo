@@ -16,6 +16,7 @@ namespace FPS.AI.Monster
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
+            treeState.SetData(Blackboard.IS_PATROLLING, false);
             treeState.TryGetData<Vector3>(Blackboard.POSITION_OF_INTEREST, out var targetPosition);
             navMeshAgent.SetDestination(targetPosition);
             return NodeState.Running;

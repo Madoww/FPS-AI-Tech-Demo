@@ -6,6 +6,7 @@ namespace FPS.AI.Monster
     public class ConditionIsPlayerSpotted : Node
     {
         private AiBrain aiBrain;
+        private float certaintyThreshold = 0.2f;
 
         public override OverrideCondition OverrideCondition => OverrideCondition.LowerPriority;
 
@@ -22,7 +23,7 @@ namespace FPS.AI.Monster
                 return NodeState.Failure;
             }
 
-            if (data.certainty > 0.2)
+            if (data.certainty > certaintyThreshold)
             {
                 return NodeState.Success;
             }
