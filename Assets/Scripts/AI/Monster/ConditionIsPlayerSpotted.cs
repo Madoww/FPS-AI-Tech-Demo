@@ -16,11 +16,18 @@ namespace FPS.AI.Monster
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
-            if (aiBrain.MostCertainData?.certainty > 0.2)
+            var data = aiBrain.MostCertainData;
+            if (data == null)
+            {
+                return NodeState.Failure;
+            }
+
+            if (data.certainty > 0.2)
             {
                 return NodeState.Success;
             }
 
+            treeState.SetData(Blackboard.POSITION_OF_INTEREST, data.position);
             return NodeState.Failure;
         }
     }
