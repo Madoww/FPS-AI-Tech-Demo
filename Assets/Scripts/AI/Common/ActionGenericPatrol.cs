@@ -16,7 +16,7 @@ namespace FPS.AI.Common
 
         protected int currentWaypointIndex;
         protected int currentPatrolAreaIndex = 0;
-        protected float minDistanceToWaypoint = 1f;
+        protected float minDistanceToWaypoint = 2f;
 
         public ActionGenericPatrol(List<PatrolArea> patrolAreas, Transform targetTransform, NavMeshAgent navMeshAgent)
         {

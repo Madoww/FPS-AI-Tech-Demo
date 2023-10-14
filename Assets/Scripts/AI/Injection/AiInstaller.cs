@@ -1,19 +1,24 @@
+using UnityEngine;
 using Zenject;
 
 namespace FPS.AI
 {
+    using FPS.AI.Detection;
     using FPS.Common.Injection;
+    using UnityEngine.Assertions;
 
     public class AiInstaller : ExposableInstaller
     {
-        //[SerializeReference, ReferencePicker]
-        //private IPatrolDataProvider patrolDataProvider;
-        //
+        [SerializeField]
+        private DetectableTargetsManager detectableTargetsManager;
+
         protected override void InstallBindings(DiContainer container)
         {
-            //    container.Bind<IPatrolDataProvider>()
-            //        .FromInstance(patrolDataProvider)
-            //        .AsSingle();
+            Assert.IsNotNull(detectableTargetsManager);
+
+            container.Bind<IDetectableTargetsManager>()
+                .FromInstance(detectableTargetsManager)
+                .AsSingle();
         }
     }
 }

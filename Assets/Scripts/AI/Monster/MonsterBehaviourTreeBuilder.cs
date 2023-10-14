@@ -5,11 +5,13 @@ using UnityEngine.AI;
 namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
-    using FPS.AI.Common;
+    using FPS.AI.Brain;
     using FPS.AI.Patrol;
 
     public class MonsterBehaviourTreeBuilder : IBehaviourTreeBuilder
     {
+        [SerializeField]
+        private AiBrain aiBrain;
         [SerializeField]
         private NavMeshAgent navMeshAgent;
         [SerializeField]
@@ -21,23 +23,28 @@ namespace FPS.AI.Monster
 
         public BehaviourTree Build()
         {
-            //var actionPatrol = new ActionPatrol(patrolDataProvider.GetPatrolData(), selfTransform, navMeshAgent);
-
-            var sequenceSearch = new Sequence(new List<Node>()
+            var actionPatrol = new ActionPatrol(patrolDataProvider.GetPatrolData(), selfTransform, navMeshAgent);
+            var sequenceChase = new Sequence(new List<Node>()
             {
-                new ActionSearch(playerTransform),
+                new ConditionIsPlayerSpotted(aiBrain),
                 new ActionChase(navMeshAgent)
-            });
+            }, OverrideCondition.LowerPriority);
 
-            ActionLog logTorchEquipped = new ActionLog("Torch Equipped!");
-            ActionLog logTorchNotEquipped = new ActionLog("Torch Not Equipped!");
-            var selectorTest = new Selector(new List<Node>()
+            var rootSelector = new Selector(new List<Node>()
             {
-                new ConditionIsTorchEquipped(logTorchEquipped),
-                logTorchNotEquipped
+                sequenceChase,
+                actionPatrol
             });
+            //
+            //ActionLog logTorchEquipped = new ActionLog("Torch Equipped!");
+            //ActionLog logTorchNotEquipped = new ActionLog("Torch Not Equipped!");
+            //var selectorTest = new Selector(new List<Node>()
+            //{
+            //    new ConditionIsTorchEquipped(logTorchEquipped),
+            //    logTorchNotEquipped
+            //});
 
-            BehaviourTree tree = new BehaviourTree(selectorTest);
+            BehaviourTree tree = new BehaviourTree(actionPatrol);
             return tree;
         }
     }

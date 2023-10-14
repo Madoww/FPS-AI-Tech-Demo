@@ -18,12 +18,11 @@ namespace FPS.AI.Monster
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
+            //TODO: Temporary testing solution
             if (Input.GetKeyDown(KeyCode.G))
             {
                 ToggleIsEquipped();
             }
-
-            Debug.Log("Check: Is equipped?");
 
             if (isFlagEquipped)
             {
