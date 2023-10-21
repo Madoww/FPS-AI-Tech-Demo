@@ -1,0 +1,16 @@
+{
+    "name": "FPS.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e29a487f2c5738e4a89464244f4d423c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
