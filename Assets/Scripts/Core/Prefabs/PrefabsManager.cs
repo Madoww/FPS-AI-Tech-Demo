@@ -3,15 +3,14 @@ using UnityEngine;
 
 namespace FPS.Core.Prefabs
 {
-    public class PrefabsManager : MonoBehaviour
+    public class PrefabsManager : MonoBehaviour, IPrefabsManager
     {
         [SerializeField]
         private bool selfInitialize;
-
         [SerializeReference, ReferencePicker]
         private List<IPrefabsProvider> prefabsProviders;
 
-        private readonly List<PrefabData> prefabDatas = new List<PrefabData>();
+        private readonly Dictionary<string, GameObject> prefabsByGuid = new Dictionary<string, GameObject>();
 
         private void Awake()
         {
@@ -23,10 +22,30 @@ namespace FPS.Core.Prefabs
 
         public void Initialize()
         {
+            List<PrefabData> prefabDatas = new List<PrefabData>();
             foreach (var provider in prefabsProviders)
             {
                 prefabDatas.AddRange(provider.GetPrefabs());
             }
+
+            foreach (var prefabData in prefabDatas)
+            {
+                var guid = prefabData.guid;
+                var prefab = prefabData.prefab;
+                prefabsByGuid.Add(guid, prefab);
+            }
+        }
+
+        public bool TryGetPrefab<T>(string guid, out T prefab)
+        {
+            if (prefabsByGuid.TryGetValue(guid, out GameObject prefabObject))
+            {
+                prefab = prefabObject.GetComponent<T>();
+                return true;
+            }
+
+            prefab = default;
+            return false;
         }
     }
 }
