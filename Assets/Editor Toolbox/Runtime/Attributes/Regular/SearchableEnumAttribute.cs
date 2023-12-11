@@ -1,15 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Creates a popup window with an input field. Allows to search for enum values by their name.
-    /// 
-    /// <para>Supported types: any <see cref="Enum"/>.</para>
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    [Conditional("UNITY_EDITOR")]
-    public class SearchableEnumAttribute : PropertyAttribute
-    { }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8e0ce036dd2e8af5a7d075f228ba08f0ad069e5163ffebc1a2465c090a51ccac
+size 448

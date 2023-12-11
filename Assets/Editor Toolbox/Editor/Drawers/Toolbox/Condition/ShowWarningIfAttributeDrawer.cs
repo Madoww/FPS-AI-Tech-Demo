@@ -1,27 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    public class ShowWarningIfAttributeDrawer : ComparisonAttributeDrawer<ShowWarningIfAttribute>
-    {
-        protected override PropertyCondition OnGuiValidateSafe(SerializedProperty property, ShowWarningIfAttribute attribute)
-        {
-            var result = base.OnGuiValidateSafe(property, attribute);
-            if (result == PropertyCondition.Disabled)
-            {
-                EditorGUILayout.HelpBox(attribute.Message, MessageType.Warning);
-                result = attribute.DisableField 
-                    ? PropertyCondition.Disabled 
-                    : PropertyCondition.Valid;
-            }
-
-            return result;
-        }
-
-        protected override PropertyCondition OnComparisonResult(bool result)
-        {
-            return result ? PropertyCondition.Disabled : PropertyCondition.Valid;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b1e825564a64246156343765e10930fc7c39b7fbac2e735b0818f38a0d21ec76
+size 921

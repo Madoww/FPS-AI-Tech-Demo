@@ -1,13 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Begins vertical layout of properties. Has to be closed by the <see cref="EndVerticalAttribute"/>.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    [Conditional("UNITY_EDITOR")]
-    public class BeginVerticalAttribute : ToolboxDecoratorAttribute
-    { }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:62db2a4fc113aa851cddc3efa8b9a4df76c37bb580c46bfc285ad3a699b874d6
+size 390

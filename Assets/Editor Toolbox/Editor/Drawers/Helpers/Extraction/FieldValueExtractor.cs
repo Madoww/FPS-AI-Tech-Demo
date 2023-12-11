@@ -1,24 +1,3 @@
-﻿namespace Toolbox.Editor.Drawers
-{
-    public class FieldValueExtractor : IValueExtractor
-    {
-        public bool TryGetValue(string source, object declaringObject, out object value)
-        {
-            value = default;
-            if (string.IsNullOrEmpty(source))
-            {
-                return false;
-            }
-
-            var type = declaringObject.GetType();
-            var info = type.GetField(source, ReflectionUtility.allBindings);
-            if (info == null)
-            {
-                return false;
-            }
-
-            value = info.GetValue(declaringObject);
-            return true;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9dc11ec411051aa0830c285a6679eb88463d193bf24ecbe6402a59d3d71eab29
+size 642

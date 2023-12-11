@@ -1,15 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Marks serialized field as read-only.
-    /// 
-    /// <para>Supported types: all.</para>
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    [Conditional("UNITY_EDITOR")]
-    public class DisableAttribute : ToolboxConditionAttribute
-    { }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec5c5de163e3b6387a906b7324f55211579b02def24fd3ee0c3cb485518fc8a3
+size 375

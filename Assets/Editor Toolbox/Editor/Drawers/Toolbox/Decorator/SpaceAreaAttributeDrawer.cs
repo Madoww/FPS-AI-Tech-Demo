@@ -1,17 +1,3 @@
-﻿using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    public class SpaceAreaAttributeDrawer : ToolboxDecoratorDrawer<SpaceAreaAttribute>
-    {
-        protected override void OnGuiBeginSafe(SpaceAreaAttribute attribute)
-        {
-            GUILayout.Space(attribute.SpaceBefore);         
-        }
-
-        protected override void OnGuiCloseSafe(SpaceAreaAttribute attribute)
-        {
-            GUILayout.Space(attribute.SpaceAfter);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6cac172edab7b8817f14c5c99dc6bf1037b88e23c119780f8faccc53c56e6e53
+size 465

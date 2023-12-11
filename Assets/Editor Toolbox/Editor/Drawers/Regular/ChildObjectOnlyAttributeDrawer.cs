@@ -1,35 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    [CustomPropertyDrawer(typeof(ChildObjectOnlyAttribute))]
-    public class ChildObjectOnlyAttributeDrawer : ObjectValidationDrawer
-    {
-        protected Transform GetTransform(Object reference)
-        {
-            switch (reference)
-            {
-                case GameObject gameObject:
-                    return gameObject.transform;
-                case Component component:
-                    return component.transform;
-            }
-
-            return null;
-        }
-
-
-        protected override string GetWarningMessage()
-        {
-            return "Assigned value has to be a child of the target transform.";
-        }
-
-        protected override bool IsObjectValid(Object objectValue, SerializedProperty property)
-        {
-            var component = property.serializedObject.targetObject as Component;
-            var transfrom = GetTransform(objectValue);
-            return transfrom && transfrom != component.transform && transfrom.IsChildOf(component.transform);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7dfa836fda1dc8b47051f650c895f76b351d74f56c8b7cba9838d88e91df8ea
+size 1089

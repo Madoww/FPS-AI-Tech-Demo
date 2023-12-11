@@ -1,20 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Shows serialized field if the provided condition is met.
-    /// 
-    /// <para>Supported sources: fields, properties, and methods.</para>
-    /// <para>Supported condition types: <see cref="bool"/>, <see cref="int"/>, <see cref="float"/>, <see cref="double"/>, <see cref="string"/>, any <see cref="Enum"/>, and <see cref="Object"/> (but has to be compared to a <see cref="bool"/> value).</para>
-    /// <para>Supported types: all.</para>
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    [Conditional("UNITY_EDITOR")]
-    public class ShowIfAttribute : ComparisonAttribute
-    {
-        public ShowIfAttribute(string sourceHandle, object valueToMatch) : base(sourceHandle, valueToMatch)
-        { }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5ea6ada9300daa9d3642394ee5a5c817e5c582fbd18407d05dc76831b87e7b8e
+size 842

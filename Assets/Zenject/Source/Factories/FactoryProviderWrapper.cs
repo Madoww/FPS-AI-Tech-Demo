@@ -1,36 +1,3 @@
-using ModestTree;
-
-namespace Zenject
-{
-    public class FactoryProviderWrapper<TContract> : IFactory<TContract>
-    {
-        readonly IProvider _provider;
-        readonly InjectContext _injectContext;
-
-        public FactoryProviderWrapper(
-            IProvider provider, InjectContext injectContext)
-        {
-            Assert.That(injectContext.MemberType.DerivesFromOrEqual<TContract>());
-
-            _provider = provider;
-            _injectContext = injectContext;
-        }
-
-        public TContract Create()
-        {
-            var instance = _provider.GetInstance(_injectContext);
-
-            if (_injectContext.Container.IsValidating)
-            {
-                // During validation it is sufficient to just call the _provider.GetInstance
-                return default(TContract);
-            }
-
-            Assert.That(instance == null
-                || instance.GetType().DerivesFromOrEqual(_injectContext.MemberType));
-
-            return (TContract)instance;
-        }
-    }
-}
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:41596ed7f69a3e410f2f2e0487c060604678cedb8e4835ceb9f19928f30f6c7f
+size 1005

@@ -1,23 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Allows to pick project-related directory using built-in tool.
-    /// 
-    /// <para>Supported types: <see cref="string"/>.</para>
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    [Conditional("UNITY_EDITOR")]
-    public class DirectoryAttribute : PropertyAttribute
-    {
-        /// <param name="relativePath">Relative path from ProjectName/Assets directory</param>
-        public DirectoryAttribute(string relativePath = null)
-        {
-            RelativePath = relativePath;
-        }
-
-        public string RelativePath { get; private set; }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8b5b8bb70caf4947b74f0eee9925d24fe02c8f9c352a3f31cae3191bc37d7f95
+size 691

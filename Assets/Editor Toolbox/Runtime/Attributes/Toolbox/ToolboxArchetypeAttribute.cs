@@ -1,15 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Base class for all attributes responsible for the creation of dedicated composition of <see cref="ToolboxAttribute"/>s.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
-    [Conditional("UNITY_EDITOR")]
-    public abstract class ToolboxArchetypeAttribute : ToolboxAttribute
-    {
-        public abstract ToolboxAttribute[] Process();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6d38971d31bb9937b54479200a0aa1945c417d86763b70d1913791070348c7d1
+size 490

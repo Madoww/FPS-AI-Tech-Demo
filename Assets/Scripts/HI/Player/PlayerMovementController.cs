@@ -1,20 +1,3 @@
-using UnityEngine;
-
-namespace FPS.HI.Player
-{
-    public class PlayerMovementController : MonoBehaviour, IPlayerMovementController
-    {
-        [SerializeReference]
-        private CharacterController characterController;
-        [SerializeField]
-        private float speed;
-
-        public void Move(Vector3 direction)
-        {
-            Vector3 movementVector3D = new Vector3(direction.x, 0, direction.y);
-            var playerTransform = characterController.transform;
-            var actualDirection = playerTransform.TransformDirection(movementVector3D);
-            characterController.Move(actualDirection * speed * Time.deltaTime);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dfa597a4bd6862ff1249c18e2b70b803677a9e2c3b02a86748323cbd209a7f71
+size 663

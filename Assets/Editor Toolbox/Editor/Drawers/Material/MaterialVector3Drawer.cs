@@ -1,36 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    using Toolbox.Editor.Internal;
-
-    public class MaterialVector3Drawer : BaseMaterialPropertyDrawer
-    {
-        protected override float GetPropertyHeightSafe(MaterialProperty prop, string label, MaterialEditor editor)
-        {
-            return EditorGUIUtility.singleLineHeight;
-        }
-
-        protected override void OnGUISafe(Rect position, MaterialProperty prop, string label, MaterialEditor editor)
-        {
-            using (new FixedFieldsScope())
-            {
-                EditorGUIUtility.labelWidth = 0;
-
-                var vectorValue = prop.vectorValue;
-                EditorGUI.BeginChangeCheck();
-                vectorValue = EditorGUI.Vector3Field(position, label, vectorValue);
-                if (EditorGUI.EndChangeCheck())
-                {
-                    prop.vectorValue = vectorValue;
-                }
-            }
-        }
-
-        protected override bool IsPropertyValid(MaterialProperty prop)
-        {
-            return prop.type == MaterialProperty.PropType.Vector;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ab655ad9c9b26cc1cdb073995474d543cb5a20091cb4233e872016c9f0f1040a
+size 1118

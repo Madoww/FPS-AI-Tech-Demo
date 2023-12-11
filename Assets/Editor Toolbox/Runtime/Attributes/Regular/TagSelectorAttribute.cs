@@ -1,15 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Allows to pick a built-in tag value.
-    /// 
-    /// <para>Supported types: <see cref="string"/>.</para>
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    [Conditional("UNITY_EDITOR")]
-    public class TagSelectorAttribute : PropertyAttribute
-    { }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:75317e878ba6ed31a69a3858e0c8a818671d14691741743e1da96e72381d17fb
+size 388

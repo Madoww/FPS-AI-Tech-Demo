@@ -1,23 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Creates a HelpBox within the Inspector Window above a serialized field.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
-    [Conditional("UNITY_EDITOR")]
-    public class HelpAttribute : ToolboxDecoratorAttribute
-    {
-        public HelpAttribute(string text, UnityMessageType type = UnityMessageType.Info)
-        {
-            Text = text;
-            Type = type;
-        }
-
-        public string Text { get; private set; }
-
-        public UnityMessageType Type { get; private set; }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1c099f542d350118e4b935c07a0c39897605ffd3e9b6b5ae05af89b650bb3aab
+size 627

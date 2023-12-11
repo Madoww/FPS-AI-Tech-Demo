@@ -1,18 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Use this attribute to close previously created <see cref="BeginVerticalAttribute"/>.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    [Conditional("UNITY_EDITOR")]
-    public class EndVerticalAttribute : ToolboxDecoratorAttribute
-    {
-        public EndVerticalAttribute()
-        {
-            Order = -1000;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4bab1e723b631461c6f818deae86d4b28b1dcf4e6aa98ebd0d2abe10c2b1cd12
+size 464

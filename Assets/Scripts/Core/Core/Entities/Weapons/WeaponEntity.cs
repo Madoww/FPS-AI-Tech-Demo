@@ -1,28 +1,3 @@
-using System;
-
-namespace FPS.Core.Entities.Weapons
-{
-    public abstract class WeaponEntity : GameEntity
-    {
-        public event Action OnFired;
-        public event Action OnReloaded;
-
-        public void Fire()
-        {
-            OnFire();
-            OnFired?.Invoke();
-        }
-
-        public void Relad()
-        {
-            OnReload();
-            OnReloaded?.Invoke();
-        }
-
-        protected virtual void OnFire()
-        { }
-
-        protected virtual void OnReload()
-        { }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ab7a05fb1f672def3b11ca0c2c5d4681e3ddf1b8c22f3da249651159b365402e
+size 511

@@ -1,18 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Use this attribute to close previously created <see cref="BeginGroupAttribute"/>.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
-    [Conditional("UNITY_EDITOR")]
-    public class EndGroupAttribute : ToolboxDecoratorAttribute
-    {
-        public EndGroupAttribute()
-        {
-            Order = -1000;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:09adfff8780274d7f290902f4e6f1b8b14558d36027368ecb4cf14cddf2e7e60
+size 454

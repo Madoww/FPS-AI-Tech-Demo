@@ -1,19 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace FPS.AI.Patrol
-{
-    public class PatrolArea : MonoBehaviour
-    {
-        [SerializeField]
-        private List<PatrolWaypoint> waypoints;
-
-        public IReadOnlyList<PatrolWaypoint> Waypoints => waypoints;
-
-        public int GetNextWaypointIndex(int index)
-        {
-            var nextIndex = index >= waypoints.Count - 1 ? 0 : index + 1;
-            return nextIndex;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:88461e3b6cec74a34c512f51b3e9f01d7b95d9ed17f0169b422c163d3521e951
+size 456

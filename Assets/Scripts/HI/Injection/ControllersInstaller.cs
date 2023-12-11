@@ -1,31 +1,3 @@
-using UnityEngine;
-using UnityEngine.Assertions;
-using Zenject;
-
-namespace FPS.HI.Injection
-{
-    using FPS.Common.Injection;
-    using FPS.HI.Player;
-
-    public class ControllersInstaller : ExposableInstaller
-    {
-        [SerializeField]
-        private PlayerMovementController playerMovementController;
-        [SerializeField]
-        private PlayerCameraController playerCameraController;
-
-        protected override void InstallBindings(DiContainer container)
-        {
-            Assert.IsNotNull(playerMovementController);
-            Assert.IsNotNull(playerCameraController);
-
-            container.Bind<IPlayerMovementController>()
-                .FromInstance(playerMovementController)
-                .AsSingle();
-
-            container.Bind<IPlayerCameraController>()
-                .FromInstance(playerCameraController)
-                .AsSingle();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:86476b96bddba5aa2f7d3551442adb13b9b041e0773ac0656ac1d1bd91585724
+size 886

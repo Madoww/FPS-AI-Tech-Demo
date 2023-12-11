@@ -1,15 +1,3 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace UnityEngine
-{
-    /// <summary>
-    /// Validates input values and accepts only children (related to the target component).
-    /// 
-    /// <para>Supported types: <see cref="GameObject"/> and any <see cref="Component"/>.</para>
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
-    [Conditional("UNITY_EDITOR")]
-    public class ChildObjectOnlyAttribute : PropertyAttribute
-    { }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1eaab51c60905b294c5736cd7bc54dac0825a728df88c088add36cc604de3b45
+size 493

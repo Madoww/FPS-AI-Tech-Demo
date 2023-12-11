@@ -1,29 +1,3 @@
-using System;
-
-namespace Zenject
-{
-    public class SceneContextRegistryAdderAndRemover : IInitializable, IDisposable
-    {
-        readonly SceneContextRegistry _registry;
-        readonly SceneContext _sceneContext;
-
-        public SceneContextRegistryAdderAndRemover(
-            SceneContext sceneContext,
-            SceneContextRegistry registry)
-        {
-            _registry = registry;
-            _sceneContext = sceneContext;
-        }
-
-        public void Initialize()
-        {
-            _registry.Add(_sceneContext);
-        }
-
-        public void Dispose()
-        {
-            _registry.Remove(_sceneContext);
-        }
-    }
-}
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:8c60063c829147f18a9069ed4d17d243436e56bd12a9898bb7647e77b8d11cf0
+size 650

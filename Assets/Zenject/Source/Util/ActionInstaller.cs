@@ -1,19 +1,3 @@
-using System;
-
-namespace Zenject
-{
-    public class ActionInstaller : Installer<ActionInstaller>
-    {
-        readonly Action<DiContainer> _installMethod;
-
-        public ActionInstaller(Action<DiContainer> installMethod)
-        {
-            _installMethod = installMethod;
-        }
-
-        public override void InstallBindings()
-        {
-            _installMethod(Container);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ed544ad3751d878429535c3b06e467c2d3009b66aad9bc9fc9c6a8bb242b189e
+size 402

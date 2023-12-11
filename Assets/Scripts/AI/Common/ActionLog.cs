@@ -1,22 +1,3 @@
-using UnityEngine;
-
-namespace FPS.AI.Common
-{
-    using FPS.AI.Behaviour;
-
-    public class ActionLog : Node
-    {
-        private string message;
-
-        public ActionLog(string message)
-        {
-            this.message = message;
-        }
-
-        public override NodeState Evaluate(BehaviourTreeState treeState)
-        {
-            Debug.Log(message);
-            return NodeState.Running;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d56a3b91857c3b42fd6116576def782ef325b58389fbd3045985ea5f5de7eaf5
+size 416

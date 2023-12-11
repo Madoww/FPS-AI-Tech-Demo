@@ -1,18 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    public class EndHorizontalAttributeDrawer : ToolboxDecoratorDrawer<EndHorizontalAttribute>
-    {
-        protected override void OnGuiCloseSafe(EndHorizontalAttribute attribute)
-        {
-            //end horizontal group
-            ToolboxLayoutHandler.CloseHorizontal();
-
-            //restore label & field 
-            EditorGUIUtility.labelWidth = 0.0f;
-            EditorGUIUtility.fieldWidth = 0.0f;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:521fb93e92da8d99ce9ef2e8b21c963d579a60f9270e373c161c83336a42b749
+size 507

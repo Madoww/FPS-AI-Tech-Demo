@@ -1,30 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-
-namespace FPS.AI.Monster
-{
-    using FPS.AI.Behaviour;
-    using FPS.AI.Common;
-    using FPS.AI.Patrol;
-
-    public class ActionPatrol : ActionGenericPatrol
-    {
-        public ActionPatrol(List<PatrolArea> patrolAreas, Transform targetTransform, NavMeshAgent navMeshAgent)
-            : base(patrolAreas, targetTransform, navMeshAgent)
-        { }
-
-        public override NodeState Evaluate(BehaviourTreeState treeState)
-        {
-            treeState.TryGetData<bool>(Blackboard.IS_PATROLLING, out var isPatrolling);
-            if (isPatrolling == false)
-            {
-                treeState.SetData(Blackboard.IS_PATROLLING, true);
-                currentWaypointIndex = GetClosestPatrolWaypoint();
-                SetCurrentWaypoint(currentWaypointIndex);
-            }
-
-            return base.Evaluate(treeState);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1af6f54385c78c2f5b5cf5108801d968f05d84ffabdf55449d4c69a9a7ea5821
+size 921

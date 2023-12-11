@@ -1,32 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    [CustomPropertyDrawer(typeof(LeftToggleAttribute))]
-    public class LeftToggleAttributeDrawer : PropertyDrawerBase
-    {
-        protected override float GetPropertyHeightSafe(SerializedProperty property, GUIContent label)
-        {
-            return base.GetPropertyHeightSafe(property, label);
-        }
-
-        protected override void OnGUISafe(Rect position, SerializedProperty property, GUIContent label)
-        {
-            label = EditorGUI.BeginProperty(position, label, property);
-            EditorGUI.BeginChangeCheck();
-            var value = EditorGUI.ToggleLeft(position, label, property.boolValue);
-            if (EditorGUI.EndChangeCheck())
-            {
-                property.boolValue = value;
-            }
-            EditorGUI.EndProperty();
-        }
-
-
-        public override bool IsPropertyValid(SerializedProperty property)
-        {
-            return property.propertyType == SerializedPropertyType.Boolean;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1bbd6ce08a96d20b6bac21acd51fc7d4d21e5a682c8ef4d59090fe8840920b16
+size 1043

@@ -1,28 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace FPS.AI.Detection
-{
-    public class DetectableTargetsManager : MonoBehaviour, IDetectableTargetsManager
-    {
-        public IList<DetectableTarget> DetectableTargets => detectableTargets;
-
-        private List<DetectableTarget> detectableTargets = new List<DetectableTarget>();
-
-        private void Awake()
-        {
-            var sceneDetectableObjects = FindObjectsOfType<DetectableTarget>(true);
-            detectableTargets = new List<DetectableTarget>(sceneDetectableObjects);
-        }
-
-        public void Register(DetectableTarget target)
-        {
-            detectableTargets.Add(target);
-        }
-
-        public void Unregister(DetectableTarget target)
-        {
-            detectableTargets.Remove(target);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9e9fad5a174fe324c9fa8c0ce743c7729e18e915ef2d4a5a853c66cf0c6e2c85
+size 809

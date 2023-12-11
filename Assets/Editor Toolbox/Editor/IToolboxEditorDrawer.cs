@@ -1,29 +1,3 @@
-﻿using UnityEditor;
-
-namespace Toolbox.Editor
-{
-    public interface IToolboxEditorDrawer
-    {
-        void DrawEditor(SerializedObject serializedObject);
-        /// <summary>
-        /// Draws <see cref="SerializedProperty"/>/ies in the default (native) way.
-        /// </summary>
-        /// <param name="serializedObject"></param>
-        void DrawDefaultEditor(SerializedObject serializedObject);
-        /// <summary>
-        /// Draws each available property using internally <see cref="Drawers.ToolboxDrawer"/>s.
-        /// </summary>
-        /// <param name="serializedObject"></param>
-        void DrawToolboxEditor(SerializedObject serializedObject);
-        /// <summary>
-        /// Forces provided <see cref="SerializedProperty"/> to be ignored in the drawing process.
-        /// </summary>
-        void IgnoreProperty(SerializedProperty property);
-        /// <summary>
-        /// Forces provided <see cref="SerializedProperty"/> to be ignored in the drawing process.
-        /// </summary>
-        void IgnoreProperty(string propertyPath);
-        bool IsPropertyIgnored(SerializedProperty property);
-        bool IsPropertyIgnored(string propertyPath);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a83146b02f0a5ae06fe3daa9d94f0d7ff05236eaf9c154a809240431e3b5c3dd
+size 1184

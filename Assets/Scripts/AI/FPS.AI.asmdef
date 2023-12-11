@@ -1,18 +1,3 @@
-{
-    "name": "FPS.AI",
-    "rootNamespace": "",
-    "references": [
-        "GUID:696a0953692949b40bec8730e64e1fdd",
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:8cede36e67a2ddf4b9280534e18637b9"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:36ed36bedb59b7d0bd7dbc0cbaedbe295ca2436f0f27295bad9585b80a2edd83
+size 490

@@ -1,19 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    public class BeginHorizontalAttributeDrawer : ToolboxDecoratorDrawer<BeginHorizontalAttribute>
-    {
-        protected override void OnGuiBeginSafe(BeginHorizontalAttribute attribute)
-        {
-            var width = EditorGUIUtility.currentViewWidth;
-            //set a new width value for label/field controls
-            EditorGUIUtility.labelWidth = width * attribute.LabelToWidthRatio;
-            EditorGUIUtility.fieldWidth = width * attribute.FieldToWidthRatio;
-
-            //begin horizontal group using internal utility
-            ToolboxLayoutHandler.BeginHorizontal();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b83d2cb42463385b2027034087a382105e36309a2a53aeaddf3345ce4191b4d
+size 683

@@ -1,19 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    [CustomPropertyDrawer(typeof(PrefabObjectOnlyAttribute))]
-    public class PrefabObjectOnlyAttributeDrawer : ObjectValidationDrawer
-    {
-        protected override string GetWarningMessage()
-        {
-            return "Assigned object has to be a prefab.";
-        }
-
-        protected override bool IsObjectValid(Object objectValue, SerializedProperty property)
-        {
-            return PrefabUtility.GetPrefabAssetType(objectValue) != PrefabAssetType.NotAPrefab;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b5bbaf3c2d0e1cdd4e0fb1036d8f3fd7c9deb8f428c7c609a5633ab9c174cbc5
+size 570

@@ -1,31 +1,3 @@
-﻿using System;
-
-using UnityEngine;
-using UnityEditor;
-
-namespace Toolbox.Editor.Internal
-{
-    /// <summary>
-    /// Fixed version of the <see cref="EditorGUI.DisabledScope"/>.
-    /// </summary>
-    internal class DisabledScope : IDisposable
-    {
-        private bool wasEnabled;
-
-        public DisabledScope(bool isEnabled)
-        {
-            Prepare(isEnabled);
-        }
-
-        public void Prepare(bool isEnabled)
-        {
-            wasEnabled = GUI.enabled;
-            GUI.enabled = isEnabled;
-        }
-
-        public void Dispose()
-        {
-            GUI.enabled = wasEnabled;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7e521f96d5386b1bf5c9fdcb95ddffaed11063e2d8e483991ca29cc2e0e964d
+size 619

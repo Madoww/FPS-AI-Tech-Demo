@@ -1,17 +1,3 @@
-namespace Zenject
-{
-    [NoReflectionBaking]
-    public class IdScopeConcreteIdArgConditionCopyNonLazyBinder : ScopeConcreteIdArgConditionCopyNonLazyBinder
-    {
-        public IdScopeConcreteIdArgConditionCopyNonLazyBinder(BindInfo bindInfo)
-            : base(bindInfo)
-        {
-        }
-
-        public ScopeConcreteIdArgConditionCopyNonLazyBinder WithId(object identifier)
-        {
-            BindInfo.Identifier = identifier;
-            return this;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f6866445e16da070b08aeafe67ab8d7ee9f5d7e915d6f18787e5508d9a7b2b40
+size 478

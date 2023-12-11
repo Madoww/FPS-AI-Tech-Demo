@@ -1,31 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    [CustomPropertyDrawer(typeof(PasswordAttribute))]
-    public class PasswordAttributeDrawer : PropertyDrawerBase
-    {
-        protected override float GetPropertyHeightSafe(SerializedProperty property, GUIContent label)
-        {
-            return base.GetPropertyHeightSafe(property, label);
-        }
-
-        protected override void OnGUISafe(Rect position, SerializedProperty property, GUIContent label)
-        {
-            //begin the true property
-            label = EditorGUI.BeginProperty(position, label, property);
-            //draw the prefix label
-            position = EditorGUI.PrefixLabel(position, label);
-            //craete the password field and cache the current result
-            property.stringValue = EditorGUI.PasswordField(position, GUIContent.none, property.stringValue);
-            EditorGUI.EndProperty();
-        }
-
-
-        public override bool IsPropertyValid(SerializedProperty property)
-        {
-            return property.propertyType == SerializedPropertyType.String;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b245a77ecbc0687dfe6b4352b2d5059599aa837b750677dcec68bee7dcbcb0e1
+size 1112

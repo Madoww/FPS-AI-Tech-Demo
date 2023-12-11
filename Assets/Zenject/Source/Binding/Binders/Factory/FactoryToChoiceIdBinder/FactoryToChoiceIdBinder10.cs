@@ -1,19 +1,3 @@
-namespace Zenject
-{
-    [NoReflectionBaking]
-    public class FactoryToChoiceIdBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TContract>
-        : FactoryArgumentsToChoiceBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TContract>
-    {
-        public FactoryToChoiceIdBinder(
-            DiContainer bindContainer, BindInfo bindInfo, FactoryBindInfo factoryBindInfo)
-            : base(bindContainer, bindInfo, factoryBindInfo)
-        {
-        }
-
-        public FactoryArgumentsToChoiceBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TContract> WithId(object identifier)
-        {
-            BindInfo.Identifier = identifier;
-            return this;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f475802f4d075f9f3594ddf36780c62afc989c5255394f15a4d355a85bca0b71
+size 823

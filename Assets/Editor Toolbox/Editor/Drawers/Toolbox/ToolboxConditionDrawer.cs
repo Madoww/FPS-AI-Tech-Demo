@@ -1,34 +1,3 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Toolbox.Editor.Drawers
-{
-    public abstract class ToolboxConditionDrawer<T> : ToolboxConditionDrawerBase where T : ToolboxConditionAttribute
-    {
-        protected virtual PropertyCondition OnGuiValidateSafe(SerializedProperty property, T attribute)
-        {
-            return PropertyCondition.Valid;
-        }
-
-
-        public sealed override PropertyCondition OnGuiValidate(SerializedProperty property)
-        {
-            return OnGuiValidate(property, PropertyUtility.GetAttribute<T>(property));
-        }
-
-        public sealed override PropertyCondition OnGuiValidate(SerializedProperty property, ToolboxAttribute attribute)
-        {
-            return OnGuiValidate(property, attribute as T);
-        }
-
-        public PropertyCondition OnGuiValidate(SerializedProperty property, T attribute)
-        {
-            if (attribute == null)
-            {
-                return PropertyCondition.Valid;
-            }
-
-            return OnGuiValidateSafe(property, attribute);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:10a67c78b8cf9f0699bab96a991171fac36392f141cc2596bee0f75358e8c750
+size 1058

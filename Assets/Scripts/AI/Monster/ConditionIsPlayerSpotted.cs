@@ -1,35 +1,3 @@
-namespace FPS.AI.Monster
-{
-    using FPS.AI.Behaviour;
-    using FPS.AI.Brain;
-
-    public class ConditionIsPlayerSpotted : Node
-    {
-        private AiBrain aiBrain;
-        private float certaintyThreshold = 0.2f;
-
-        public override OverrideCondition OverrideCondition => OverrideCondition.LowerPriority;
-
-        public ConditionIsPlayerSpotted(AiBrain aiBrain)
-        {
-            this.aiBrain = aiBrain;
-        }
-
-        public override NodeState Evaluate(BehaviourTreeState treeState)
-        {
-            var data = aiBrain.MostCertainData;
-            if (data == null)
-            {
-                return NodeState.Failure;
-            }
-
-            if (data.certainty > certaintyThreshold)
-            {
-                return NodeState.Success;
-            }
-
-            treeState.SetData(Blackboard.POSITION_OF_INTEREST, data.position);
-            return NodeState.Failure;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5bc9a39de444ec121d4e1e211aaf22234c35a7fc8646917e08b1ef1646ec23f
+size 919

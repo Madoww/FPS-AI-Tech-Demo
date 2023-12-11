@@ -1,29 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace FPS.Core.Prefabs.Entities
-{
-    using FPS.Core.Entities;
-
-    public class EntitiesPrefabsProvider : IPrefabsProvider
-    {
-        [SerializeField]
-        private List<GameEntity> prefabs;
-
-        public IReadOnlyCollection<PrefabData> GetPrefabs()
-        {
-            var prefabDatas = new List<PrefabData>();
-            foreach (var prefab in prefabs)
-            {
-                var prefabData = new PrefabData()
-                {
-                    guid = prefab.Guid,
-                    prefab = prefab.gameObject
-                };
-                prefabDatas.Add(prefabData);
-            }
-
-            return prefabDatas;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:47b3b20f7a2e1c52ad8a1fbdcef57859aee58f8d9e9ca4cb330ad9b084fc17da
+size 721

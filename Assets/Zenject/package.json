@@ -1,8 +1,3 @@
-  
-{
-	"name": "com.svermeulen.extenject",
-	"displayName": "Extenject",
-	"version": "0.0.1",
-	"description": "Dependency Injection Framework for Unity3D",
-	"dependencies": {}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:91595d768b72324841488584e164fd20fa15473cb1022f57298aa7a3a3ebe36b
+size 176

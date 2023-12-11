@@ -1,32 +1,3 @@
-﻿using System;
-
-using UnityEditor;
-
-namespace Toolbox.Editor.Internal
-{
-    /// <summary>
-    /// Stores and restores <see cref="EditorGUIUtility.labelWidth"/> and <see cref="EditorGUIUtility.fieldWidth"/>.
-    /// </summary>
-    internal class FixedFieldsScope : IDisposable
-    {
-        private float labelWidth;
-        private float fieldWidth;
-
-        public FixedFieldsScope()
-        {
-            Prepare();
-        }
-
-        public void Prepare()
-        {
-            labelWidth = EditorGUIUtility.labelWidth;
-            fieldWidth = EditorGUIUtility.fieldWidth;
-        }
-
-        public void Dispose()
-        {
-            EditorGUIUtility.labelWidth = labelWidth;
-            EditorGUIUtility.fieldWidth = fieldWidth;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:828a68672322faae453e6d5c86d43986063e800341439b97992bbfb08ca29d88
+size 755

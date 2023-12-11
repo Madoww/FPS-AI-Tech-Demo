@@ -1,28 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Zenject
-{
-    public class AnimatorIkHandlerManager : MonoBehaviour
-    {
-        List<IAnimatorIkHandler> _handlers;
-
-        [Inject]
-        public void Construct(
-            // Use local to avoid inheriting handlers from a parent context
-            [Inject(Source = InjectSources.Local)]
-            List<IAnimatorIkHandler> handlers)
-        {
-            _handlers = handlers;
-        }
-
-        public void OnAnimatorIk()
-        {
-            foreach (var handler in _handlers)
-            {
-                handler.OnAnimatorIk();
-            }
-        }
-    }
-}
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:73afaddf57ea8aed0c2999f739183f29f7af14bf9a114f52cfbcc1012b2050fc
+size 639
