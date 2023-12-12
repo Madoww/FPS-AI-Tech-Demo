@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8f2a4595430906ccc7747be2efab463d6e8192679dc8969a11bdcd9d925762f7
-size 461
+using UnityEngine;
+using Zenject;
+
+namespace FPS.Core.Prefabs.Injection
+{
+    using FPS.Common.Injection;
+
+    public class PrefabsInstaller : ExposableInstaller
+    {
+        [SerializeField]
+        private IPrefabsManager prefabsManager;
+
+        protected override void InstallBindings(DiContainer container)
+        {
+            container.Bind<IPrefabsManager>()
+                .FromInstance(prefabsManager)
+                .AsSingle();
+        }
+    }
+}

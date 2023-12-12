@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:28088d7c5fa5f108a5051d92ee059a3a296d3fafafafb6cbf0fe2fd5e774122a
-size 673
+using UnityEngine;
+using UnityEngine.AI;
+
+namespace FPS.AI.Monster
+{
+    using FPS.AI.Behaviour;
+
+    public class ActionChase : Node
+    {
+        private readonly NavMeshAgent navMeshAgent;
+
+        public ActionChase(NavMeshAgent navMeshAgent)
+        {
+            this.navMeshAgent = navMeshAgent;
+        }
+
+        public override NodeState Evaluate(BehaviourTreeState treeState)
+        {
+            treeState.SetData(Blackboard.IS_PATROLLING, false);
+            treeState.TryGetData<Vector3>(Blackboard.POSITION_OF_INTEREST, out var targetPosition);
+            navMeshAgent.SetDestination(targetPosition);
+            return NodeState.Running;
+        }
+    }
+}

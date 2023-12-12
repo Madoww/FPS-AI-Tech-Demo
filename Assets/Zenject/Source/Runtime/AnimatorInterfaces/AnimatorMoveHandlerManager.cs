@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:874326458ebe429c0c411bbfcfb68ea915cb9dfb5fc34fbadc6665c92c861d63
-size 649
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Zenject
+{
+    public class AnimatorMoveHandlerManager : MonoBehaviour
+    {
+        List<IAnimatorMoveHandler> _handlers;
+
+        [Inject]
+        public void Construct(
+            // Use local to avoid inheriting handlers from a parent context
+            [Inject(Source = InjectSources.Local)]
+            List<IAnimatorMoveHandler> handlers)
+        {
+            _handlers = handlers;
+        }
+
+        public void OnAnimatorMove()
+        {
+            foreach (var handler in _handlers)
+            {
+                handler.OnAnimatorMove();
+            }
+        }
+    }
+}
+

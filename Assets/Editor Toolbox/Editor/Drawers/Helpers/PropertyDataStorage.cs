@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ec212bf74c7999d24c742cda45cbd1c975cd13b5bcdd81a058252fe4238a86df
-size 1268
+﻿using System;
+
+using UnityEditor;
+
+namespace Toolbox.Editor.Drawers
+{
+    public class PropertyDataStorage<T, T1> : DrawerDataStorage<SerializedProperty, T, T1>
+    {
+        private readonly bool isPersistant;
+
+
+        public PropertyDataStorage(bool isPersistant, Func<SerializedProperty, T1, T> createMethod) : this(isPersistant, createMethod, null)
+        { }
+
+        public PropertyDataStorage(bool isPersistant, Func<SerializedProperty, T1, T> createMethod, Action<T> removeMethod) : base (createMethod, removeMethod)
+        {
+            this.isPersistant = isPersistant;
+        }
+
+
+        protected override string GetKey(SerializedProperty property)
+        {
+            return isPersistant
+                ? property.GetPropertyTypeKey()
+                : property.GetPropertyHashKey();
+        }
+
+
+        public override void ClearItems()
+        {
+            if (isPersistant)
+            {
+                return;
+            }
+            else
+            {
+                if (removeMethod != null)
+                {
+                    foreach (var item in items.Values)
+                    {
+                        removeMethod(item);
+                    }
+                }
+
+                items.Clear();
+            }
+        }
+    }
+}

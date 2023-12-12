@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d20848aa2b6ee3546ca0cae281d5b503378a496868cf6f650a810c61bb71a88
-size 896
+using ModestTree;
+
+namespace Zenject
+{
+    [ZenjectAllowDuringValidation]
+    [NoReflectionBaking]
+    public class LazyInject<T> : IValidatable
+    {
+        readonly DiContainer _container;
+        readonly InjectContext _context;
+
+        bool _hasValue;
+        T _value;
+
+        public LazyInject(DiContainer container, InjectContext context)
+        {
+            Assert.DerivesFromOrEqual<T>(context.MemberType);
+
+            _container = container;
+            _context = context;
+        }
+
+        void IValidatable.Validate()
+        {
+            _container.Resolve(_context);
+        }
+
+        public T Value
+        {
+            get
+            {
+                if (!_hasValue)
+                {
+                    _value = (T)_container.Resolve(_context);
+                    _hasValue = true;
+                }
+
+                return _value;
+            }
+        }
+    }
+}

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9486bae3a6ba9b4911eddbe8205475bf8f6f872404b40e508f555c86cf7bb099
-size 887
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Hides serialized field if the provided condition is met, otherwise keeps it disabled.
+    /// 
+    /// <para>Supported sources: fields, properties, and methods.</para>
+    /// <para>Supported condition types: <see cref="bool"/>, <see cref="int"/>, <see cref="float"/>, <see cref="double"/>, <see cref="string"/>, any <see cref="Enum"/>, and <see cref="Object"/> (but has to be compared to a <see cref="bool"/> value).</para>
+    /// <para>Supported types: all.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class HideDisabledIfAttribute : ComparisonAttribute
+    {
+        public HideDisabledIfAttribute(string sourceHandle, object valueToMatch) : base(sourceHandle, valueToMatch)
+        { }
+    }
+}

@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e5a663c815b75072032d5f4364e4805c7bf1f3ee864e5326db1f5df69aeb0fd8
-size 910
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class ScopeConcreteIdArgConditionCopyNonLazyBinder : ConcreteIdArgConditionCopyNonLazyBinder
+    {
+        public ScopeConcreteIdArgConditionCopyNonLazyBinder(BindInfo bindInfo)
+            : base(bindInfo)
+        {
+        }
+
+        public ConcreteIdArgConditionCopyNonLazyBinder AsCached()
+        {
+            BindInfo.Scope = ScopeTypes.Singleton;
+            return this;
+        }
+
+        public ConcreteIdArgConditionCopyNonLazyBinder AsSingle()
+        {
+            BindInfo.Scope = ScopeTypes.Singleton;
+            BindInfo.MarkAsUniqueSingleton = true;
+            return this;
+        }
+
+        // Note that this is the default so it's not necessary to call this
+        public ConcreteIdArgConditionCopyNonLazyBinder AsTransient()
+        {
+            BindInfo.Scope = ScopeTypes.Transient;
+            return this;
+        }
+    }
+}

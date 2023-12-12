@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4e9bff279bd2bda58b1c8102e533092ebc71d4767d19eb972bc0267d2374c938
-size 502
+﻿#if !ODIN_INSPECTOR
+
+using UnityEditor;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class RunnableContextEditor : ContextEditor
+    {
+        SerializedProperty _autoRun;
+
+        public override void OnEnable()
+        {
+            base.OnEnable();
+
+            _autoRun = serializedObject.FindProperty("_autoRun");
+        }
+
+        protected override void OnGui()
+        {
+            base.OnGui();
+
+            EditorGUILayout.PropertyField(_autoRun);
+        }
+    }
+}
+
+
+#endif

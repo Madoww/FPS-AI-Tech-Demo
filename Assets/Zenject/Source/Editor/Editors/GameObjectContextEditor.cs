@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6f089353ff8871aab1f20966aa3850ff9b723ad778857af722a2295f8107337
-size 550
+#if !ODIN_INSPECTOR
+
+using UnityEditor;
+
+namespace Zenject
+{
+    [CustomEditor(typeof(GameObjectContext))]
+    [NoReflectionBaking]
+    public class GameObjectContextEditor : RunnableContextEditor
+    {
+        SerializedProperty _kernel;
+
+        public override void OnEnable()
+        {
+            base.OnEnable();
+
+            _kernel = serializedObject.FindProperty("_kernel");
+        }
+
+        protected override void OnGui()
+        {
+            base.OnGui();
+
+            EditorGUILayout.PropertyField(_kernel);
+        }
+    }
+}
+
+#endif

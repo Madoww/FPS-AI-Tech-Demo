@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f19eec1622c94f6599d820db6c36a5ef4570c85d1f1bfdf310a84ea8e5e06043
-size 794
+﻿using System;
+
+using UnityEditor;
+using UnityEngine;
+
+namespace Toolbox.Editor.Drawers
+{
+    [Obsolete("For now, HideLabelAttribute is handled internally by the ToolboxPropertyHandler.")]
+    public class HideLabelAttributeDrawer : PropertyDrawerBase
+    {
+        protected override float GetPropertyHeightSafe(SerializedProperty property, GUIContent label)
+        {
+            return base.GetPropertyHeightSafe(property, label);
+        }
+
+        protected override void OnGUISafe(Rect position, SerializedProperty property, GUIContent label)
+        {
+            EditorGUI.PropertyField(position, property, GUIContent.none, property.isExpanded);
+        }
+
+
+        public override bool IsPropertyValid(SerializedProperty property)
+        {
+            return true;
+        }
+    }
+}

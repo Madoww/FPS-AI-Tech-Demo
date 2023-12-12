@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:273ad6c0a484179f9e9a5bf7ca6170f8886fb24d0a85add5a271ff4e638fc343
-size 33
+*.csproj.user
+*.csproj.user.meta

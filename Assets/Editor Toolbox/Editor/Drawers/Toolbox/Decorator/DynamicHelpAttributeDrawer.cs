@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2869f73fc937481355e8d5a813aef2e46ff06e9b6f8cb43c3c73fbf8da166609
-size 930
+﻿using UnityEditor;
+using UnityEngine;
+
+namespace Toolbox.Editor.Drawers
+{
+    public class DynamicHelpAttributeDrawer : ToolboxDecoratorDrawer<DynamicHelpAttribute>
+    {
+        protected override void OnGuiBeginSafe(DynamicHelpAttribute attribute)
+        {
+            var sourceHandle = attribute.SourceHandle;
+            var targetObjects = InspectorUtility.CurrentTargetObjects;
+            if (ValueExtractionHelper.TryGetValue(sourceHandle, targetObjects, out var value, out var hasMixedValues))
+            {
+                var messageText = hasMixedValues ? "-" : value?.ToString();
+                var messageType = (MessageType)attribute.Type;
+                EditorGUILayout.HelpBox(messageText, messageType);
+                return;
+            }
+
+            var targetType = targetObjects[0].GetType();
+            ToolboxEditorLog.MemberNotFoundWarning(attribute, targetType, sourceHandle);
+        }
+    }
+}

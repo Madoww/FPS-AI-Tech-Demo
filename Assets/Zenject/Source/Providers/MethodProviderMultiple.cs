@@ -1,3 +1,67 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4efe950f149cfb99dbca09ce2eff4efd9916645b30ba49fb63644f0a94e45ae2
-size 1905
+using System;
+using System.Collections.Generic;
+using ModestTree;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class MethodProviderMultiple<TReturn> : IProvider
+    {
+        readonly DiContainer _container;
+        readonly Func<InjectContext, IEnumerable<TReturn>> _method;
+
+        public MethodProviderMultiple(
+            Func<InjectContext, IEnumerable<TReturn>> method,
+            DiContainer container)
+        {
+            _container = container;
+            _method = method;
+        }
+
+        public bool IsCached
+        {
+            get { return false; }
+        }
+
+        public bool TypeVariesBasedOnMemberType
+        {
+            get { return false; }
+        }
+
+        public Type GetInstanceType(InjectContext context)
+        {
+            return typeof(TReturn);
+        }
+
+        public void GetAllInstancesWithInjectSplit(
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
+        {
+            Assert.IsEmpty(args);
+            Assert.IsNotNull(context);
+
+            Assert.That(typeof(TReturn).DerivesFromOrEqual(context.MemberType));
+
+            injectAction = null;
+            if (_container.IsValidating && !TypeAnalyzer.ShouldAllowDuringValidation(context.MemberType))
+            {
+                buffer.Add(new ValidationMarker(typeof(TReturn)));
+            }
+            else
+            {
+                var result = _method(context);
+
+                if (result == null)
+                {
+                    throw Assert.CreateException(
+                        "Method '{0}' returned null when list was expected. Object graph:\n {1}",
+                        _method.ToDebugString(), context.GetObjectGraphString());
+                }
+
+                foreach (var obj in result)
+                {
+                    buffer.Add(obj);
+                }
+            }
+        }
+    }
+}

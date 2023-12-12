@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f329813d7c69794fd521b7b194fbcdd15a65cd84def8fb91cb9588221547477
-size 1029
+using UnityEditor;
+using UnityEngine;
+
+namespace Toolbox.Editor.Drawers
+{
+    public class DynamicMinMaxSliderAttributeDrawer : DynamicMinMaxBaseDrawer<DynamicMinMaxSliderAttribute>
+    {
+        protected override void OnGuiSafe(SerializedProperty property, GUIContent label, float minValue, float maxValue)
+        {
+            var xValue = property.vector2Value.x;
+            var yValue = property.vector2Value.y;
+            ToolboxEditorGui.BeginProperty(property, ref label, out var position);
+            EditorGUI.BeginChangeCheck();
+            ToolboxEditorGui.DrawMinMaxSlider(position, label, ref xValue, ref yValue, minValue, maxValue);
+            if (EditorGUI.EndChangeCheck())
+            {
+                property.vector2Value = new Vector2(xValue, yValue);
+            }
+
+            ToolboxEditorGui.CloseProperty();
+        }
+
+
+        public override bool IsPropertyValid(SerializedProperty property)
+        {
+            return property.propertyType == SerializedPropertyType.Vector2;
+        }
+    }
+}

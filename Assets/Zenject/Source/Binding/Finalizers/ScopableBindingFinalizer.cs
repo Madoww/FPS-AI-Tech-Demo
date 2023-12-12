@@ -1,3 +1,93 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a402683425950b88365a34bae60151b242991767872dd0bcbfb870c91fc22e4f
-size 2873
+using System;
+using System.Collections.Generic;
+using ModestTree;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class ScopableBindingFinalizer : ProviderBindingFinalizer
+    {
+        readonly Func<DiContainer, Type, IProvider> _providerFactory;
+
+        public ScopableBindingFinalizer(
+            BindInfo bindInfo, Func<DiContainer, Type, IProvider> providerFactory)
+            : base(bindInfo)
+        {
+            _providerFactory = providerFactory;
+        }
+
+        protected override void OnFinalizeBinding(DiContainer container)
+        {
+            if (BindInfo.ToChoice == ToChoices.Self)
+            {
+                Assert.IsEmpty(BindInfo.ToTypes);
+                FinalizeBindingSelf(container);
+            }
+            else
+            {
+                FinalizeBindingConcrete(container, BindInfo.ToTypes);
+            }
+        }
+
+        void FinalizeBindingConcrete(DiContainer container, List<Type> concreteTypes)
+        {
+            if (concreteTypes.Count == 0)
+            {
+                // This can be common when using convention based bindings
+                return;
+            }
+
+            var scope = GetScope();
+            switch (scope)
+            {
+                case ScopeTypes.Transient:
+                {
+                    RegisterProvidersForAllContractsPerConcreteType(
+                        container, concreteTypes, _providerFactory);
+                    break;
+                }
+                case ScopeTypes.Singleton:
+                {
+                    RegisterProvidersForAllContractsPerConcreteType(
+                        container,
+                        concreteTypes,
+                        (_, concreteType) =>
+                            BindingUtil.CreateCachedProvider(
+                                _providerFactory(container, concreteType)));
+                    break;
+                }
+                default:
+                {
+                    throw Assert.CreateException();
+                }
+            }
+        }
+
+        void FinalizeBindingSelf(DiContainer container)
+        {
+            var scope = GetScope();
+
+            switch (scope)
+            {
+                case ScopeTypes.Transient:
+                {
+                    RegisterProviderPerContract(container, _providerFactory);
+                    break;
+                }
+                case ScopeTypes.Singleton:
+                {
+                    RegisterProviderPerContract(
+                        container,
+                        (_, contractType) =>
+                            BindingUtil.CreateCachedProvider(
+                                _providerFactory(container, contractType)));
+                    break;
+                }
+                default:
+                {
+                    throw Assert.CreateException();
+                }
+            }
+        }
+    }
+}

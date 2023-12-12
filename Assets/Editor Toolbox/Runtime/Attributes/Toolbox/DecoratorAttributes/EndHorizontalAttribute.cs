@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:128f065eae30743c14dd75c5b53f71be5c645d914214d242a053862e707108f0
-size 379
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Use this attribute to close previously created <see cref="BeginHorizontalAttribute"/>.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class EndHorizontalAttribute : ToolboxDecoratorAttribute
+    { }
+}

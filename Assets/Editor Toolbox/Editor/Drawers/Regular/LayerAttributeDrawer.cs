@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bb2e947ce1a2a07b1e41ef93c5ce18b01657c5d04977da2a0fd7f8d82a33d534
-size 1063
+﻿using UnityEditor;
+using UnityEngine;
+
+namespace Toolbox.Editor.Drawers
+{
+    [CustomPropertyDrawer(typeof(LayerAttribute))]
+    public class LayerAttributeDrawer : PropertyDrawerBase
+    {
+        protected override float GetPropertyHeightSafe(SerializedProperty property, GUIContent label)
+        {
+            return base.GetPropertyHeightSafe(property, label);
+        }
+
+        protected override void OnGUISafe(Rect position, SerializedProperty property, GUIContent label)
+        {
+            label = EditorGUI.BeginProperty(position, label, property);
+            EditorGUI.BeginChangeCheck();
+            var value = property.intValue;
+            var layer = EditorGUI.LayerField(position, label, value);
+            if (EditorGUI.EndChangeCheck())
+            {
+                property.intValue = layer;
+            }
+
+            EditorGUI.EndProperty();
+        }
+
+
+        public override bool IsPropertyValid(SerializedProperty property)
+        {
+            return property.propertyType == SerializedPropertyType.Integer;
+        }
+    }
+}

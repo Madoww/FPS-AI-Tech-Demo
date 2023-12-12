@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:54b6677db10d29cb958c8f38b919fb9cdb040ffe8c0314bf36c16326fe5b0e1c
-size 594
+using UnityEngine;
+using Zenject;
+
+namespace FPS.AI
+{
+    using FPS.AI.Detection;
+    using FPS.Common.Injection;
+    using UnityEngine.Assertions;
+
+    public class AiInstaller : ExposableInstaller
+    {
+        [SerializeField]
+        private DetectableTargetsManager detectableTargetsManager;
+
+        protected override void InstallBindings(DiContainer container)
+        {
+            Assert.IsNotNull(detectableTargetsManager);
+
+            container.Bind<IDetectableTargetsManager>()
+                .FromInstance(detectableTargetsManager)
+                .AsSingle();
+        }
+    }
+}

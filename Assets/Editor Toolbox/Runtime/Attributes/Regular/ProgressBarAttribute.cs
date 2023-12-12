@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7f0374eae280d340491be649fe573cec7de50114c6c3b054f13301cace77efe5
-size 1069
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Creates a progress bar.
+    /// 
+    /// <para>Supported types: <see cref="int"/>, <see cref="float"/>, <see cref="double"/>.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class ProgressBarAttribute : PropertyAttribute
+    {
+        public ProgressBarAttribute(string name = "", float minValue = 0, float maxValue = 100)
+        {
+            Name = name;
+
+            MinValue = Mathf.Min(minValue, maxValue);
+            MaxValue = Mathf.Max(maxValue, minValue);
+        }
+
+        public string Name { get; private set; }
+
+        public float MinValue { get; private set; }
+
+        public float MaxValue { get; private set; }
+
+        public Color Color
+        {
+            get => ColorUtility.TryParseHtmlString(HexColor, out var color)
+                ? color
+                : new Color(0.28f, 0.38f, 0.88f);
+        }
+
+        public string HexColor { get; set; }
+    }
+}

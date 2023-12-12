@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db0367932e7ade93224415c435fd18ccb9e8103ba23a7a685ac217e557c91128
-size 443
+{
+    "name": "FPS.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e29a487f2c5738e4a89464244f4d423c",
+        "GUID:470f179086cfbf54c85de8954beadd3b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

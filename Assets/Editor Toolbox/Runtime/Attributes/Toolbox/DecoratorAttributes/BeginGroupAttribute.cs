@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:751de431d9ed6894beb5f149e2208c7d9bcc666d14dd6cba883b8898e840bb61
-size 629
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Begins vertical group of properties. Has to be closed by the <see cref="EndGroupAttribute"/>.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
+    [Conditional("UNITY_EDITOR")]
+    public class BeginGroupAttribute : ToolboxDecoratorAttribute
+    {
+        public BeginGroupAttribute(string label = null)
+        {
+            Label = label;
+            Order = 1000;
+        }
+
+        public string Label { get; private set; }
+
+        public bool HasLabel => !string.IsNullOrEmpty(Label);
+    }
+}

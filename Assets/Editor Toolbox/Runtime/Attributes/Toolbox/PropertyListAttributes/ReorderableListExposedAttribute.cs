@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:87a025db89efce0730cc1164104cd78659d3a1cd0a5a4017920d35efe10bccea
-size 675
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <inheritdoc cref="ReorderableListAttribute"/>
+    /// <remarks>Works in the same way like <see cref="ReorderableListAttribute"/> but additionally allows to override some internal callbacks.</remarks>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class ReorderableListExposedAttribute : ReorderableListAttribute
+    {
+        /// <summary>
+        /// Name of the method that should be called every time new element is added to the list.
+        /// </summary>
+        public string OverrideNewElementMethodName { get; set; }
+    }
+}

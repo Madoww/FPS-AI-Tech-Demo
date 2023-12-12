@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:42311d4f7dc909b093c21b5b1a2f2d685ac19ca661d4913509680debafb0e426
-size 583
+using System;
+using System.Collections.Generic;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class FactoryBindInfo
+    {
+        public FactoryBindInfo(Type factoryType)
+        {
+            FactoryType = factoryType;
+            Arguments = new List<TypeValuePair>();
+        }
+
+        public Type FactoryType
+        {
+            get; private set;
+        }
+
+        public Func<DiContainer, IProvider> ProviderFunc
+        {
+            get; set;
+        }
+
+        public List<TypeValuePair> Arguments
+        {
+            get;
+            set;
+        }
+    }
+}

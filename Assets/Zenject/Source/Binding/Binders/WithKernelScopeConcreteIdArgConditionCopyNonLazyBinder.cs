@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6877e496202599ed884ee61dae5f1669b86352065cf7fee3d4ce141478be411
-size 1070
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class WithKernelScopeConcreteIdArgConditionCopyNonLazyBinder : ScopeConcreteIdArgConditionCopyNonLazyBinder
+    {
+        SubContainerCreatorBindInfo _subContainerBindInfo;
+
+        public WithKernelScopeConcreteIdArgConditionCopyNonLazyBinder(
+            SubContainerCreatorBindInfo subContainerBindInfo, BindInfo bindInfo)
+            : base(bindInfo)
+        {
+            _subContainerBindInfo = subContainerBindInfo;
+        }
+
+        public ScopeConcreteIdArgConditionCopyNonLazyBinder WithKernel()
+        {
+            _subContainerBindInfo.CreateKernel = true;
+            return this;
+        }
+
+        // This would be used in cases where you want to control the execution order for the
+        // subcontainer
+        public ScopeConcreteIdArgConditionCopyNonLazyBinder WithKernel<TKernel>()
+            where TKernel : Kernel
+        {
+            _subContainerBindInfo.CreateKernel = true;
+            _subContainerBindInfo.KernelType = typeof(TKernel);
+            return this;
+        }
+    }
+}

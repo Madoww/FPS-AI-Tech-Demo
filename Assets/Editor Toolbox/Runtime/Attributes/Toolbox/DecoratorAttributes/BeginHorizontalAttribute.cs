@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9843ac09a0ff6aa6b28ffc08c06d6bcaed5b18e2a16e4c126bb291c9490e271c
-size 749
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Begins horizontal group of properties. Has to be closed by the <see cref="EndHorizontalAttribute"/>.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class BeginHorizontalAttribute : ToolboxDecoratorAttribute
+    {
+        public BeginHorizontalAttribute(float labelToWidthRatio = 0.0f, float fieldToWidthRatio = 0.0f)
+        {
+            LabelToWidthRatio = labelToWidthRatio;
+            FieldToWidthRatio = fieldToWidthRatio;
+        }
+
+        public float LabelToWidthRatio { get; private set; }
+
+        public float FieldToWidthRatio { get; private set; }
+    }
+}

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ce7b76e9fddf4bd17bf676ca5ffe9f44ccdc900cfae8a21369c9c039273d8f1
-size 871
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Creates a group of toggles instead of the built-in popup menu.
+    /// 
+    /// <para>Supported types: any <see cref="Enum"/>.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class EnumTogglesAttribute : PropertyAttribute
+    {
+        /// <summary>
+        /// Minimum width of toggle created within the drawer.
+        /// </summary>
+        public float ToggleWidth { get; set; } = 85.0f;
+        /// <summary>
+        /// Height of a single toggle.
+        /// </summary>
+        public float ToggleHeight { get; set; } = 16.0f;
+        /// <summary>
+        /// Spacing between toggle buttons.
+        /// </summary>
+        public float ToggleSpacing { get; set; } = 2.0f;
+    }
+}

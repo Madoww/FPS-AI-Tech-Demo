@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e8bbb855482660c056581c0f706cdfdcfbc04c10fb76cdd2e22a503b587d2d9f
-size 482
+using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+namespace Zenject.Internal
+{
+    public class DefaultSceneContractConfig : ScriptableObject
+    {
+        public const string ResourcePath = "ZenjectDefaultSceneContractConfig";
+
+        public List<ContractInfo> DefaultContracts;
+
+        [Serializable]
+        public class ContractInfo
+        {
+            public string ContractName;
+            public SceneAsset Scene;
+        }
+    }
+
+}

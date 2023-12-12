@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0c1e3e404a7803ca3d6bcbef36ca47e648990eb226f76fd155697cf2d5af7e1
-size 1236
+using ModestTree;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class FactoryToChoiceBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TContract>
+        : FactoryFromBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TContract>
+    {
+        public FactoryToChoiceBinder(
+            DiContainer bindContainer, BindInfo bindInfo, FactoryBindInfo factoryBindInfo)
+            : base(bindContainer, bindInfo, factoryBindInfo)
+        {
+        }
+
+        // Note that this is the default, so not necessary to call
+        public FactoryFromBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TContract> ToSelf()
+        {
+            Assert.IsEqual(BindInfo.ToChoice, ToChoices.Self);
+            return this;
+        }
+
+        public FactoryFromBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TConcrete> To<TConcrete>()
+            where TConcrete : TContract
+        {
+            BindInfo.ToChoice = ToChoices.Concrete;
+            BindInfo.ToTypes.Clear();
+            BindInfo.ToTypes.Add(typeof(TConcrete));
+
+            return new FactoryFromBinder<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TConcrete>(BindContainer, BindInfo, FactoryBindInfo);
+        }
+    }
+}

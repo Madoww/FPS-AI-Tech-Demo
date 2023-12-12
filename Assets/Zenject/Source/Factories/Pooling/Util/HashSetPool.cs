@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d62c5b8b8dfc6b976b38a64d4a1fe66d4a4571d2173456db1ac02094f97e2c02
-size 662
+using System.Collections.Generic;
+using ModestTree;
+
+namespace Zenject
+{
+    public class HashSetPool<T> : StaticMemoryPool<HashSet<T>>
+    {
+        static HashSetPool<T> _instance = new HashSetPool<T>();
+
+        public HashSetPool()
+        {
+            OnSpawnMethod = OnSpawned;
+            OnDespawnedMethod = OnDespawned;
+        }
+
+        public static HashSetPool<T> Instance
+        {
+            get { return _instance; }
+        }
+
+        static void OnSpawned(HashSet<T> items)
+        {
+            Assert.That(items.IsEmpty());
+        }
+
+        static void OnDespawned(HashSet<T> items)
+        {
+            items.Clear();
+        }
+    }
+}

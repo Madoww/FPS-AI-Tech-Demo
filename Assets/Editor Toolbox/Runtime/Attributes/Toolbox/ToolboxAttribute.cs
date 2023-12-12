@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d49f0f64b53182711350fa5e4846121daca6698e23d327a353a9c24d592569c9
-size 272
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Base class for all attributes used within Component Editors.
+    /// </summary>
+    [Conditional("UNITY_EDITOR")]
+    public abstract class ToolboxAttribute : Attribute
+    { }
+}

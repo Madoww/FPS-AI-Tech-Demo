@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5aaff815d1a150e81f8efe4dcd7ec15200a61527ac83a8fef009f54474f70d4c
-size 467
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Indicates if <see cref="SerializedScene"/> drawer should show additional metadata about the picked Scene.
+    /// 
+    /// <para>Supported types: <see cref="SerializedScene"/>.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class SceneDetailsAttribute : PropertyAttribute
+    { }
+}

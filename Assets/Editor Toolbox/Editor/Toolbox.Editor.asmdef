@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3eb266cdd9d64c84c770a0ff4430393e5b6d9a3e5a97d3366cdded7cd565145d
-size 433
+{
+    "name": "Toolbox.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Toolbox",
+        "Unity.EditorCoroutines.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

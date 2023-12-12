@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce8d700d7ecb68070295e29ceb6f26785bd95bc4688cf383a0a6deaefc0f1876
-size 578
+namespace Zenject
+{
+    public enum PoolExpandMethods
+    {
+        OneAtATime,
+        Double,
+        Disabled
+    }
+
+    [NoReflectionBaking]
+    public class MemoryPoolBindInfo
+    {
+        public MemoryPoolBindInfo()
+        {
+            ExpandMethod = PoolExpandMethods.OneAtATime;
+            MaxSize = int.MaxValue;
+        }
+
+        public PoolExpandMethods ExpandMethod
+        {
+            get; set;
+        }
+
+        public int InitialSize
+        {
+            get; set;
+        }
+
+        public int MaxSize
+        {
+            get; set;
+        }
+    }
+}
+

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f70fff42730d5ae68530ef450ab8190a38fec9fcd605128f516e202b9398a24
-size 348
+﻿using System;
+
+using UnityEditor;
+using UnityEngine;
+
+namespace Toolbox.Editor.Drawers
+{
+    public abstract class ToolboxTargetTypeDrawer : ToolboxDrawer
+    {
+        public abstract void OnGui(SerializedProperty property, GUIContent label);
+
+        public abstract Type GetTargetType();
+        public abstract bool UseForChildren();
+    }
+}

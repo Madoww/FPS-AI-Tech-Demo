@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:88fa401c949745a0fcfe26938ebf927fe3cee0ed80de00139a6485891b3bdd6d
-size 418
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Ignores parent label and default foldout for children-based properties.
+    /// 
+    /// <para>Supported types: any.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class IgnoreParentAttribute : ToolboxSelfPropertyAttribute
+    { }
+}

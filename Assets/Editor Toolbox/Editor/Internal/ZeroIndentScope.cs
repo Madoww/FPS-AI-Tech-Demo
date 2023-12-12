@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5828360e96de25e58cf1c159abcadd51916fc5a66e9cf3ebbe68752959d70cf9
-size 506
+﻿using System;
+
+using UnityEditor;
+
+namespace Toolbox.Editor.Internal
+{
+    internal class ZeroIndentScope : IDisposable
+    {
+        private int prevIndent;
+
+        public ZeroIndentScope()
+        {
+            Prepare(0);
+        }
+
+        public void Prepare(int nextIndent)
+        {
+            prevIndent = EditorGUI.indentLevel;
+            EditorGUI.indentLevel = nextIndent;
+        }
+
+        public void Dispose()
+        {
+            EditorGUI.indentLevel = prevIndent;
+        }
+    }
+}

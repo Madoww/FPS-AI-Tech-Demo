@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0756b066a52b7a4546a0459e43048a680c84320a0ae783b9fc4328c17e1c4b6d
-size 576
+using System;
+using ModestTree;
+
+namespace Zenject
+{
+    public static class ProviderUtil
+    {
+        public static Type GetTypeToInstantiate(Type contractType, Type concreteType)
+        {
+#if !(UNITY_WSA && ENABLE_DOTNET)
+            // TODO: Is it possible to do this on WSA?
+
+            if (concreteType.IsOpenGenericType())
+            {
+                return concreteType.MakeGenericType(contractType.GetGenericArguments());
+            }
+#endif
+
+            Assert.DerivesFromOrEqual(concreteType, contractType);
+            return concreteType;
+        }
+    }
+}
+

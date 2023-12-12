@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bd8c751acb2d690639d4581564638ef423045b4688c96ec1f241fc1ff1d64dd
-size 1266
+#if !ODIN_INSPECTOR
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class ContextEditor : UnityInspectorListEditor
+    {
+        protected override string[] PropertyNames
+        {
+            get
+            {
+                return new string[]
+                {
+                    "_scriptableObjectInstallers",
+                    "_monoInstallers",
+                    "_installerPrefabs",
+                };
+            }
+        }
+
+        protected override string[] PropertyDisplayNames
+        {
+            get
+            {
+                return new string[]
+                {
+                    "Scriptable Object Installers",
+                    "Mono Installers",
+                    "Prefab Installers",
+                };
+            }
+        }
+
+        protected override string[] PropertyDescriptions
+        {
+            get
+            {
+                return new string[]
+                {
+                    "Drag any assets in your Project that implement ScriptableObjectInstaller here",
+                    "Drag any MonoInstallers that you have added to your Scene Hierarchy here.",
+                    "Drag any prefabs that contain a MonoInstaller on them here",
+                };
+            }
+        }
+    }
+}
+
+#endif

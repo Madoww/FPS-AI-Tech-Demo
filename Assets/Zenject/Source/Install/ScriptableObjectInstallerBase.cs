@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8051a6a78c0911c43eaa45615cd5f7147dc7db19250ab79497d7d2eba38d96a9
-size 689
+#if !NOT_UNITY3D
+
+using System;
+using UnityEngine;
+
+namespace Zenject
+{
+    // We'd prefer to make this abstract but Unity 5.3.5 has a bug where references
+    // can get lost during compile errors for classes that are abstract
+    public class ScriptableObjectInstallerBase : ScriptableObject, IInstaller
+    {
+        [Inject]
+        DiContainer _container = null;
+
+        protected DiContainer Container
+        {
+            get { return _container; }
+        }
+
+        bool IInstaller.IsEnabled
+        {
+            get { return true; }
+        }
+
+        public virtual void InstallBindings()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+#endif
+

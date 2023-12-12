@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11283794b63a658bfcafa18cd2cbbd4296eab73fe9523369cba5f4ecd3e2bf9d
-size 1119
+﻿using System;
+
+namespace UnityEngine
+{
+    public enum UnityComparisonMethod
+    {
+        /// <summary>
+        /// Checks if values are equal.
+        /// </summary>
+        Equal,
+        /// <summary>
+        /// Checks if the target value is greater.
+        /// <para>Allowed only for numeric types.</para>
+        /// </summary>
+        Greater,
+        /// <summary>
+        /// Checks if the target value is less.
+        /// <para>Allowed only for numeric types.</para>
+        /// </summary>
+        Less,
+        /// <summary>
+        /// Checks if the target value is greater or equal.
+        /// <para>Allowed only for numeric types.</para>
+        /// </summary>
+        GreaterEqual,
+        /// <summary>
+        /// Checks if the target value is less or equal.
+        /// <para>Allowed only for numeric types.</para>
+        /// </summary>
+        LessEqual,
+        /// <summary>
+        /// Checks if the target value is included in a mask.
+        /// <para>Allowed only for <see cref="Enum"/> fields marked with <see cref="FlagsAttribute"/>.</para>
+        /// </summary>
+        Mask
+    }
+}

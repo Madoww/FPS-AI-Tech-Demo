@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8822d5ebfdc054f51d202b3c832858d7836fb0d7fd2a3cdd2b68c15672b465f4
-size 775
+using Zenject;
+
+namespace FPS.Game.Injection
+{
+    using FPS.Common.States;
+    //TODO: Add flow builder
+    using FPS.Game.Flow.Gameplay;
+
+    public class StatesInstaller : MonoInstaller
+    {
+        public override void InstallBindings()
+        {
+            //TODO: add a flow builder
+            BaseState[] states =
+            {
+                new GeneralState()
+            };
+
+            Container.Bind<BaseState>().
+                FromMethodMultiple((context) =>
+                {
+                    var container = context.Container;
+                    foreach (var state in states)
+                    {
+                        container.QueueForInject(state);
+                    }
+
+                    return states;
+                });
+        }
+    }
+}

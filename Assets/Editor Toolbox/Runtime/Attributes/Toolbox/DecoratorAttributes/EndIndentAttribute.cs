@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea56279bce87bf65e2cf55f65f6883015d0eafacf9f99dd84c4189ec54c92af2
-size 434
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
+    [Conditional("UNITY_EDITOR")]
+    public class EndIndentAttribute : ToolboxDecoratorAttribute
+    {
+        public EndIndentAttribute(int indentToSubtract = 1)
+        {
+            IndentToSubtract = indentToSubtract;
+        }
+
+        public int IndentToSubtract { get; private set; }
+    }
+}

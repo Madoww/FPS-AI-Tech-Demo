@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e684a6ba43aae150d4686e73c65453913e6798770a3c3b754c6e3be782403d6c
-size 976
+﻿using UnityEditor;
+using UnityEngine;
+
+namespace Toolbox.Editor.Drawers
+{
+    [CustomPropertyDrawer(typeof(OnValueChangedAttribute))]
+    public class OnValueChangedAttributeDrawer : PropertyDrawerBase
+    {
+        protected override void OnGUISafe(Rect position, SerializedProperty property, GUIContent label)
+        {
+            EditorGUI.BeginChangeCheck();
+            EditorGUI.PropertyField(position, property, label, property.isExpanded);
+            if (EditorGUI.EndChangeCheck())
+            {
+                var methodName = Attribute.CallbackMethodName;
+                if (ReflectionUtility.TryInvokeMethod(methodName, property.serializedObject))
+                {
+                    return;
+                }
+
+                ToolboxEditorLog.AttributeUsageWarning(attribute, string.Format("{0} method is invalid.", methodName));
+            }
+        }
+
+
+        private OnValueChangedAttribute Attribute => attribute as OnValueChangedAttribute;
+    }
+}

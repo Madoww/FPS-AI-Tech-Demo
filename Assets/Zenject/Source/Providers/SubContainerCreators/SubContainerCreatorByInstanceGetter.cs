@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61ef376273023a76b9a2747f94f83d39ae2ebfe259d90a2957c1bd9102b929ad
-size 1012
+using System;
+using System.Collections.Generic;
+using ModestTree;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class SubContainerCreatorByInstanceGetter : ISubContainerCreator
+    {
+        readonly Func<InjectContext, DiContainer> _subcontainerGetter;
+
+        public SubContainerCreatorByInstanceGetter(
+            Func<InjectContext, DiContainer> subcontainerGetter)
+        {
+            _subcontainerGetter = subcontainerGetter;
+        }
+
+        public DiContainer CreateSubContainer(List<TypeValuePair> args, InjectContext context, out Action injectAction)
+        {
+            Assert.That(args.IsEmpty());
+
+            injectAction = null;
+
+            // It is assumed here that the subcontainer has already had ResolveRoots called elsewhere
+            // Since most likely you are adding a subcontainer that is already in a context or
+            // something rather than directly using DiContainer.CreateSubContainer
+            return _subcontainerGetter(context);
+        }
+    }
+}
+

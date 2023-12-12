@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f36b9a0c1428a255b5907b58c2e31312517fefee90e972e58cf59e87b7e0fd8c
-size 1121
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace FPS.Core.Entities.Management
+{
+    public class EntitiesManager : MonoBehaviour, IEntitiesManager
+    {
+        private Dictionary<string, GameEntity> entities = new Dictionary<string, GameEntity>();
+
+        public void AppendEntity(GameEntity entity)
+        {
+            var guid = entity.Guid;
+            if (entities.ContainsKey(guid))
+            {
+                Debug.LogError($"Entity with guid {guid} was already registered.");
+                return;
+            }
+
+            entities.Add(guid, entity);
+        }
+
+        public void RemoveEntity(GameEntity entity)
+        {
+            RemoveEntity(entity.Guid);
+        }
+
+        public void RemoveEntity(string guid)
+        {
+            entities.Remove(guid);
+        }
+
+        public GameEntity GetEntity(string guid)
+        {
+            if (entities.TryGetValue(guid, out GameEntity entity))
+            {
+                return entity;
+            }
+
+            Debug.LogError($"[Core][Entities] Entity with guid {guid} not found.");
+            return null;
+        }
+    }
+}

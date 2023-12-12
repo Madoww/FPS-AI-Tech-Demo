@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:08a696849d83747ffaf920b3158307107c3e9505f0a9a26a9f7df196ae742937
-size 457
+#if !NOT_UNITY3D
+
+using ModestTree;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class PrefabProvider : IPrefabProvider
+    {
+        readonly UnityEngine.Object _prefab;
+
+        public PrefabProvider(UnityEngine.Object prefab)
+        {
+            Assert.IsNotNull(prefab);
+            _prefab = prefab;
+        }
+
+        public UnityEngine.Object GetPrefab(InjectContext _)
+        {
+            return _prefab;
+        }
+    }
+}
+
+#endif
+
+

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fc1edc42e4517cd38d3db9efe45502094913db7dc9748525369a6dea12a629a
-size 484
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Validates input values and accepts only objects instantiated on the Scene.
+    /// 
+    /// <para>Supported types: <see cref="GameObject"/> and any <see cref="Component"/>.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
+    [Conditional("UNITY_EDITOR")]
+    public class SceneObjectOnlyAttribute : PropertyAttribute
+    { }
+}

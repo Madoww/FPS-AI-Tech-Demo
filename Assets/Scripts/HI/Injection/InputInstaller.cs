@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7845d505b62dae897082d51506d9f177428390af6d95ac1e14f67d4b4aacb3a3
-size 488
+using Zenject;
+
+namespace FPS.HI.Injection
+{
+    using FPS.Common.Injection;
+    using FPS.HI.Input;
+    using FPS.HI.Input.Handlers;
+
+    public class InputInstaller : ExposableInstaller
+    {
+        protected override void InstallBindings(DiContainer container)
+        {
+            container.Bind<IPlayerInputHandler>()
+                .To<PlayerInputHandler>()
+                .AsSingle();
+
+            container.Bind<PlayerControls>()
+                .AsSingle();
+        }
+    }
+}

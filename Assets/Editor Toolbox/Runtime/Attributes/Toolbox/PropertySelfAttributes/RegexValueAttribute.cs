@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c18eec06ceeda01b6f1b5a0da8629da9954fa30841febcfc143c25c815eacc27
-size 841
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Validates target's value using regular expression and given pattern.
+    /// 
+    /// <para>Supported types: <see cref="string"/>.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class RegexValueAttribute : ToolboxSelfPropertyAttribute
+    {
+        public RegexValueAttribute(string pattern) : this(pattern, null)
+        { }
+
+        public RegexValueAttribute(string pattern, string message)
+        {
+            Pattern = pattern;
+            Message = message;
+        }
+
+        public string Pattern { get; private set; }
+        public string Message { get; private set; }
+
+        public bool HasMessage => !string.IsNullOrEmpty(Message);
+    }
+}

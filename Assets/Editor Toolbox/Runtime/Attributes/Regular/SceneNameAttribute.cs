@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0a084e0e86784d53a86a4d96533da97da5fdf41d6a51150346c299b05137f236
-size 400
+﻿using System;
+using System.Diagnostics;
+
+namespace UnityEngine
+{
+    /// <summary>
+    /// Validates if current value is a proper Scene name.
+    /// 
+    /// <para>Supported types: <see cref="string"/>.</para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [Conditional("UNITY_EDITOR")]
+    public class SceneNameAttribute : PropertyAttribute
+    { }
+}

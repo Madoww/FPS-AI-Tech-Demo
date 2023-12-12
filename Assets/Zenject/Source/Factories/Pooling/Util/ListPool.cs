@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6ce4648bb827b598be027cf53045047aae29d11a5e050d2fb93016afb68dcd7
-size 464
+using System.Collections.Generic;
+
+namespace Zenject
+{
+    public class ListPool<T> : StaticMemoryPool<List<T>>
+    {
+        static ListPool<T> _instance = new ListPool<T>();
+
+        public ListPool()
+        {
+            OnDespawnedMethod = OnDespawned;
+        }
+
+        public static ListPool<T> Instance
+        {
+            get { return _instance; }
+        }
+
+        void OnDespawned(List<T> list)
+        {
+            list.Clear();
+        }
+    }
+}

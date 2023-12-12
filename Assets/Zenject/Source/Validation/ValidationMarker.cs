@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7375027d433cac1f1910ad7e3b00cc07a68f3e6d1ab97cd487e710de2b882fa7
-size 606
+using System;
+
+namespace Zenject
+{
+    [NoReflectionBaking]
+    public class ValidationMarker
+    {
+        public ValidationMarker(
+            Type markedType, bool instantiateFailed)
+        {
+            MarkedType = markedType;
+            InstantiateFailed = instantiateFailed;
+        }
+
+        public ValidationMarker(Type markedType)
+            : this(markedType, false)
+        {
+        }
+
+        public bool InstantiateFailed
+        {
+            get;
+            private set;
+        }
+
+        public Type MarkedType
+        {
+            get;
+            private set;
+        }
+    }
+}
+

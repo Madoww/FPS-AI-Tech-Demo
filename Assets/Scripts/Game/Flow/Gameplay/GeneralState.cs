@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:69e4018bf5c8989ba0275c1bb18adfcabe25fb56f22f086bb049c0bcf6171017
-size 564
+using Zenject;
+
+namespace FPS.Game.Flow.Gameplay
+{
+    using FPS.Common.States;
+    using FPS.HI.Input;
+
+    public class GeneralState : BaseState
+    {
+        private IPlayerInputHandler inputHandler;
+
+        public override void Tick()
+        {
+            inputHandler.Tick();
+        }
+
+        public override void Begin()
+        {
+            base.Begin();
+            inputHandler.Enable();
+        }
+
+        [Inject]
+        internal void Bind(IPlayerInputHandler inputHandler)
+        {
+            this.inputHandler = inputHandler;
+        }
+    }
+}

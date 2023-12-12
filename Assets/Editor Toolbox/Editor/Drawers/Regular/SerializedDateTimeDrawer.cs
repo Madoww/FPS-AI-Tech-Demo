@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fcdbe2bfd8ad4a964381a5523b957bfe5b4a7f6076dc73a6e2e4e08b8a6a42e
-size 1195
+using System;
+using UnityEditor;
+using UnityEngine;
+
+namespace Toolbox.Editor.Drawers
+{
+    [CustomPropertyDrawer(typeof(SerializedDateTime))]
+    public class SerializedDateTimeDrawer : PropertyDrawerBase
+    {
+        protected override void OnGUISafe(Rect position, SerializedProperty property, GUIContent label)
+        {
+            label = EditorGUI.BeginProperty(position, label, property);
+            var fieldPosition = EditorGUI.PrefixLabel(position, label);
+            var ticksProperty = property.FindPropertyRelative("ticks");
+            DateTime dateTime = new DateTime(ticksProperty.longValue);
+            EditorGUI.BeginChangeCheck();
+            var dateTimeString = EditorGUI.DelayedTextField(fieldPosition, dateTime.ToString());
+            if (EditorGUI.EndChangeCheck())
+            {
+                if (DateTime.TryParse(dateTimeString, out var newDateTime))
+                {
+                    ticksProperty.serializedObject.Update();
+                    ticksProperty.longValue = newDateTime.Ticks;
+                    ticksProperty.serializedObject.ApplyModifiedProperties();
+                }
+            }
+
+            EditorGUI.EndProperty();
+        }
+    }
+}
