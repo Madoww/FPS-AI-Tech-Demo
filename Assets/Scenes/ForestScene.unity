@@ -1142,7 +1142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.x
@@ -1150,11 +1150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 8.1e-44
+      value: 1.1809417e-28
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 7.6e-43
       objectReference: {fileID: 0}
     - target: {fileID: 10800002, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.w
@@ -1669,11 +1669,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5413897798502479767, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6813613370754690331, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1556615548}
   m_SourcePrefab: {fileID: 100100000, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+--- !u!1 &1556615547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6813613370754690331, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+  m_PrefabInstance: {fileID: 1556615546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1556615548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556615547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1001 &1566096047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2275,15 +2297,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 71.00001
+      value: 1.28e-43
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 9.5436666e-29
+      value: 0.115971744
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 6.56e-43
+      value: 7.6e-43
       objectReference: {fileID: 0}
     - target: {fileID: 10800002, guid: fa1e1e6ef0d95884aaf7ff060ea5a826, type: 3}
       propertyPath: m_BoundingSphereOverride.w
