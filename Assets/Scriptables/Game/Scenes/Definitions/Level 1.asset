@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957c1dfba4b981e4b8f57015aef39974, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  displayName: Forest Level
+  description: test
+  mainScene:
+    sceneReference: {fileID: 102900000, guid: 657ca8d581818c748a6f9b3ad6946199, type: 3}
+    sceneName: ForestScene
+    scenePath: Assets/Scenes/ForestScene.unity
+    buildIndex: 1
+  dependencyGroups:
+  - {fileID: 11400000, guid: dc880ada63ddfda41bdd139a7177c5fe, type: 2}
