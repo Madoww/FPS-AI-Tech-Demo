@@ -8,7 +8,5 @@ namespace FPS.Game.Scenes
 
         void LoadDefinition(SceneDefinition sceneDefinition);
         void LoadDefinition(string mainSceneName);
-        void LoadDefinitionAndWait(SceneDefinition sceneDefinition);
-        void LoadDefinitionAndWait(string mainSceneName);
     }
 }

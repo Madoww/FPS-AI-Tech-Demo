@@ -8,15 +8,16 @@ namespace FPS.Game.Scenes
         private ScenesHolder scenesHolder;
 
         private readonly SerializedDictionary<string, SceneDefinition> sceneDefinitionByMainSceneName = new SerializedDictionary<string, SceneDefinition>();
+        private readonly SceneDefinitionLoadSettings currentLoadSettings = new SceneDefinitionLoadSettings()
+        {
+            ignoreLoadedScenes = true
+        };
 
         private ILoadProcessor currentLoadProcessor;
-        private SceneDefinitionLoadSettings currentLoadSettings;
 
-        public bool IsLoading => throw new System.NotImplementedException();
-
-        public float LoadingProgress => throw new System.NotImplementedException();
-
-        public float LoadingProgressPercent => throw new System.NotImplementedException();
+        public bool IsLoading => currentLoadProcessor != null;
+        public float LoadingProgress => currentLoadProcessor.Progress;
+        public float LoadingProgressPercent => LoadingProgress * 100f;
 
         public void LoadDefinition(SceneDefinition sceneDefinition)
         {
@@ -32,16 +33,6 @@ namespace FPS.Game.Scenes
             }
 
             currentLoadProcessor = ScenesLoadingUtility.LoadDefinition(definition, currentLoadSettings);
-        }
-
-        public void LoadDefinitionAndWait(SceneDefinition sceneDefinition)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void LoadDefinitionAndWait(string mainSceneName)
-        {
-            throw new System.NotImplementedException();
         }
 
         private SceneDefinition GetDefinitionByName(string mainSceneName)

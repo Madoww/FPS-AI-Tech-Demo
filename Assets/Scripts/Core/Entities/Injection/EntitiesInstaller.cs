@@ -1,9 +1,9 @@
-using FPS.Common.Injection;
 using UnityEngine;
 using Zenject;
 
 namespace FPS.Core.Entities.Injection
 {
+    using FPS.Common.Injection;
     using FPS.Core.Entities.Management;
 
     public class EntitiesInstaller : ExposableInstaller
@@ -13,7 +13,9 @@ namespace FPS.Core.Entities.Injection
 
         protected override void InstallBindings(DiContainer container)
         {
-
+            container.Bind<IEntitiesManager>()
+                .FromInstance(entitiesManager)
+                .AsSingle();
         }
     }
 }

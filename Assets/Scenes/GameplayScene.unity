@@ -170,7 +170,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _parentNewObjectsUnderSceneContext: 0
-  _contractNames: []
+  _contractNames:
+  - Core
   _parentContractNames: []
 --- !u!4 &14080012
 Transform:
@@ -641,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5157bfa0a7cbd409a9471302079c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bindToParent: 0
+  bindToParent: 1
   entitiesManager: {fileID: 1419751795}
 --- !u!114 &1953780095
 MonoBehaviour:
@@ -759,10 +760,6 @@ PrefabInstance:
     - target: {fileID: 429515827389179899, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
       propertyPath: m_VolumeFrameworkUpdateModeOption
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 471892262342098649, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
-      propertyPath: far clip plane
-      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7663371931025132076, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
       propertyPath: m_LocalPosition.x
