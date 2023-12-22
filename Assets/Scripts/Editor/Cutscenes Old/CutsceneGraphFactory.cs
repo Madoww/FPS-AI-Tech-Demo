@@ -1,11 +1,11 @@
-﻿using FPS.Cutscenes;
+﻿using FPS.CutscenesOldOld;
 using System;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.CutscenesOldOld
 {
     internal class CutsceneGraphFactory
     {

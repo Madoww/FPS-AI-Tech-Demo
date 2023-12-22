@@ -1,20 +1,20 @@
 ﻿using FPS.Common;
-using FPS.Cutscenes;
+using FPS.CutscenesOldOld;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.CutscenesOldOld
 {
     public class CutscenesManagerWindow : EditorWindow
     {
         private static readonly GraphSettings graphSettings = new GraphSettings(350.0f, 100.0f);
 
-        private ICutscenesHolder cutscenesHolder;
+        private ICutscenesOldOldHolder CutscenesOldOldHolder;
         private StateMachineGraphView graphView;
         private CutsceneDefinition selectedCutscene;
 
-        [MenuItem("Tools/Cutscenes/Cutcenes Editor", false)]
+        [MenuItem("Tools/CutscenesOldOld/Cutcenes Editor", false)]
         public static void Init()
         {
             GetWindow(typeof(CutscenesManagerWindow), false, $"State Machine");
@@ -25,7 +25,7 @@ namespace FPS.Editor.Cutscenes
             rootVisualElement.Clear();
             var splitView = new TwoPaneSplitView(0, 300.0f, TwoPaneSplitViewOrientation.Horizontal);
             rootVisualElement.Add(splitView);
-            cutscenesHolder = AssetUtility.GetFirstAsset<CutscenesHolder>();
+            CutscenesOldOldHolder = AssetUtility.GetFirstAsset<CutscenesOldOldHolder>();
 
             var leftPane = new VisualElement();
             splitView.Add(leftPane);
@@ -37,8 +37,8 @@ namespace FPS.Editor.Cutscenes
                 using (new EditorGUILayout.VerticalScope(Style.pickerSectionStyle))
                 {
                     EditorGUI.BeginChangeCheck();
-                    var cutscenes = cutscenesHolder.Cutscenes;
-                    foreach (CutsceneDefinition cutscene in cutscenes)
+                    var CutscenesOldOld = CutscenesOldOldHolder.Cutscenes;
+                    foreach (CutsceneDefinition cutscene in CutscenesOldOld)
                     {
                         if (GUILayout.Button(cutscene.displayName))
                         {
@@ -69,6 +69,16 @@ namespace FPS.Editor.Cutscenes
             //{
             UpdateGraph();
             rightPane.Add(graphView);
+            rightPane.Add(new IMGUIContainer(() =>
+             {
+                 using (new EditorGUILayout.HorizontalScope())
+                 {
+                     if (GUILayout.Button("Create Node"))
+                     {
+                         //graphView.AddElement(new CutsceneNode())
+                     }
+                 }
+             }));
             //}
         }
 

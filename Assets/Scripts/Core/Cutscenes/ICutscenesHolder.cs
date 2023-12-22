@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace FPS.Cutscenes
+namespace FPS.CutscenesOldOld
 {
-    public interface ICutscenesHolder
+    public interface ICutscenesOldOldHolder
     {
         IReadOnlyList<CutsceneDefinition> Cutscenes { get; }
 

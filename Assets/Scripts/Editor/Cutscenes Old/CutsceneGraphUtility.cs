@@ -1,6 +1,6 @@
-﻿using FPS.Cutscenes;
+﻿using FPS.CutscenesOldOld;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.CutscenesOldOld
 {
     internal static class CutsceneGraphUtility
     {

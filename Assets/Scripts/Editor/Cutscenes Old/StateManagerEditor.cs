@@ -1,4 +1,4 @@
-﻿namespace FPS.Editor.Cutscenes
+﻿namespace FPS.Editor.CutscenesOldOld
 {
     //[CustomEditor(typeof(StateManager))]
     //public class StateManagerEditor : ToolboxEditor

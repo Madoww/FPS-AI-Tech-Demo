@@ -1,6 +1,6 @@
 ﻿using UnityEditor.Experimental.GraphView;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.CutscenesOldOld
 {
     internal class NodeElement : Node
     {

@@ -1,10 +1,10 @@
-﻿using FPS.Cutscenes;
+﻿using FPS.CutscenesOldOld;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.CutscenesOldOld
 {
     internal class CutsceneNode : CutsceneGraphElement<NodeElement>
     {
@@ -47,13 +47,13 @@ namespace FPS.Editor.Cutscenes
             var name = nodeDefinition.displayName;
             Element.title = ObjectNames.NicifyVariableName(name);
             Element.expanded = true;
-            //Element.Add(new Button(() =>
-            //{
-            //    //stateMachine.ChangeState(FlowType);
-            //})
-            //{
-            //    text = "Go To"
-            //});
+            Element.Add(new Button(() =>
+            {
+
+            })
+            {
+                text = "Save"
+            });
             Element.Initialize();
         }
 

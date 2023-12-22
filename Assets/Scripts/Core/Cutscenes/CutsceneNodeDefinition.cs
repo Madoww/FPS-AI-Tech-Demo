@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace FPS.Cutscenes
+namespace FPS.CutscenesOldOld
 {
-    [CreateAssetMenu(menuName = "Cutscenes/Node")]
+    [CreateAssetMenu(menuName = "CutscenesOldOld/Node")]
     public class CutsceneNodeDefinition : ScriptableObject
     {
         public string displayName;

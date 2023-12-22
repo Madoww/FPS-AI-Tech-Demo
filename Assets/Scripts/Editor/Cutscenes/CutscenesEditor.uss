@@ -1,0 +1,17 @@
+GridBackground {
+    --grid-background-color: rgb(40, 40, 40);
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+    --spacing: 15;
+    flex-grow: 1;
+    flex-shrink: 1;
+    opacity: 1;
+}
+
+.stretch {
+    position-type: absolute;
+    position-left: 0;
+    position-top: 0;
+    position-right: 0;
+    position-bottom: 0;
+}

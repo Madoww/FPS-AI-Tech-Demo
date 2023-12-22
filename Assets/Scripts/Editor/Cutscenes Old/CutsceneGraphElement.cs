@@ -1,7 +1,7 @@
 ﻿using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.CutscenesOldOld
 {
     internal abstract class CutsceneGraphElement<T> where T : GraphElement
     {

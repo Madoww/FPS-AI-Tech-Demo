@@ -1,4 +1,4 @@
-﻿namespace FPS.Editor.Cutscenes
+﻿namespace FPS.Editor.CutscenesOldOld
 {
     internal readonly struct GraphSettings
     {
