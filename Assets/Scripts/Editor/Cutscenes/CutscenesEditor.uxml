@@ -5,7 +5,9 @@
             <FPS.Editor.Cutscenes.InspectorView style="flex-grow: 1;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-shrink: 1; flex-basis: auto;">
-            <FPS.Editor.Cutscenes.CutscenesView focusable="true" name="CutscenesView" style="flex-grow: 1; flex-shrink: 1; flex-basis: auto;" />
+            <FPS.Editor.Cutscenes.CutscenesView focusable="true" name="CutscenesView" style="flex-grow: 1; flex-shrink: 1; flex-basis: auto;">
+                <ui:Button text="Refresh" display-tooltip-when-elided="true" name="Refresh" style="flex-direction: row; justify-content: flex-start; align-self: flex-end; align-items: stretch;" />
+            </FPS.Editor.Cutscenes.CutscenesView>
         </ui:VisualElement>
     </FPS.Editor.Cutscenes.SplitView>
 </ui:UXML>

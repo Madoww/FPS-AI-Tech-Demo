@@ -25,9 +25,6 @@ namespace FPS.Editor.Cutscenes
         {
             // Each editor window contains a root VisualElement object
             VisualElement root = rootVisualElement;
-
-            // Instantiate UXML
-            //root.styleSheets.Add(labelFromUXML);
             VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
             root.Add(labelFromUXML);
 
@@ -45,6 +42,8 @@ namespace FPS.Editor.Cutscenes
 
             cutscenesView = root.Q<CutscenesView>();
             inspectorView = root.Q<InspectorView>();
+            Button refreshButton = root.Q<Button>("Refresh");
+            refreshButton.clicked += RefreshGraph;
             cutscenesView.OnNodeSelected += OnSelectNode;
             cutscenesView.PopulateView(cutsceneDefinition);
         }
@@ -52,6 +51,11 @@ namespace FPS.Editor.Cutscenes
         private void OnSelectNode(CutsceneNodeView nodeView)
         {
             inspectorView.UpdateSelection(nodeView);
+        }
+
+        private void RefreshGraph()
+        {
+            cutscenesView.Refresh();
         }
     }
 }

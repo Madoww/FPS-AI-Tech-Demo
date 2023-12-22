@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine.UIElements;
 
 namespace FPS.Editor.Cutscenes
@@ -7,11 +6,5 @@ namespace FPS.Editor.Cutscenes
     {
         public new class UxmlFactory : UxmlFactory<SplitView, TwoPaneSplitView.UxmlTraits>
         { }
-
-        public SplitView()
-        {
-            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/Cutscenes/CutscenesEditor.uss");
-            styleSheets.Add(styleSheet);
-        }
     }
 }

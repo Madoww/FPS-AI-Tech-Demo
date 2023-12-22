@@ -12,6 +12,7 @@ namespace FPS.Editor.Cutscenes
     {
         public event Action<CutsceneNodeView> OnNodeSelected;
 
+        private Button refreshButton;
         private CutsceneDefinition currentDefinition;
 
         public new class UxmlFactory : UxmlFactory<CutscenesView, GraphView.UxmlTraits>
@@ -25,6 +26,7 @@ namespace FPS.Editor.Cutscenes
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
+            var children = Children();
             Insert(0, new GridBackground());
         }
 
@@ -47,6 +49,11 @@ namespace FPS.Editor.Cutscenes
             graphViewChanged += OnGraphViewChanged;
             CreateNodeViews(definition);
             CreateEdges(definition);
+        }
+
+        public void Refresh()
+        {
+            PopulateView(currentDefinition);
         }
 
         private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
