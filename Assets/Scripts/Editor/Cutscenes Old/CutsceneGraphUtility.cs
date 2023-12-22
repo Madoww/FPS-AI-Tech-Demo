@@ -1,4 +1,4 @@
-﻿using FPS.CutscenesOldOld;
+﻿using FPS.Cutscenes;
 
 namespace FPS.Editor.CutscenesOldOld
 {

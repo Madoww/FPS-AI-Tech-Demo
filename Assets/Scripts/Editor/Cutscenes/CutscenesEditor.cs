@@ -1,3 +1,5 @@
+using FPS.Common;
+using FPS.Cutscenes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,6 +11,9 @@ namespace FPS.Editor.Cutscenes
         [SerializeField]
         private VisualTreeAsset m_VisualTreeAsset = default;
 
+        private CutscenesView cutscenesView;
+        private InspectorView inspectorView;
+
         [MenuItem("Tools/CutscenesEditor")]
         public static void ShowExample()
         {
@@ -16,7 +21,7 @@ namespace FPS.Editor.Cutscenes
             wnd.titleContent = new GUIContent("CutscenesEditor");
         }
 
-        public void CreateGUI()
+        private void CreateGUI()
         {
             // Each editor window contains a root VisualElement object
             VisualElement root = rootVisualElement;
@@ -31,6 +36,22 @@ namespace FPS.Editor.Cutscenes
             {
                 root.Add(labelFromUXML.ElementAt(i));
             }
+
+            CutsceneDefinition cutsceneDefinition = AssetUtility.GetFirstAsset<CutsceneDefinition>();
+            if (cutsceneDefinition == null)
+            {
+                return;
+            }
+
+            cutscenesView = root.Q<CutscenesView>();
+            inspectorView = root.Q<InspectorView>();
+            cutscenesView.OnNodeSelected += OnSelectNode;
+            cutscenesView.PopulateView(cutsceneDefinition);
+        }
+
+        private void OnSelectNode(CutsceneNodeView nodeView)
+        {
+            inspectorView.UpdateSelection(nodeView);
         }
     }
 }

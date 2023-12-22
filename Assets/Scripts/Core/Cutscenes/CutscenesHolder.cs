@@ -1,29 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FPS.CutscenesOldOld
+namespace FPS.Cutscenes
 {
-    [CreateAssetMenu(menuName = "CutscenesOldOld/CutscenesOldOld Holder")]
-    public class CutscenesOldOldHolder : ScriptableObject, ICutscenesOldOldHolder
+    [CreateAssetMenu(menuName = "Cutscenes/Cutscenes Holder")]
+    public class CutscenesHolder : ScriptableObject, ICutscenesHolder
     {
         [SerializeField, ReorderableList]
-        private List<CutsceneDefinition> CutscenesOldOld;
+        private List<CutsceneDefinition> cutscenes;
 
-        public IReadOnlyList<CutsceneDefinition> Cutscenes => Cutscenes;
+        public IReadOnlyList<CutsceneDefinition> Cutscenes => cutscenes;
 
         public void AppendCutscene(CutsceneDefinition cutscene)
         {
-            CutscenesOldOld.Add(cutscene);
+            cutscenes.Add(cutscene);
         }
 
         public bool RemoveCutscene(CutsceneDefinition cutscene)
         {
-            return CutscenesOldOld.Remove(cutscene);
+            return cutscenes.Remove(cutscene);
         }
 
         public bool HasCutscene(CutsceneDefinition cutscene)
         {
-            return CutscenesOldOld.Contains(cutscene);
+            return cutscenes.Contains(cutscene);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using FPS.Common;
-using FPS.CutscenesOldOld;
+using FPS.Cutscenes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,7 +10,7 @@ namespace FPS.Editor.CutscenesOldOld
     {
         private static readonly GraphSettings graphSettings = new GraphSettings(350.0f, 100.0f);
 
-        private ICutscenesOldOldHolder CutscenesOldOldHolder;
+        private ICutscenesHolder CutscenesOldOldHolder;
         private StateMachineGraphView graphView;
         private CutsceneDefinition selectedCutscene;
 
@@ -25,7 +25,7 @@ namespace FPS.Editor.CutscenesOldOld
             rootVisualElement.Clear();
             var splitView = new TwoPaneSplitView(0, 300.0f, TwoPaneSplitViewOrientation.Horizontal);
             rootVisualElement.Add(splitView);
-            CutscenesOldOldHolder = AssetUtility.GetFirstAsset<CutscenesOldOldHolder>();
+            CutscenesOldOldHolder = AssetUtility.GetFirstAsset<CutscenesHolder>();
 
             var leftPane = new VisualElement();
             splitView.Add(leftPane);

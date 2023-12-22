@@ -1,4 +1,4 @@
-﻿using FPS.CutscenesOldOld;
+﻿using FPS.Cutscenes;
 using System;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -40,7 +40,7 @@ namespace FPS.Editor.CutscenesOldOld
             var edges = new List<CutsceneEdge>();
             foreach (var node in nodes)
             {
-                var destinations = nodes.FindAll((otherNode) => otherNode.NodeDefinition.Equals(node.NodeDefinition.nextNode));
+                var destinations = nodes.FindAll((otherNode) => otherNode.NodeDefinition.Equals(node.NodeDefinition.childNodes));
                 edges.AddRange(CreateConnections(destinations, node));
             }
 
