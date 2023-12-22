@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-
 namespace FPS.Editor.Cutscenes
 {
     using Editor = UnityEditor.Editor;
