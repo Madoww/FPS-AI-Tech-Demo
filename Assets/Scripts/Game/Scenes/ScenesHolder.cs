@@ -7,7 +7,7 @@ public class ScenesHolder : ScriptableObject, IScenesHolder
 {
     public IReadOnlyList<SceneDefinition> SceneDefinitions => sceneDefinitions;
 
-    [SerializeField]
+    [SerializeField, ReorderableList]
     private List<SceneDefinition> sceneDefinitions;
 
     public void AppendDefinition(SceneDefinition sceneDefinition)
