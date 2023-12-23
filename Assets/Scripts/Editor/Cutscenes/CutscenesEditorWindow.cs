@@ -2,11 +2,10 @@ using FPS.Cutscenes;
 using System.Collections.Generic;
 using Toolbox.Editor;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace FPS.Editor.CutscenesIMGUI
+namespace FPS.Editor.Cutscenes
 {
     public class CutscenesEditorWindow : EditorWindow
     {
@@ -15,9 +14,9 @@ namespace FPS.Editor.CutscenesIMGUI
         private CutscenesHolder cutscenesHolder;
         private CutscenesView graphView;
         private CutsceneDefinition selectedCutscene;
-        int selectedCutsceneIndex;
+        private int selectedCutsceneIndex;
 
-        [MenuItem("Tools/CutscenesOldOld/Cutcenes Editor", false)]
+        [MenuItem("Tools/Cutcenes Editor", false)]
         public static void Init()
         {
             GetWindow(typeof(CutscenesEditorWindow), false, $"Cutscenes");
@@ -78,17 +77,19 @@ namespace FPS.Editor.CutscenesIMGUI
                 }
             }));
 
-            //var stateMachine = GetStateMachine();
-            //PickStateMachine(stateMachine);
-            //if (stateMachine == null)
-            //{
-            //    rightPane.Add(new HelpBox("State Machine not found", HelpBoxMessageType.Warning));
-            //}
-            //else
-            //{
-            UpdateGraph();
-            rightPane.Add(graphView);
-            //}
+            if (cutscenesHolder == null)
+            {
+                rightPane.Add(new HelpBox($"{nameof(CutscenesHolder)} not found.", HelpBoxMessageType.Warning));
+            }
+            else if (selectedCutscene == null)
+            {
+                rightPane.Add(new HelpBox($"{nameof(CutsceneDefinition)} not selected.", HelpBoxMessageType.Warning));
+            }
+            else
+            {
+                UpdateGraph();
+                rightPane.Add(graphView);
+            }
         }
 
         private void SelectCutscene(CutsceneDefinition cutscene)
@@ -99,35 +100,14 @@ namespace FPS.Editor.CutscenesIMGUI
 
         private void UpdateGraph()
         {
-            graphView = CreateEmptyGraph();
-            graphView.OnNodeSelected += OnSelectNode;
-            if (selectedCutscene == null)
+            if (graphView == null)
             {
+                graphView = GraphViewUtility.CreateGraphView(selectedCutscene);
+                graphView.OnNodeSelected += OnSelectNode;
                 return;
             }
 
-            graphView.PopulateView(selectedCutscene);
-        }
-
-        private CutscenesView CreateEmptyGraph()
-        {
-            var graphView = new CutscenesView()
-            {
-                name = "Graph",
-            };
-            graphView.SetupZoom(0.05f, ContentZoomer.DefaultMaxScale);
-            graphView.AddManipulator(new ContentDragger());
-            graphView.AddManipulator(new RectangleSelector());
-            graphView.StretchToParentSize();
-
-            var gridBackground = new GridBackground()
-            {
-                name = "Grid"
-            };
-
-            graphView.Add(gridBackground);
-            gridBackground.SendToBack();
-            return graphView;
+            graphView = GraphViewUtility.CreateGraphView(selectedCutscene, graphView);
         }
 
         private void OnSelectNode(CutsceneNodeView node)

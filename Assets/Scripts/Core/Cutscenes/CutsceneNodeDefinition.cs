@@ -9,7 +9,6 @@ namespace FPS.Cutscenes
         public string displayName;
         public string guid;
         public List<CutsceneNodeDefinition> childNodes = new List<CutsceneNodeDefinition>();
-        [HideInInspector]
         public Vector2 position;
 
         private void Reset()

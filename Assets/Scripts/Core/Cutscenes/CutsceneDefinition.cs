@@ -15,7 +15,7 @@ namespace FPS.Cutscenes
         {
             nodes.Add(node);
             AssetDatabase.AddObjectToAsset(node, this);
-            AssetDatabase.SaveAssetIfDirty(this);
+            AssetDatabase.SaveAssets();
         }
 
         public T AppendNode<T>() where T : CutsceneNodeDefinition
@@ -28,7 +28,7 @@ namespace FPS.Cutscenes
         public bool RemoveNode(CutsceneNodeDefinition node)
         {
             AssetDatabase.RemoveObjectFromAsset(node);
-            AssetDatabase.SaveAssetIfDirty(this);
+            AssetDatabase.SaveAssets();
             return nodes.Remove(node);
         }
     }

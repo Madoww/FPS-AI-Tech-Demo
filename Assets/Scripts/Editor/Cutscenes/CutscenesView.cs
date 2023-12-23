@@ -2,7 +2,6 @@ using FPS.Cutscenes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
@@ -14,19 +13,16 @@ namespace FPS.Editor.Cutscenes
 
         private CutsceneDefinition currentDefinition;
 
-        public new class UxmlFactory : UxmlFactory<CutscenesView, GraphView.UxmlTraits>
-        { }
-
         public CutscenesView()
         {
-            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/Cutscenes/CutscenesEditor.uss");
-            styleSheets.Add(styleSheet);
-            this.AddManipulator(new ContentZoomer());
-            this.AddManipulator(new ContentDragger());
-            this.AddManipulator(new SelectionDragger());
-            this.AddManipulator(new RectangleSelector());
-            var children = Children();
-            Insert(0, new GridBackground());
+            styleSheets.Clear();
+            //var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/Cutscenes/CutscenesEditor.uss");
+            //styleSheets.Add(styleSheet);
+            ////this.AddManipulator(new ContentZoomer());
+            ////this.AddManipulator(new ContentDragger());
+            ////this.AddManipulator(new SelectionDragger());
+            ////this.AddManipulator(new RectangleSelector());
+            //Insert(0, new GridBackground());
         }
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)

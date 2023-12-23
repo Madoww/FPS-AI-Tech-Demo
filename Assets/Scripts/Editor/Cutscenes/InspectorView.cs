@@ -1,30 +1,30 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace FPS.Editor.Cutscenes
 {
     using Editor = UnityEditor.Editor;
 
-    public class InspectorView : VisualElement
+    public class InspectorView
     {
         private Editor editor;
-
-        public new class UxmlFactory : UxmlFactory<InspectorView, VisualElement.UxmlTraits>
-        { }
 
         public InspectorView()
         { }
 
+        public void DrawGui()
+        {
+            if (editor == null)
+            {
+                return;
+            }
+
+            editor.OnInspectorGUI();
+        }
+
         internal void UpdateSelection(CutsceneNodeView nodeView)
         {
-            Clear();
             Object.DestroyImmediate(editor);
             editor = Editor.CreateEditor(nodeView.NodeDefinition);
-            IMGUIContainer container = new IMGUIContainer(() =>
-            {
-                editor.OnInspectorGUI();
-            });
-            Add(container);
         }
     }
 }
