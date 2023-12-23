@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.CutscenesIMGUI
 {
     public class CutscenesView : GraphView
     {
