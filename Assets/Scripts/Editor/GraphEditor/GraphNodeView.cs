@@ -1,23 +1,27 @@
-using FPS.Cutscenes;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using FPS.Cutscenes;
+using FPS.Common;
+using FPS.Editor.Cutscenes;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.GraphEditor
 {
-    public class CutsceneNodeView : Node
+    public class GraphNodeView : Node
     {
-        public event Action<CutsceneNodeView> OnNodeSelected;
+        public event Action<GraphNodeView> OnNodeSelected;
 
         private Port input;
         private Port output;
-        private CutsceneNodeDefinition nodeDefinition;
+        private ScriptableNode nodeDefinition;
 
         public Port Input => input;
         public Port Output => output;
-        public CutsceneNodeDefinition NodeDefinition => nodeDefinition;
+        public ScriptableNode NodeDefinition => nodeDefinition;
 
-        public CutsceneNodeView(CutsceneNodeDefinition nodeDefinition)
+        public GraphNodeView(ScriptableNode nodeDefinition)
         {
             this.nodeDefinition = nodeDefinition;
             this.title = nodeDefinition.displayName;

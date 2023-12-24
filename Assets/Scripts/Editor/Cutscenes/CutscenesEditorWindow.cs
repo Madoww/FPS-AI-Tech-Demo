@@ -4,6 +4,7 @@ using Toolbox.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using FPS.Editor.GraphEditor;
 
 namespace FPS.Editor.Cutscenes
 {
@@ -12,7 +13,7 @@ namespace FPS.Editor.Cutscenes
         private readonly InspectorView nodeInspectorView = new InspectorView();
 
         private CutscenesHolder cutscenesHolder;
-        private CutscenesView graphView;
+        private GraphViewPanel graphView;
         private CutsceneDefinition selectedCutscene;
         private int selectedCutsceneIndex;
 
@@ -110,7 +111,7 @@ namespace FPS.Editor.Cutscenes
             graphView = GraphViewUtility.CreateGraphView(selectedCutscene, graphView);
         }
 
-        private void OnSelectNode(CutsceneNodeView node)
+        private void OnSelectNode(GraphNodeView node)
         {
             nodeInspectorView.UpdateSelection(node);
         }

@@ -1,19 +1,20 @@
-using FPS.Cutscenes;
+using FPS.Common;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
+using FPS.Editor.GraphEditor;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.GraphEditor
 {
     public static class GraphViewUtility
     {
-        public static CutscenesView CreateGraphView(CutsceneDefinition cutsceneDefinition)
+        public static GraphViewPanel CreateGraphView(ScriptableNodesHolder cutsceneDefinition)
         {
             var graphView = CreateGraphView();
             graphView = CreateGraphView(cutsceneDefinition, graphView);
             return graphView;
         }
 
-        public static CutscenesView CreateGraphView(CutsceneDefinition cutsceneDefinition, CutscenesView graphView)
+        public static GraphViewPanel CreateGraphView(ScriptableNodesHolder cutsceneDefinition, GraphViewPanel graphView)
         {
             if (graphView == null)
             {
@@ -24,9 +25,9 @@ namespace FPS.Editor.Cutscenes
             return graphView;
         }
 
-        public static CutscenesView CreateGraphView()
+        public static GraphViewPanel CreateGraphView()
         {
-            var graphView = new CutscenesView()
+            var graphView = new GraphViewPanel()
             {
                 name = "Graph",
             };
