@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using UnityEngine.UIElements;
-using System.Linq;
 using FPS.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
 
 namespace FPS.Editor.GraphEditor
 {
@@ -16,11 +12,6 @@ namespace FPS.Editor.GraphEditor
         public event Action<GraphNodeView> OnNodeSelected;
 
         private ScriptableNodesHolder nodesHolder;
-
-        public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
-        {
-            evt.menu.AppendAction("Add Node", (action) => CreateNodeDefinition());
-        }
 
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
         {
@@ -38,9 +29,10 @@ namespace FPS.Editor.GraphEditor
             CreateEdges(holder);
         }
 
-        public void Refresh()
+        protected void CreateNodeDefinition(Type type)
         {
-            PopulateView(nodesHolder);
+            var node = nodesHolder.AppendNode(type);
+            CreateNodeView(node);
         }
 
         private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
@@ -120,12 +112,6 @@ namespace FPS.Editor.GraphEditor
                 Edge edge = parentView.Output.ConnectTo(childView.Input);
                 AddElement(edge);
             }
-        }
-
-        private void CreateNodeDefinition()
-        {
-            var node = nodesHolder.AppendNode<ScriptableNode>();
-            CreateNodeView(node);
         }
 
         private GraphNodeView GetNodeView(ScriptableNode node)

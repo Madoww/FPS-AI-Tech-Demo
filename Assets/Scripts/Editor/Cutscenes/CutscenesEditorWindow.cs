@@ -1,10 +1,11 @@
-using FPS.Cutscenes;
+using FPS.Common;
+using FPS.Core.Cutscenes;
+using FPS.Editor.GraphEditor;
 using System.Collections.Generic;
 using Toolbox.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using FPS.Editor.GraphEditor;
 
 namespace FPS.Editor.Cutscenes
 {
@@ -21,6 +22,16 @@ namespace FPS.Editor.Cutscenes
         public static void Init()
         {
             GetWindow(typeof(CutscenesEditorWindow), false, $"Cutscenes");
+        }
+
+        private void Awake()
+        {
+            cutscenesHolder = AssetUtility.GetFirstAsset<CutscenesHolder>();
+            if (cutscenesHolder != null && cutscenesHolder.Cutscenes.Count > 0)
+            {
+                selectedCutscene = cutscenesHolder.Cutscenes[0];
+                SelectCutscene(selectedCutscene);
+            }
         }
 
         private void CreateGUI()
@@ -40,13 +51,18 @@ namespace FPS.Editor.Cutscenes
                 {
                     EditorGUI.BeginChangeCheck();
                     cutscenesHolder = EditorGUILayout.ObjectField(cutscenesHolder, typeof(CutscenesHolder), false) as CutscenesHolder;
-                    if (cutscenesHolder == null)
+                    if (cutscenesHolder == null || cutscenesHolder.Cutscenes.Count == 0)
                     {
                         return;
                     }
 
+                    if (selectedCutscene == null)
+                    {
+                        SelectCutscene(cutscenesHolder.Cutscenes[0]);
+                    }
+
                     var cutscenes = cutscenesHolder.Cutscenes;
-                    var displayName = new GUIContent(cutscenes[selectedCutsceneIndex].displayName);
+                    var displayName = new GUIContent(selectedCutscene.displayName);
                     List<string> cutsceneNames = new List<string>();
                     foreach (CutsceneDefinition cutscene in cutscenes)
                     {
@@ -103,7 +119,7 @@ namespace FPS.Editor.Cutscenes
         {
             if (graphView == null)
             {
-                graphView = GraphViewUtility.CreateGraphView(selectedCutscene);
+                graphView = GraphViewUtility.CreateGraphView<CutscenesGraphViewPanel>(selectedCutscene);
                 graphView.OnNodeSelected += OnSelectNode;
                 return;
             }

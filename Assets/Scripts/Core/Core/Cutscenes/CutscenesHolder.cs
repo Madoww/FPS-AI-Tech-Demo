@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FPS.Cutscenes
+namespace FPS.Core.Cutscenes
 {
     [CreateAssetMenu(menuName = "Cutscenes/Cutscenes Holder")]
     public class CutscenesHolder : ScriptableObject, ICutscenesHolder

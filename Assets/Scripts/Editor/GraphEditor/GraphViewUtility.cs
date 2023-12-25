@@ -1,33 +1,32 @@
 using FPS.Common;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
-using FPS.Editor.GraphEditor;
 
 namespace FPS.Editor.GraphEditor
 {
     public static class GraphViewUtility
     {
-        public static GraphViewPanel CreateGraphView(ScriptableNodesHolder cutsceneDefinition)
+        public static T CreateGraphView<T>(ScriptableNodesHolder cutsceneDefinition) where T : GraphViewPanel, new()
         {
-            var graphView = CreateGraphView();
-            graphView = CreateGraphView(cutsceneDefinition, graphView);
+            T graphView = CreateGraphView<T>();
+            graphView = CreateGraphView<T>(cutsceneDefinition, graphView);
             return graphView;
         }
 
-        public static GraphViewPanel CreateGraphView(ScriptableNodesHolder cutsceneDefinition, GraphViewPanel graphView)
+        public static T CreateGraphView<T>(ScriptableNodesHolder cutsceneDefinition, T graphView) where T : GraphViewPanel, new()
         {
             if (graphView == null)
             {
-                graphView = CreateGraphView();
+                graphView = CreateGraphView<T>();
             }
 
             graphView.PopulateView(cutsceneDefinition);
             return graphView;
         }
 
-        public static GraphViewPanel CreateGraphView()
+        public static T CreateGraphView<T>() where T : GraphViewPanel, new()
         {
-            var graphView = new GraphViewPanel()
+            var graphView = new T()
             {
                 name = "Graph",
             };

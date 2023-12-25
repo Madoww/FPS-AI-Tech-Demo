@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using FPS.Cutscenes;
 using FPS.Common;
-using FPS.Editor.Cutscenes;
+using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -12,6 +8,8 @@ namespace FPS.Editor.GraphEditor
     public class GraphNodeView : Node
     {
         public event Action<GraphNodeView> OnNodeSelected;
+
+        public string description;
 
         private Port input;
         private Port output;
@@ -48,6 +46,8 @@ namespace FPS.Editor.GraphEditor
         private void CreateInputPorts()
         {
             input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null);
+            //var inputField = new TextField("Description", int.MaxValue, true, false, '*');
+            //extensionContainer.Add(inputField);
             inputContainer.Add(input);
         }
 

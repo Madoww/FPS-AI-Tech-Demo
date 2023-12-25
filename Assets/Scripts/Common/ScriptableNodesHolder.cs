@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +15,13 @@ namespace FPS.Common
             nodes.Add(node);
             AssetDatabase.AddObjectToAsset(node, this);
             AssetDatabase.SaveAssets();
+        }
+
+        public ScriptableNode AppendNode(Type type)
+        {
+            ScriptableNode node = (ScriptableNode)ScriptableObject.CreateInstance(type);
+            AppendNode(node);
+            return node;
         }
 
         public T AppendNode<T>() where T : ScriptableNode

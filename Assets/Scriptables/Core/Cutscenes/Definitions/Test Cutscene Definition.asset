@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae35454420b3aa4b85ee57caed9d1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Node 3
+  displayName: Node 1
   guid: 535f75a3-7a56-49e8-b3c8-ad16bd3a91e6
   childNodes:
   - {fileID: 7164966463971142319}
-  position: {x: 139, y: 4}
+  position: {x: -89.13031, y: -2.25}
+  description: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,11 +30,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10239b1dc1065c4d983968642bd8d45, type: 3}
   m_Name: Test Cutscene Definition
   m_EditorClassIdentifier: 
-  displayName: Test Cutscene
   nodes:
   - {fileID: -8557848282978983338}
   - {fileID: 7164966463971142319}
   - {fileID: 8075355121091470156}
+  - {fileID: 0}
+  displayName: Test Cutscene
 --- !u!114 &7164966463971142319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,7 +52,8 @@ MonoBehaviour:
   guid: d3993c14-794a-4961-9674-49cedeb2c7f1
   childNodes:
   - {fileID: 8075355121091470156}
-  position: {x: 251, y: 4.119999}
+  position: {x: 143.83295, y: -79.00001}
+  description: 
 --- !u!114 &8075355121091470156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,4 +69,5 @@ MonoBehaviour:
   displayName: Node 5
   guid: ed4576a2-2b40-4efb-897f-f646d762a2f7
   childNodes: []
-  position: {x: 351, y: 4}
+  position: {x: 384.672, y: 16.650003}
+  description: 

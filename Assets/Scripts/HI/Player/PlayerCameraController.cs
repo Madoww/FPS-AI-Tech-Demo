@@ -6,7 +6,7 @@ namespace FPS.HI.Player
     {
         //TODO: Proper injection
         [SerializeField]
-        private Camera camera;
+        private new Camera camera;
         [SerializeField]
         private Transform playerTransform;
         [SerializeField]
