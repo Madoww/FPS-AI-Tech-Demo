@@ -14,7 +14,7 @@ namespace FPS.Editor.Cutscenes
         private readonly InspectorView nodeInspectorView = new InspectorView();
 
         private CutscenesHolder cutscenesHolder;
-        private GraphViewPanel graphView;
+        private CutscenesGraphViewPanel graphView;
         private CutsceneDefinition selectedCutscene;
         private int selectedCutsceneIndex;
 

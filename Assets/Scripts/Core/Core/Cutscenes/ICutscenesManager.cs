@@ -1,7 +1,7 @@
 namespace FPS.Core.Cutscenes
 {
-    public interface ICutscenesOldOldManager
+    public interface ICutscenesManager
     {
-
+        Cutscene LoadCutscene(CutsceneDefinition definition);
     }
 }
