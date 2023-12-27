@@ -324,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635533301}
   - component: {fileID: 635533302}
+  - component: {fileID: 635533303}
   m_Layer: 0
   m_Name: Cutscenes
   m_TagString: Untagged
@@ -360,7 +361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factory:
     rid: 3900293797279170562
-  defaultDefinition: {fileID: 11400000, guid: e7f1213553052194e9aaff756394cb21, type: 2}
   references:
     version: 2
     RefIds:
@@ -368,9 +368,25 @@ MonoBehaviour:
       type: {class: DefaultCutscenesFactory, ns: FPS.Game.Cutscenes, asm: FPS.Game}
       data:
         cutsceneNodes:
+        - rid: 3900293821824761856
         - rid: 3900293797279170564
     - rid: 3900293797279170564
       type: {class: PrintMessageNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
+    - rid: 3900293821824761856
+      type: {class: RootNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
+--- !u!114 &635533303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635533300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94046f76c9f6a845a952e3f1323cf04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCutscene: {fileID: 11400000, guid: e7f1213553052194e9aaff756394cb21, type: 2}
 --- !u!1 &718965751
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +679,7 @@ GameObject:
   - component: {fileID: 1953780093}
   - component: {fileID: 1953780095}
   - component: {fileID: 1953780094}
+  - component: {fileID: 1953780096}
   m_Layer: 0
   m_Name: CoreContext
   m_TagString: Untagged
@@ -717,9 +734,25 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1953780094}
+  - {fileID: 1953780096}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
+--- !u!114 &1953780096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953780092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8bfcd907c5771146b962a5efbe6b287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bindToParent: 1
+  cutscenesManager: {fileID: 635533302}
+  cutscenesController: {fileID: 635533303}
 --- !u!20 &2047270977 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 471892262342098649, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}

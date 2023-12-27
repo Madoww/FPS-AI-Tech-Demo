@@ -1,4 +1,4 @@
-namespace FPS.Core.Cutscenes
+namespace FPS.Core.Cutscenes.Management
 {
     public interface ICutscenesManager
     {

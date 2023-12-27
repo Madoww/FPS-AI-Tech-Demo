@@ -11,21 +11,21 @@ namespace FPS.Common
         [ReorderableList]
         public List<ScriptableNode> nodes;
 
-        public void AppendNode(ScriptableNode node)
+        public virtual void AppendNode(ScriptableNode node)
         {
             nodes.Add(node);
             AssetDatabase.AddObjectToAsset(node, this);
             AssetDatabase.SaveAssets();
         }
 
-        public ScriptableNode AppendNode(Type type)
+        public virtual ScriptableNode AppendNode(Type type)
         {
             ScriptableNode node = (ScriptableNode)ScriptableObject.CreateInstance(type);
             AppendNode(node);
             return node;
         }
 
-        public bool RemoveNode(ScriptableNode node)
+        public virtual bool RemoveNode(ScriptableNode node)
         {
             AssetDatabase.RemoveObjectFromAsset(node);
             AssetDatabase.SaveAssets();

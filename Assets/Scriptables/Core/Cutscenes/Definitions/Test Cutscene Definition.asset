@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4174369382823711429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b789f9ad68ad24e9e808d7a34fdde4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: 
+  guid: 3b9f1668-b165-4f65-b893-e30bf779a871
+  childNodes: []
+  position: {x: 130.79517, y: 56.49999}
+  description: 
+  message: Hey
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,8 +31,12 @@ MonoBehaviour:
   m_Name: Test Cutscene Definition
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 8308377172250920879}
+  - {fileID: 0}
   - {fileID: 2131436224028201798}
+  - {fileID: 8093855589683687316}
+  - {fileID: -4174369382823711429}
+  - {fileID: 3107327070602329185}
+  rootNodeData: {fileID: 8093855589683687316}
   displayName: Test Cutscene
 --- !u!114 &2131436224028201798
 MonoBehaviour:
@@ -30,11 +52,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Print Message
   guid: bdfd3d9a-5f26-448d-8584-32d0ea4eba7a
-  childNodes: []
-  position: {x: 236.68, y: 94.96}
+  childNodes:
+  - {fileID: 3107327070602329185}
+  position: {x: 98, y: 189}
   description: 
   message: Hello World 2
---- !u!114 &8308377172250920879
+--- !u!114 &3107327070602329185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,10 +69,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b789f9ad68ad24e9e808d7a34fdde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Print Message
-  guid: 75d051fb-c088-41b3-b2f6-18b194692543
-  childNodes:
-  - {fileID: 2131436224028201798}
-  position: {x: 23, y: 95}
+  displayName: 
+  guid: 79f19217-9dcd-493c-bc85-024d1b8a69bf
+  childNodes: []
+  position: {x: 305.99997, y: 188.5885}
   description: 
-  message: Hello World!
+  message: Hey Hey
+--- !u!114 &8093855589683687316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1ed88a39d19c7438ca1a6d22241400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Root
+  guid: 765de3c0-2c07-4969-9e1f-532fb4399bb3
+  childNodes: []
+  position: {x: -218.76001, y: 95}
+  description: 

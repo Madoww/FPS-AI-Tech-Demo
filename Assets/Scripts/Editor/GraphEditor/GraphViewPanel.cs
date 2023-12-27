@@ -32,6 +32,11 @@ namespace FPS.Editor.GraphEditor
         protected void CreateNodeDefinition(Type type)
         {
             var node = nodesHolder.AppendNode(type);
+            if (node == null)
+            {
+                return;
+            }
+
             CreateNodeView(node);
         }
 

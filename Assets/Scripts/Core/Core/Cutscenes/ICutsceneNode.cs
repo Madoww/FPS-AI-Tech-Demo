@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace FPS.Core.Cutscenes
 {
@@ -8,5 +9,7 @@ namespace FPS.Core.Cutscenes
 
         void Execute();
         void Setup(CutsceneNodeData data);
+        void AddChild(ICutsceneNode child);
+        void AddChildren(IList<ICutsceneNode> children);
     }
 }

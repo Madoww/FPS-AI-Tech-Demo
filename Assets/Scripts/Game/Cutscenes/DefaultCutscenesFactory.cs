@@ -7,20 +7,17 @@ namespace FPS.Game.Cutscenes
 {
     public class DefaultCutscenesFactory : ICutscenesFactory
     {
-        [SerializeReference, ReferencePicker]
+        [SerializeReference, ReferencePicker, ReorderableList]
         private List<ICutsceneNode> cutsceneNodes;
 
         public Cutscene CreateCutscene(CutsceneDefinition cutsceneDefinition)
         {
-            var runtimeNodes = new List<ICutsceneNode>();
-            var nodeDatas = cutsceneDefinition.Nodes;
-            foreach (var nodeData in nodeDatas)
-            {
-                var node = GetInstanceForData(nodeData);
-                runtimeNodes.Add(node);
-            }
+            var rootNodeData = cutsceneDefinition.rootNodeData;
+            var rootNodeInstance = GetInstanceForData(rootNodeData);
+            var rootNodeChildren = CreateNodesChildNodes(rootNodeData);
+            rootNodeInstance.AddChildren(rootNodeChildren);
 
-            Cutscene cutscene = new Cutscene(runtimeNodes[0]);
+            Cutscene cutscene = new Cutscene(rootNodeInstance);
             return cutscene;
         }
 
@@ -39,6 +36,26 @@ namespace FPS.Game.Cutscenes
             }
 
             return null;
+        }
+
+        private List<ICutsceneNode> CreateNodesChildNodes(CutsceneNodeData nodeData)
+        {
+            var childNodeDatas = nodeData.childNodes;
+            var nodes = new List<ICutsceneNode>();
+            foreach (CutsceneNodeData childNodeData in childNodeDatas)
+            {
+                var nodeInstance = GetInstanceForData(childNodeData);
+                var instanceChildren = CreateNodesChildNodes(childNodeData);
+                foreach (var childNode in instanceChildren)
+                {
+                    nodeInstance.AddChild(childNode);
+                }
+
+                nodeInstance.Setup(childNodeData);
+                nodes.Add(nodeInstance);
+            }
+
+            return nodes;
         }
     }
 }

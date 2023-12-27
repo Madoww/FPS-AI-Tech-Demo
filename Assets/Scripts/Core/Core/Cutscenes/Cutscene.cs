@@ -2,11 +2,11 @@ namespace FPS.Core.Cutscenes
 {
     public class Cutscene
     {
-        private ICutsceneNode rootNode;
+        public ICutsceneNode RootNode { get; private set; }
 
         public Cutscene(ICutsceneNode rootNode)
         {
-            this.rootNode = rootNode;
+            RootNode = rootNode;
         }
     }
 }
