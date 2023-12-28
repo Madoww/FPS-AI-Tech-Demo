@@ -16,7 +16,7 @@ namespace FPS.Editor.Scenes
         private Editor scenesHolderEditor;
         private ScenesHolder scenesHolder;
 
-        [MenuItem("Scenes/Scenes Manager Window")]
+        [MenuItem("Tools/Scenes Management")]
         public static void ShowWindow()
         {
             var window = GetWindow<ScenesManagerWindow>();
