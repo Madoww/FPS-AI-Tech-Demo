@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4174369382823711429
+--- !u!114 &-3842427245493968410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,15 +9,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b789f9ad68ad24e9e808d7a34fdde4, type: 3}
+  m_Script: {fileID: 11500000, guid: 27372dc1f0cd3a442a8445783be3162e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: 
-  guid: 3b9f1668-b165-4f65-b893-e30bf779a871
+  displayName: Animation
+  guid: 13a434fe-eb4a-444d-8fae-8148ac21f2ff
   childNodes: []
-  position: {x: 130.79517, y: 56.49999}
+  position: {x: 69.06157, y: 32.00001}
   description: 
-  message: Hey
+  animationClip: {fileID: 1827226128182048838, guid: 84f9ae0f8aadf724993e2ed766105556, type: 3}
+--- !u!114 &-1301459172271250206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1ed88a39d19c7438ca1a6d22241400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Root
+  guid: 08db147f-93d3-4636-808d-573d139648e9
+  childNodes:
+  - {fileID: -3842427245493968410}
+  position: {x: -130.97122, y: 32.00006}
+  description: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,64 +49,7 @@ MonoBehaviour:
   m_Name: Test Cutscene Definition
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 0}
-  - {fileID: 2131436224028201798}
-  - {fileID: 8093855589683687316}
-  - {fileID: -4174369382823711429}
-  - {fileID: 3107327070602329185}
-  rootNodeData: {fileID: 8093855589683687316}
+  - {fileID: -1301459172271250206}
+  - {fileID: -3842427245493968410}
+  rootNodeData: {fileID: -1301459172271250206}
   displayName: Test Cutscene
---- !u!114 &2131436224028201798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b789f9ad68ad24e9e808d7a34fdde4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: Print Message
-  guid: bdfd3d9a-5f26-448d-8584-32d0ea4eba7a
-  childNodes:
-  - {fileID: 3107327070602329185}
-  position: {x: 98, y: 189}
-  description: 
-  message: Hello World 2
---- !u!114 &3107327070602329185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b789f9ad68ad24e9e808d7a34fdde4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: 
-  guid: 79f19217-9dcd-493c-bc85-024d1b8a69bf
-  childNodes: []
-  position: {x: 305.99997, y: 188.5885}
-  description: 
-  message: Hey Hey
---- !u!114 &8093855589683687316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1ed88a39d19c7438ca1a6d22241400, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: Root
-  guid: 765de3c0-2c07-4969-9e1f-532fb4399bb3
-  childNodes: []
-  position: {x: -218.76001, y: 95}
-  description: 

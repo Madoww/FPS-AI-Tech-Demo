@@ -18,6 +18,11 @@ namespace FPS.Core.Cutscenes
             this.data = data as T;
         }
 
+        public virtual void Setup(IDataProvidersHandler providersHandler)
+        { }
+
+        public abstract void Execute();
+
         public void AddChild(ICutsceneNode child)
         {
             children.Add(child);
@@ -31,7 +36,7 @@ namespace FPS.Core.Cutscenes
             }
         }
 
-        public abstract void Execute();
+
         public virtual void ExecuteChildren()
         {
             foreach (ICutsceneNode child in Children)

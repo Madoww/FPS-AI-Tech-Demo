@@ -9,6 +9,8 @@ namespace FPS.Game.Cutscenes
     {
         [SerializeReference, ReferencePicker, ReorderableList]
         private List<ICutsceneNode> cutsceneNodes;
+        [SerializeReference]
+        private DataProvidersHandler providersHandler;
 
         public Cutscene CreateCutscene(CutsceneDefinition cutsceneDefinition)
         {
@@ -52,6 +54,7 @@ namespace FPS.Game.Cutscenes
                 }
 
                 nodeInstance.Setup(childNodeData);
+                nodeInstance.Setup(providersHandler);
                 nodes.Add(nodeInstance);
             }
 
