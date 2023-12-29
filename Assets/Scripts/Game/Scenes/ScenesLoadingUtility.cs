@@ -65,22 +65,15 @@ public static class ScenesLoadingUtility
 
     private static void LoadDefinitionSimple(SceneDefinition sceneDefinition)
     {
+        var mainScene = sceneDefinition.mainScene;
+        LoadSceneAsync(mainScene, LoadSceneMode.Single);
+
         var dependentScenes = sceneDefinition.GetLoadableDependentScenes();
         for (int i = 0; i < dependentScenes.Count; i++)
         {
             var scene = dependentScenes[i];
-            if (i == 0)
-            {
-                LoadSceneAsync(scene, LoadSceneMode.Single);
-            }
-            else
-            {
-                LoadSceneAsync(scene, LoadSceneMode.Additive);
-            }
+            LoadSceneAsync(scene, LoadSceneMode.Additive);
         }
-
-        var mainScene = sceneDefinition.mainScene;
-        LoadSceneAsync(mainScene, LoadSceneMode.Additive);
     }
 
     [Conditional("UNITY_EDITOR")]
@@ -89,7 +82,6 @@ public static class ScenesLoadingUtility
         var openSceneMode = loadSceneMode == LoadSceneMode.Additive
             ? OpenSceneMode.Additive
             : OpenSceneMode.Single;
-        var openedScene = EditorSceneManager.OpenScene(scene.ScenePath, openSceneMode);
-        SceneManager.SetActiveScene(openedScene);
+        EditorSceneManager.OpenScene(scene.ScenePath, openSceneMode);
     }
 }

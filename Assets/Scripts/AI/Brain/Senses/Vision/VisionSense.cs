@@ -66,7 +66,6 @@ namespace FPS.AI.Brain.Senses.Vision
                 data.Add(visionData);
             }
 
-            Debug.Log("===============");
             foreach (var target in data)
             {
                 Debug.Log(target.position + " / " + target.certainty);

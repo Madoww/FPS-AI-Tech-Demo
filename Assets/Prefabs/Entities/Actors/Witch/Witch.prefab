@@ -684,6 +684,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5925902792157085706}
+  - component: {fileID: 6641546530806254910}
+  - component: {fileID: 5960115215435784827}
+  - component: {fileID: 6684399713462055428}
   m_Layer: 0
   m_Name: Witch
   m_TagString: Untagged
@@ -707,6 +710,66 @@ Transform:
   - {fileID: 2656692342221532114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6641546530806254910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945276109447040187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1712138ab2d57844282f851c1b9e910a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  senses: []
+--- !u!114 &5960115215435784827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945276109447040187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93369b3ac287f5847993eda150512d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviourTreeBuilder:
+    rid: 3900293843968065539
+  references:
+    version: 2
+    RefIds:
+    - rid: 3900293843968065539
+      type: {class: MonsterBehaviourTreeBuilder, ns: FPS.AI.Monster, asm: FPS.AI}
+      data:
+        aiBrain: {fileID: 6641546530806254910}
+        navMeshAgent: {fileID: 6684399713462055428}
+        playerTransform: {fileID: 0}
+        selfTransform: {fileID: 5925902792157085706}
+        patrolDataProvider: {fileID: 0}
+--- !u!195 &6684399713462055428
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945276109447040187}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.7
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3109590833828478695
 GameObject:
   m_ObjectHideFlags: 0
