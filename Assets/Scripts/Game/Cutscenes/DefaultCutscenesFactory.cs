@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace FPS.Game.Cutscenes
 {
-    public class DefaultCutscenesFactory : ICutscenesFactory
+    public class DefaultCutscenesFactory : ICutsceneFactory
     {
         [SerializeReference, ReferencePicker, ReorderableList]
         private List<ICutsceneNode> cutsceneNodes;
-        [SerializeReference]
-        private DataProvidersHandler providersHandler;
+        [SerializeReference, ReferencePicker]
+        private IDataProvidersHandler providersHandler;
 
         public Cutscene CreateCutscene(CutsceneDefinition cutsceneDefinition)
         {

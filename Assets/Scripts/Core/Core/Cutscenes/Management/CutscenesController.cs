@@ -5,16 +5,9 @@ namespace FPS.Core.Cutscenes.Management
 {
     public class CutscenesController : MonoBehaviour, ICutscenesController
     {
-        [SerializeField]
-        private CutsceneDefinition defaultCutscene;
-
         private Cutscene activeCutscene;
         private ICutscenesManager cutscenesManager;
 
-        private void Awake()
-        {
-            Play(defaultCutscene);
-        }
 
         public void Play(CutsceneDefinition cutscene)
         {

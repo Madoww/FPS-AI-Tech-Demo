@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa03c84cc4e085441b9415172ee3e580, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
+  scene:
+    sceneReference: {fileID: 102900000, guid: 657ca8d581818c748a6f9b3ad6946199, type: 3}
+    sceneName: ForestScene
+    scenePath: Assets/Scenes/ForestScene.unity
+    buildIndex: 1
   ambienceMusic:
     Guid:
       Data1: 982539047

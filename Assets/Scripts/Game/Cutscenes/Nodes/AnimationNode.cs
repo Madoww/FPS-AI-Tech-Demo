@@ -24,7 +24,12 @@ namespace FPS.Game.Cutscenes.Nodes
         public override void Execute()
         {
             AnimationClip clip = Data.animationClip;
-            animator.Play(clip.name);
+            if (clip == null)
+            {
+                return;
+            }
+
+            animator?.Play(clip.name);
         }
     }
 }

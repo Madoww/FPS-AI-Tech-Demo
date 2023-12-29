@@ -65,16 +65,6 @@ namespace FPS.Game.Scenes
                 yield return ScenesLoadingUtility.UnloadSceneAsync(sceneIndexToUnload);
             }
 
-            var mainScene = sceneDefinition.mainScene;
-            if (!ScenesLoadingUtility.IsSceneLoaded(mainScene))
-            {
-                currentLoadOperation = ScenesLoadingUtility.LoadSceneAsync(mainScene, LoadSceneMode.Additive);
-                yield return currentLoadOperation;
-
-                var mainSceneObject = SceneManager.GetSceneByBuildIndex(mainScene.BuildIndex);
-                SceneManager.SetActiveScene(mainSceneObject);
-            }
-
             foreach (var scene in sceneDefinition.GetLoadableDependentScenes())
             {
                 if (!ScenesLoadingUtility.IsSceneLoaded(scene))
@@ -84,6 +74,16 @@ namespace FPS.Game.Scenes
                 }
 
                 loadedScenesCount++;
+            }
+
+            var mainScene = sceneDefinition.mainScene;
+            if (!ScenesLoadingUtility.IsSceneLoaded(mainScene))
+            {
+                currentLoadOperation = ScenesLoadingUtility.LoadSceneAsync(mainScene, LoadSceneMode.Additive);
+                yield return currentLoadOperation;
+
+                var mainSceneObject = SceneManager.GetSceneByBuildIndex(mainScene.BuildIndex);
+                SceneManager.SetActiveScene(mainSceneObject);
             }
 
             loadedScenesCount++;

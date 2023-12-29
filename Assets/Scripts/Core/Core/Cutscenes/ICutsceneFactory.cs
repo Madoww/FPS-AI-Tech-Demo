@@ -1,6 +1,6 @@
 namespace FPS.Core.Cutscenes
 {
-    public interface ICutscenesFactory
+    public interface ICutsceneFactory
     {
         Cutscene CreateCutscene(CutsceneDefinition cutsceneDefinition);
     }

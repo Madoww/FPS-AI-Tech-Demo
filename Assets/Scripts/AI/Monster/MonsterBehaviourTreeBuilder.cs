@@ -24,7 +24,7 @@ namespace FPS.AI.Monster
 
         public BehaviourTree Build()
         {
-            //var actionPatrol = new ActionPatrol(patrolDataProvider.GetPatrolData(), selfTransform, navMeshAgent);
+            var actionPatrol = new ActionPatrol(patrolDataProvider.GetPatrolData(), selfTransform, navMeshAgent);
             //var sequenceChase = new Sequence(new List<Node>()
             //{
             //    new ConditionIsPlayerSpotted(aiBrain),
@@ -45,7 +45,7 @@ namespace FPS.AI.Monster
                 logTorchNotEquipped
             });
 
-            BehaviourTree tree = new BehaviourTree(selectorTest);
+            BehaviourTree tree = new BehaviourTree(actionPatrol);
             return tree;
         }
     }
