@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -19,9 +18,9 @@ namespace FPS.Game.Flow
         }
 
         [Inject]
-        internal void Bind(BaseState[] states)
+        internal void Bind(MasterState[] states)
         {
-            stateMachine = new GeneralStateMachine(new List<BaseState>(states), states[0]);
+            stateMachine = new GeneralStateMachine(states);
         }
     }
 }

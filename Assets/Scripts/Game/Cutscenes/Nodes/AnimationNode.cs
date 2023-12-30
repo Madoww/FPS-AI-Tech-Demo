@@ -1,5 +1,6 @@
 ﻿using FPS.Core.Cutscenes;
 using FPS.Core.Cutscenes.Data;
+using FPS.Core.Cutscenes.Providers;
 using UnityEngine;
 
 namespace FPS.Game.Cutscenes.Nodes
@@ -11,10 +12,9 @@ namespace FPS.Game.Cutscenes.Nodes
         public override void Setup(IDataProvidersHandler providersHandler)
         {
             base.Setup(providersHandler);
-            var animatorProvider = providersHandler.TryGetProvider<AnimatorProvider>();
-            if (animatorProvider == null)
+            if (!providersHandler.TryGetProvider<AnimatorProvider>(out var animatorProvider))
             {
-                Debug.LogWarning($"{nameof(Animator)} not provided.");
+                Debug.LogWarning($"{nameof(AnimatorProvider)} not found.");
                 return;
             }
 

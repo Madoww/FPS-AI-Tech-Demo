@@ -2,6 +2,6 @@
 {
     public interface IDataProvidersHandler
     {
-        T TryGetProvider<T>() where T : ICutsceneDataProvider;
+        bool TryGetProvider<T>(out T provider) where T : ICutsceneDataProvider;
     }
 }

@@ -4,8 +4,7 @@ namespace FPS.Game.Flow
 
     public class GeneralStateMachine : BaseStateMachine
     {
-        public GeneralStateMachine(List<BaseState> states, BaseState startState) : base(states, startState)
-        {
-        }
+        public GeneralStateMachine(IReadOnlyList<BaseState> states, BaseState startState = null) : base(states, startState)
+        { }
     }
 }

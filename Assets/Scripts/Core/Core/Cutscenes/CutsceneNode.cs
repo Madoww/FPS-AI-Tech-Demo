@@ -12,6 +12,7 @@ namespace FPS.Core.Cutscenes
         public T Data => data;
         public Type DataType => typeof(T);
         public IReadOnlyList<ICutsceneNode> Children => children;
+        public bool IsFinished { get; private set; }
 
         public void Setup(CutsceneNodeData data)
         {
@@ -20,6 +21,11 @@ namespace FPS.Core.Cutscenes
 
         public virtual void Setup(IDataProvidersHandler providersHandler)
         { }
+
+        public virtual void Complete()
+        {
+            ExecuteChildren();
+        }
 
         public abstract void Execute();
 

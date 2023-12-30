@@ -1,26 +1,23 @@
+using FPS.Game.Flow;
+using UnityEngine;
 using Zenject;
 
 namespace FPS.Game.Injection
 {
-    using FPS.Game.Flow;
-    //TODO: Add flow builder
-    using FPS.Game.Flow.Gameplay;
 
     public class StatesInstaller : MonoInstaller
     {
+        [SerializeReference, ReferencePicker]
+        private IFlowBuilder flowBuilder;
+
         public override void InstallBindings()
         {
-            //TODO: add a flow builder
-            BaseState[] states =
-            {
-                new GeneralState()
-            };
-
-            Container.Bind<BaseState>().
+            Container.Bind<MasterState>().
                 FromMethodMultiple((context) =>
                 {
+                    var states = flowBuilder.Build(out var linkedStates);
                     var container = context.Container;
-                    foreach (var state in states)
+                    foreach (var state in linkedStates)
                     {
                         container.QueueForInject(state);
                     }

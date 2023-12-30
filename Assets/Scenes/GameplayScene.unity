@@ -264,6 +264,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9f566ab44b593438f0918746f1f3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flowBuilder:
+    rid: 3900293890268200960
+  references:
+    version: 2
+    RefIds:
+    - rid: 3900293890268200960
+      type: {class: DefaultFlowBuilder, ns: FPS.Game.Flow.Builders, asm: FPS.Game}
 --- !u!114 &464356537
 MonoBehaviour:
   m_ObjectHideFlags: 0

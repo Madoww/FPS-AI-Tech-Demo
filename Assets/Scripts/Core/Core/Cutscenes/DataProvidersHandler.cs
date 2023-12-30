@@ -10,17 +10,19 @@ namespace FPS.Core.Cutscenes
         [SerializeReference, ReferencePicker, ReorderableList]
         private List<ICutsceneDataProvider> dataProviders;
 
-        public T TryGetProvider<T>() where T : ICutsceneDataProvider
+        public bool TryGetProvider<T>(out T provider) where T : ICutsceneDataProvider
         {
-            foreach (ICutsceneDataProvider provider in dataProviders)
+            foreach (ICutsceneDataProvider dataProvider in dataProviders)
             {
-                if (provider is T)
+                if (dataProvider is T)
                 {
-                    return (T)provider;
+                    provider = (T)dataProvider;
+                    return true;
                 }
             }
 
-            return default(T);
+            provider = default(T);
+            return false;
         }
     }
 }

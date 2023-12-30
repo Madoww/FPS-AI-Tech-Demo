@@ -292,6 +292,37 @@ Transform:
   - {fileID: 503534738}
   m_Father: {fileID: 348971935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &227957303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 227957304}
+  m_Layer: 0
+  m_Name: Target Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &227957304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227957303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 82.89, y: 0, z: 107.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 500081856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &341224872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -432,7 +463,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 808996573}
   - {fileID: 835840326}
   - {fileID: 571448802}
   - {fileID: 1209184481}
@@ -498,6 +528,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 887027135}
+  - {fileID: 227957304}
   m_Father: {fileID: 1749544245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &500081857
@@ -525,23 +556,36 @@ MonoBehaviour:
         - rid: 3900293870169358344
         - rid: 3900293870169358342
         - rid: 3900293870169358343
+        - rid: 3900293890268200964
         providersHandler:
           rid: 3900293870169358340
     - rid: 3900293870169358340
       type: {class: DataProvidersHandler, ns: FPS.Core.Cutscenes, asm: FPS.Core}
       data:
         dataProviders:
-        - rid: 3900293870169358341
-    - rid: 3900293870169358341
-      type: {class: AnimatorProvider, ns: , asm: FPS.Core}
-      data:
-        animator: {fileID: 1688779652}
+        - rid: 3900293890268200961
+        - rid: 3900293890268200962
+        - rid: 3900293890268200963
     - rid: 3900293870169358342
       type: {class: AnimationNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
     - rid: 3900293870169358343
       type: {class: PrintMessageNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
     - rid: 3900293870169358344
       type: {class: RootNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
+    - rid: 3900293890268200961
+      type: {class: AnimatorProvider, ns: FPS.Core.Cutscenes.Providers, asm: FPS.Core}
+      data:
+        animator: {fileID: 1688779652}
+    - rid: 3900293890268200962
+      type: {class: NavAgentProvider, ns: FPS.Core.Cutscenes.Providers, asm: FPS.Core}
+      data:
+        agent: {fileID: 1171605897}
+    - rid: 3900293890268200963
+      type: {class: TransformProvider, ns: FPS.Core.Cutscenes.Providers, asm: FPS.Core}
+      data:
+        transform: {fileID: 227957304}
+    - rid: 3900293890268200964
+      type: {class: NavMoveToPositionNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
 --- !u!1001 &503534737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,7 +798,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 477106242}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &808996574
 MonoBehaviour:
@@ -1261,6 +1305,11 @@ Transform:
 --- !u!4 &1171605896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5925902792157085706, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
+  m_PrefabInstance: {fileID: 64151807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1171605897 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6684399713462055428, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
   m_PrefabInstance: {fileID: 64151807}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1209184480
@@ -2410,4 +2459,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 903755038}
+  - {fileID: 808996573}
   - {fileID: 477106242}

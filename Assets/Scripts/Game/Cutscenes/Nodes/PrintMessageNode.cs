@@ -9,7 +9,7 @@ namespace FPS.Game.Cutscenes.Nodes
         public override void Execute()
         {
             Debug.Log(Data.message);
-            ExecuteChildren();
+            Complete();
         }
     }
 }
