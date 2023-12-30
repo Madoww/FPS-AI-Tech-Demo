@@ -1,10 +1,8 @@
+using FPS.HI.Input;
 using Zenject;
 
 namespace FPS.Game.Flow.Gameplay
 {
-    using FPS.Common.States;
-    using FPS.HI.Input;
-
     public class GeneralState : BaseState
     {
         private IPlayerInputHandler inputHandler;

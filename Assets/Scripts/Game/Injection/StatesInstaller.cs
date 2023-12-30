@@ -2,7 +2,7 @@ using Zenject;
 
 namespace FPS.Game.Injection
 {
-    using FPS.Common.States;
+    using FPS.Game.Flow;
     //TODO: Add flow builder
     using FPS.Game.Flow.Gameplay;
 

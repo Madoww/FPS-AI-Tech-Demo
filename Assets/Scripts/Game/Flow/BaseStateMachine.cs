@@ -1,23 +1,24 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace FPS.Common.States
+namespace FPS.Game.Flow
 {
     public class BaseStateMachine : IStateMachine
     {
+        public event Action<BaseState> OnStateChanged;
+
         public BaseState CurrentState { get; private set; }
 
         private readonly BaseState startState;
         private readonly Dictionary<Type, BaseState> statesByType;
 
-        public event Action<BaseState> OnStateChanged;
-
-        public BaseStateMachine(List<BaseState> states, BaseState startState)
+        public BaseStateMachine(IReadOnlyList<BaseState> states, BaseState startState = null)
         {
             this.startState = startState;
             statesByType = new Dictionary<Type, BaseState>();
-            for (int i = 0; i < states.Count; i++)
+            for (var i = 0; i < states.Count; i++)
             {
                 AppendState(states[i]);
             }
@@ -25,7 +26,16 @@ namespace FPS.Common.States
 
         public void Start()
         {
-            ChangeState(startState);
+            var state = startState == null
+                ? statesByType.First().Value
+                : startState;
+            ChangeState(state);
+        }
+
+        public void Stop()
+        {
+            CurrentState?.Close();
+            CurrentState = null;
         }
 
         public void Tick()
@@ -58,22 +68,23 @@ namespace FPS.Common.States
             }
         }
 
-        public void ChangeState(BaseState state)
+        public bool ChangeState(BaseState state)
         {
-            ChangeState(state.Type);
+            return ChangeState(state.Type);
         }
 
-        public void ChangeState(Type newStateType)
+        public bool ChangeState(Type newStateType)
         {
             if (!statesByType.TryGetValue(newStateType, out var newState))
             {
-                return;
+                return false;
             }
 
             CurrentState?.Close();
             CurrentState = newState;
             CurrentState.Begin();
             OnStateChanged?.Invoke(CurrentState);
+            return true;
         }
 
         private void AppendState(BaseState state)

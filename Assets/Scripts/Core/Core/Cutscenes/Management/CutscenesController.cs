@@ -8,6 +8,8 @@ namespace FPS.Core.Cutscenes.Management
         private Cutscene activeCutscene;
         private ICutscenesManager cutscenesManager;
 
+        //TODO: Ending cutscene playback.
+        public bool IsPlaying => activeCutscene != null;
 
         public void Play(CutsceneDefinition cutscene)
         {

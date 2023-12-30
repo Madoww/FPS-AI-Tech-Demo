@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FPS.Common.States
+namespace FPS.Game.Flow
 {
     public abstract class BaseState
     {
@@ -34,9 +34,19 @@ namespace FPS.Common.States
             destinationStates.Add(typeof(BaseState));
         }
 
+        public void AppendDestination<T>() where T : BaseState
+        {
+            destinationStates.Add(typeof(T));
+        }
+
         public void RemoveDestination(BaseState baseState)
         {
             destinationStates.Remove(typeof(BaseState));
+        }
+
+        public void RemoveDestination<T>() where T : BaseState
+        {
+            destinationStates.Remove(typeof(T));
         }
     }
 }

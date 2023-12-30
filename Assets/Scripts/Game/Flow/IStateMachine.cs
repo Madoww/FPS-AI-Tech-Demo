@@ -1,6 +1,6 @@
 using System;
 
-namespace FPS.Common.States
+namespace FPS.Game.Flow
 {
     public interface IStateMachine
     {
@@ -9,7 +9,9 @@ namespace FPS.Common.States
         event Action<BaseState> OnStateChanged;
 
         void Start();
+        void Stop();
         void Tick();
-        void ChangeState(Type newStateType);
+        bool ChangeState(BaseState state);
+        bool ChangeState(Type newStateType);
     }
 }

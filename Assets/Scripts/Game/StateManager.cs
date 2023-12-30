@@ -1,9 +1,8 @@
-using FPS.Common.States;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace FPS.Game
+namespace FPS.Game.Flow
 {
     public class StateManager : MonoBehaviour
     {

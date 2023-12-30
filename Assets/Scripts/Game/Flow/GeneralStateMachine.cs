@@ -1,6 +1,5 @@
-namespace FPS.Game
+namespace FPS.Game.Flow
 {
-    using FPS.Common.States;
     using System.Collections.Generic;
 
     public class GeneralStateMachine : BaseStateMachine
