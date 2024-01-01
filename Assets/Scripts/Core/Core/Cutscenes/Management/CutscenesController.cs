@@ -14,7 +14,7 @@ namespace FPS.Core.Cutscenes.Management
         public void Play(CutsceneDefinition cutscene)
         {
             activeCutscene = cutscenesManager.LoadCutscene(cutscene);
-            activeCutscene.RootNode.Execute();
+            activeCutscene.Play();
         }
 
         [Inject]

@@ -1,9 +1,10 @@
-using FPS.Core.Cutscenes;
+using FPS.Core.Cutscenes.Data;
+using FPS.Core.Cutscenes.Nodes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FPS.Game.Cutscenes
+namespace FPS.Core.Cutscenes.Factories
 {
     public class DefaultCutscenesFactory : ICutsceneFactory
     {
@@ -14,12 +15,18 @@ namespace FPS.Game.Cutscenes
 
         public Cutscene CreateCutscene(CutsceneDefinition cutsceneDefinition)
         {
-            var rootNodeData = cutsceneDefinition.rootNodeData;
+            if (!cutsceneDefinition.GetNode<RootNodeData>(out var rootNodeData))
+            {
+                Debug.LogError("CutsceneDefinition doesn't have a root node.");
+                return null;
+            }
+
             var rootNodeInstance = GetInstanceForData(rootNodeData);
-            var rootNodeChildren = CreateNodesChildNodes(rootNodeData);
+            var completeNodes = new List<ICutsceneNode>();
+            var rootNodeChildren = CreateNodesChildNodes(rootNodeData, completeNodes);
             rootNodeInstance.AddChildren(rootNodeChildren);
 
-            Cutscene cutscene = new Cutscene(rootNodeInstance);
+            Cutscene cutscene = new Cutscene(rootNodeInstance, completeNodes);
             return cutscene;
         }
 
@@ -40,14 +47,14 @@ namespace FPS.Game.Cutscenes
             return null;
         }
 
-        private List<ICutsceneNode> CreateNodesChildNodes(CutsceneNodeData nodeData)
+        private List<ICutsceneNode> CreateNodesChildNodes(CutsceneNodeData nodeData, in List<ICutsceneNode> completeNodes)
         {
             var childNodeDatas = nodeData.childNodes;
             var nodes = new List<ICutsceneNode>();
             foreach (CutsceneNodeData childNodeData in childNodeDatas)
             {
                 var nodeInstance = GetInstanceForData(childNodeData);
-                var instanceChildren = CreateNodesChildNodes(childNodeData);
+                var instanceChildren = CreateNodesChildNodes(childNodeData, completeNodes);
                 foreach (var childNode in instanceChildren)
                 {
                     nodeInstance.AddChild(childNode);
@@ -56,6 +63,10 @@ namespace FPS.Game.Cutscenes
                 nodeInstance.Setup(childNodeData);
                 nodeInstance.Setup(providersHandler);
                 nodes.Add(nodeInstance);
+                if (nodeInstance is CompleteCutsceneNode)
+                {
+                    completeNodes.Add(nodeInstance);
+                }
             }
 
             return nodes;

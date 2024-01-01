@@ -1,10 +1,9 @@
 using FPS.Common;
-using FPS.Core.Cutscenes;
 using FPS.Core.Cutscenes.Data;
 using System.Collections;
 using UnityEngine;
 
-namespace FPS.Game.Cutscenes.Nodes
+namespace FPS.Core.Cutscenes.Nodes
 {
     public class DelayNode : CutsceneNode<DelayNodeData>
     {

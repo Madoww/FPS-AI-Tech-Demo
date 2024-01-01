@@ -1,7 +1,6 @@
-using FPS.Core.Cutscenes;
 using FPS.Core.Cutscenes.Data;
 
-namespace FPS.Game.Cutscenes.Nodes
+namespace FPS.Core.Cutscenes.Nodes
 {
     public class RootNode : CutsceneNode<RootNodeData>
     {

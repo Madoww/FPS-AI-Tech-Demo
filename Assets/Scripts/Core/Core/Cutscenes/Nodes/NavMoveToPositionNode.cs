@@ -1,12 +1,11 @@
 using FPS.Common;
-using FPS.Core.Cutscenes;
 using FPS.Core.Cutscenes.Data;
 using FPS.Core.Cutscenes.Providers;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace FPS.Game.Cutscenes.Nodes
+namespace FPS.Core.Cutscenes.Nodes
 {
     public class NavMoveToPositionNode : CutsceneNode<NavMoveToPositionData>
     {

@@ -1,9 +1,8 @@
-﻿using FPS.Core.Cutscenes;
-using FPS.Core.Cutscenes.Data;
+﻿using FPS.Core.Cutscenes.Data;
 using FPS.Core.Cutscenes.Providers;
 using UnityEngine;
 
-namespace FPS.Game.Cutscenes.Nodes
+namespace FPS.Core.Cutscenes.Nodes
 {
     public class AnimationNode : CutsceneNode<AnimationNodeData>
     {

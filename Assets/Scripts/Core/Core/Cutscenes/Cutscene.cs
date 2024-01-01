@@ -1,12 +1,49 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace FPS.Core.Cutscenes
 {
     public class Cutscene
     {
-        public ICutsceneNode RootNode { get; private set; }
+        public event Action OnComplete;
 
-        public Cutscene(ICutsceneNode rootNode)
+        private ICutsceneNode rootNode;
+        private IList<ICutsceneNode> completeNodes;
+
+        public Cutscene(ICutsceneNode rootNode, IList<ICutsceneNode> completeNodes)
         {
-            RootNode = rootNode;
+            this.rootNode = rootNode;
+            this.completeNodes = completeNodes;
+        }
+
+        public void Play()
+        {
+            InitializeCompleteNodes();
+            rootNode.Execute();
+        }
+
+        public void Complete()
+        {
+            Debug.Log("Completed cutscene");
+            DeinitializeCompleteNodes();
+            OnComplete?.Invoke();
+        }
+
+        private void InitializeCompleteNodes()
+        {
+            foreach (var node in completeNodes)
+            {
+                node.OnCompleted += Complete;
+            }
+        }
+
+        private void DeinitializeCompleteNodes()
+        {
+            foreach (var node in completeNodes)
+            {
+                node.OnCompleted -= Complete;
+            }
         }
     }
 }

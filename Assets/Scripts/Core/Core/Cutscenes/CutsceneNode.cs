@@ -5,6 +5,8 @@ namespace FPS.Core.Cutscenes
 {
     public abstract class CutsceneNode<T> : ICutsceneNode where T : CutsceneNodeData
     {
+        public event Action OnCompleted;
+
         private readonly List<ICutsceneNode> children = new List<ICutsceneNode>();
 
         private T data;
@@ -24,6 +26,7 @@ namespace FPS.Core.Cutscenes
 
         public virtual void Complete()
         {
+            OnCompleted?.Invoke();
             ExecuteChildren();
         }
 

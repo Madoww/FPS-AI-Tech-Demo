@@ -557,6 +557,7 @@ MonoBehaviour:
         - rid: 3900293870169358342
         - rid: 3900293870169358343
         - rid: 3900293890268200964
+        - rid: 3900293890268200965
         providersHandler:
           rid: 3900293870169358340
     - rid: 3900293870169358340
@@ -586,6 +587,8 @@ MonoBehaviour:
         transform: {fileID: 227957304}
     - rid: 3900293890268200964
       type: {class: NavMoveToPositionNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
+    - rid: 3900293890268200965
+      type: {class: CompleteCutsceneNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
 --- !u!1001 &503534737
 PrefabInstance:
   m_ObjectHideFlags: 0

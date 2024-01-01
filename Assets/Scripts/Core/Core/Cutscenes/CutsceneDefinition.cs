@@ -1,6 +1,5 @@
 using FPS.Common;
-using FPS.Core.Cutscenes.Data;
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace FPS.Core.Cutscenes
@@ -8,50 +7,35 @@ namespace FPS.Core.Cutscenes
     [CreateAssetMenu(menuName = "Cutscenes/Cutscene Definition")]
     public class CutsceneDefinition : ScriptableNodesHolder<CutsceneNodeData>
     {
-        public CutsceneNodeData rootNodeData;
         public string displayName;
 
-        public override void AppendNode(ScriptableNode node)
-        {
-            if (node is RootNodeData rootNodeData)
-            {
-                if (HasRootNode())
-                {
-                    Debug.LogWarning("Cutscene already contains a root node");
-                    return;
-                }
-
-                this.rootNodeData = rootNodeData;
-            }
-
-            base.AppendNode(node);
-        }
-
-        public override ScriptableNode AppendNode(Type type)
-        {
-            if (type == typeof(RootNodeData))
-            {
-                if (HasRootNode())
-                {
-                    Debug.LogWarning("Cutscene already contains a root node");
-                    return null;
-                }
-            }
-
-            return base.AppendNode(type);
-        }
-
-        private bool HasRootNode()
+        public bool GetNode<T>(out T data) where T : CutsceneNodeData
         {
             foreach (CutsceneNodeData nodeData in Nodes)
             {
-                if (nodeData is RootNodeData)
+                if (nodeData is T)
                 {
+                    data = nodeData as T;
                     return true;
                 }
             }
 
+            data = null;
             return false;
+        }
+
+        public List<T> GetAllNodes<T>() where T : CutsceneNodeData
+        {
+            var nodes = new List<T>();
+            foreach (CutsceneNodeData nodeData in Nodes)
+            {
+                if (nodeData is T tNodeData)
+                {
+                    nodes.Add(tNodeData);
+                }
+            }
+
+            return nodes;
         }
     }
 }

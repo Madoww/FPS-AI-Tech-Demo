@@ -5,6 +5,8 @@ namespace FPS.Core.Cutscenes
 {
     public interface ICutsceneNode
     {
+        event Action OnCompleted;
+
         Type DataType { get; }
 
         void Execute();

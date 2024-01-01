@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b789f9ad68ad24e9e808d7a34fdde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: 
+  displayName: Complete Message
   guid: 9a0fbcb3-8c00-40d1-bd32-0b0461c18d17
   childNodes: []
-  position: {x: 232.69388, y: 32.000008}
+  position: {x: 234, y: 32.000004}
   description: 
   message: Cutscene complete
 --- !u!114 &-3842427245493968410
@@ -32,9 +32,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Animation
   guid: 13a434fe-eb4a-444d-8fae-8148ac21f2ff
-  childNodes:
-  - {fileID: -7964325291824650209}
-  position: {x: 69.06157, y: 32.00001}
+  childNodes: []
+  position: {x: 69, y: 133.85}
   description: 
   animationClip: {fileID: 1827226128182048838, guid: 84f9ae0f8aadf724993e2ed766105556, type: 3}
   loop: 0
@@ -54,7 +53,25 @@ MonoBehaviour:
   guid: 08db147f-93d3-4636-808d-573d139648e9
   childNodes:
   - {fileID: -3842427245493968410}
+  - {fileID: 350504876746272580}
   position: {x: -130.97122, y: 32.00006}
+  description: 
+--- !u!114 &-995718549901366879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661ac3aeff27bad4db17ec08121a9c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: 
+  guid: 8bd6e096-1cfa-4a27-9184-e1cc8778b934
+  childNodes: []
+  position: {x: 0, y: 0}
   description: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -73,7 +90,9 @@ MonoBehaviour:
   - {fileID: -3842427245493968410}
   - {fileID: 350504876746272580}
   - {fileID: -7964325291824650209}
+  - {fileID: -995718549901366879}
   rootNodeData: {fileID: -1301459172271250206}
+  completeNodeData: {fileID: -995718549901366879}
   displayName: Test Cutscene
 --- !u!114 &350504876746272580
 MonoBehaviour:
@@ -89,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Move To
   guid: c5b29cbd-a10e-4cd9-847f-a9a6772ad144
-  childNodes: []
-  position: {x: 68.99997, y: 141.5075}
+  childNodes:
+  - {fileID: -7964325291824650209}
+  position: {x: 69, y: 31.999992}
   description: 
