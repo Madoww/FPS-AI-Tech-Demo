@@ -254,6 +254,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
+--- !u!195 &64151808 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6684399713462055428, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
+  m_PrefabInstance: {fileID: 64151807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &64151809 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8232117535871381928, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
+  m_PrefabInstance: {fileID: 64151807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &205774927
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,50 +555,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneDefinition: {fileID: 11400000, guid: e7f1213553052194e9aaff756394cb21, type: 2}
   cutsceneFactory:
-    rid: 3900293870169358336
+    rid: 8573889564654960642
   references:
     version: 2
     RefIds:
-    - rid: 3900293870169358336
-      type: {class: DefaultCutscenesFactory, ns: FPS.Game.Cutscenes, asm: FPS.Game}
+    - rid: 8573889564654960642
+      type: {class: DefaultCutscenesFactory, ns: FPS.Core.Cutscenes.Factories, asm: FPS.Core}
       data:
         cutsceneNodes:
-        - rid: 3900293870169358344
-        - rid: 3900293870169358342
-        - rid: 3900293870169358343
-        - rid: 3900293890268200964
-        - rid: 3900293890268200965
+        - rid: 8573889564755623936
+        - rid: 8573889564780265472
+        - rid: 8573889564780265473
+        - rid: 8573889564780265474
+        - rid: 8573889564780265475
+        - rid: 8573889564780265476
         providersHandler:
-          rid: 3900293870169358340
-    - rid: 3900293870169358340
+          rid: 8573889564715253760
+    - rid: 8573889564715253760
       type: {class: DataProvidersHandler, ns: FPS.Core.Cutscenes, asm: FPS.Core}
       data:
         dataProviders:
-        - rid: 3900293890268200961
-        - rid: 3900293890268200962
-        - rid: 3900293890268200963
-    - rid: 3900293870169358342
-      type: {class: AnimationNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
-    - rid: 3900293870169358343
-      type: {class: PrintMessageNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
-    - rid: 3900293870169358344
-      type: {class: RootNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
-    - rid: 3900293890268200961
+        - rid: 8573889564767682560
+        - rid: 8573889564780265477
+        - rid: 8573889564780265478
+    - rid: 8573889564755623936
+      type: {class: AnimationNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 8573889564767682560
       type: {class: AnimatorProvider, ns: FPS.Core.Cutscenes.Providers, asm: FPS.Core}
       data:
-        animator: {fileID: 1688779652}
-    - rid: 3900293890268200962
+        animator: {fileID: 64151809}
+    - rid: 8573889564780265472
+      type: {class: CompleteCutsceneNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 8573889564780265473
+      type: {class: DelayNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 8573889564780265474
+      type: {class: NavMoveToPositionNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 8573889564780265475
+      type: {class: PrintMessageNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 8573889564780265476
+      type: {class: RootNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 8573889564780265477
       type: {class: NavAgentProvider, ns: FPS.Core.Cutscenes.Providers, asm: FPS.Core}
       data:
-        agent: {fileID: 1171605897}
-    - rid: 3900293890268200963
+        agent: {fileID: 64151808}
+    - rid: 8573889564780265478
       type: {class: TransformProvider, ns: FPS.Core.Cutscenes.Providers, asm: FPS.Core}
       data:
         transform: {fileID: 227957304}
-    - rid: 3900293890268200964
-      type: {class: NavMoveToPositionNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
-    - rid: 3900293890268200965
-      type: {class: CompleteCutsceneNode, ns: FPS.Game.Cutscenes.Nodes, asm: FPS.Game}
 --- !u!1001 &503534737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1310,11 +1323,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5925902792157085706, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
   m_PrefabInstance: {fileID: 64151807}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &1171605897 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 6684399713462055428, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
-  m_PrefabInstance: {fileID: 64151807}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1209184480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,11 +1970,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0d54d4ab056e12e4abc2d0b4a5d111f4, type: 3}
   m_PrefabInstance: {fileID: 1566096047}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1688779652 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8232117535871381928, guid: 044bd38d3af3c904fb08917dad90df9e, type: 3}
-  m_PrefabInstance: {fileID: 64151807}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749544244
 GameObject:
