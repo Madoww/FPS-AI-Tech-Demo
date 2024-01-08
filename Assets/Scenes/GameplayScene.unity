@@ -843,6 +843,70 @@ PrefabInstance:
       propertyPath: m_VolumeFrameworkUpdateModeOption
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[-2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: processors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: processors.Array.data[0]
+      value: 8573889597218750467
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750466]
+      value: FPS.Core FPS.Core.Barks.Processors.TestBarkProcessor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467]
+      value: FPS.Core FPS.Core.Barks.BarkProcessor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.text.m_FallbackState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.text.m_WaitForCompletion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.audioClip.m_FallbackState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.audioClip.m_WaitForCompletion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.text.m_LocalVariables.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.text.m_TableEntryReference.m_Key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.text.m_TableEntryReference.m_KeyId
+      value: 4111022022656
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.audioClip.m_TableEntryReference.m_Key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.audioClip.m_TableEntryReference.m_KeyId
+      value: 6333521920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.text.m_TableReference.m_TableCollectionName
+      value: GUID:bcac39372a9f045449bd9fc21ec6c8d7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+      propertyPath: managedReferences[8573889597218750467].data.audioClip.m_TableReference.m_TableCollectionName
+      value: GUID:9ebbdece529888747ac6b13adfff84af
+      objectReference: {fileID: 0}
     - target: {fileID: 7663371931025132076, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.63

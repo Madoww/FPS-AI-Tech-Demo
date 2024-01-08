@@ -1,10 +1,11 @@
+using FPS.Common;
 using System;
 
 namespace FPS.Core.Barks
 {
-    public interface IBarkProcessor
+    public interface IBarkProcessor : IInitializable, IDeinitializable
     {
-        event Action OnTrigerred;
+        event Action<BarkData> OnTrigerred;
 
         void Process();
     }

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace FPS.AI.Common
 {
     using FPS.AI.Behaviour;
@@ -15,7 +13,7 @@ namespace FPS.AI.Common
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
-            Debug.Log(message);
+            //Debug.Log(message);
             return NodeState.Running;
         }
     }
