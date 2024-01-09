@@ -540,8 +540,8 @@ MonoBehaviour:
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 1
-  BankLoadType: 0
+  AutomaticEventLoading: 0
+  BankLoadType: 1
   AutomaticSampleLoading: 0
   EncryptionKey: 
   ImportType: 0
@@ -560,8 +560,12 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Barks_ENG
+  - Barks_POL
   - Level1
-  BanksToLoad: []
+  BanksToLoad:
+  - Level1
+  - Master
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
   AndroidUseOBB: 0

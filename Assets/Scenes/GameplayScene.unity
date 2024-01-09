@@ -441,6 +441,76 @@ MonoBehaviour:
   playerTransform: {fileID: 1379600344}
   sensitivity: {x: 15, y: 10}
   maxRotationSpeed: 80
+--- !u!1 &886045100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 886045102}
+  - component: {fileID: 886045103}
+  - component: {fileID: 886045104}
+  m_Layer: 0
+  m_Name: AudioContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &886045102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886045100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &886045103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886045100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - Barks_POL
+  CollisionTag: 
+  PreloadSamples: 0
+--- !u!114 &886045104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886045100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0212a35ab5bde364a9b0618a124edaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventReference:
+    Guid:
+      Data1: -1708807950
+      Data2: 1175644275
+      Data3: 600988322
+      Data4: 429621819
+    Path: event:/Barks/Barks
 --- !u!1 &930963814
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
       propertyPath: processors.Array.data[0]
-      value: 8573889597218750467
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
       propertyPath: managedReferences[8573889597218750466]
@@ -967,3 +1037,4 @@ SceneRoots:
   - {fileID: 464356533}
   - {fileID: 620974581}
   - {fileID: 991103369}
+  - {fileID: 886045102}

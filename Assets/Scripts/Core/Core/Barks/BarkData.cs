@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using UnityEngine.Localization;
 
@@ -7,6 +8,6 @@ namespace FPS.Core.Barks
     public class BarkData
     {
         public LocalizedString text;
-        public LocalizedAudioClip audioClip;
+        public EventReference audio;
     }
 }
