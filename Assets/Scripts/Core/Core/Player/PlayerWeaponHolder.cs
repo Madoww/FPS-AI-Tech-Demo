@@ -1,10 +1,10 @@
+using FPS.Entities.Weapons;
+using FPS.Prefabs;
 using UnityEngine;
 using Zenject;
 
 namespace FPS.Core.Player
 {
-    using FPS.Core.Entities.Weapons;
-    using FPS.Core.Prefabs;
 
     public class PlayerWeaponHolder : MonoBehaviour
     {

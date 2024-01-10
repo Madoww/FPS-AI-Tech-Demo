@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace FPS.Core.Prefabs.Injection
+namespace FPS.Prefabs.Injection
 {
     using FPS.Common.Injection;
 

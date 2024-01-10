@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FPS.Core.Entities.Management
+namespace FPS.Entities.Management
 {
     public class EntitiesManager : MonoBehaviour, IEntitiesManager
     {

@@ -2,7 +2,7 @@ using FPS.Common;
 using System;
 using UnityEngine;
 
-namespace FPS.Core.Entities
+namespace FPS.Entities
 {
     public abstract class GameEntity : MonoBehaviour, IInitializable, IDeinitializable
     {

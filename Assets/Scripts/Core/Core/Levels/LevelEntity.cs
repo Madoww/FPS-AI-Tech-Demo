@@ -1,5 +1,5 @@
 using FPS.Common;
-using FPS.Core.Entities;
+using FPS.Entities;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;

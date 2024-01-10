@@ -2,7 +2,7 @@ using FMOD.Studio;
 using FMODUnity;
 using FPS.Core.Levels;
 
-namespace FPS.Core.Presentation.Audio.Presenters
+namespace FPS.Presentation.Audio.Presenters
 {
     public class LevelAudioPresenter : GameEntityAudioPresenter<LevelEntity>
     {

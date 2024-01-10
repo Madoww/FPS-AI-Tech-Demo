@@ -1,4 +1,4 @@
-namespace FPS.Core.Entities.Management
+namespace FPS.Entities.Management
 {
     public interface IEntitiesManager
     {

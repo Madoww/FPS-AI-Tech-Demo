@@ -1,9 +1,9 @@
+using FPS.Entities;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FPS.Core.Prefabs.Entities
+namespace FPS.Prefabs.Entities
 {
-    using FPS.Core.Entities;
 
     public class EntitiesPrefabsProvider : IPrefabsProvider
     {

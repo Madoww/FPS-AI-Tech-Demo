@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FPS.Core.Prefabs
+namespace FPS.Prefabs
 {
     public class PrefabData
     {

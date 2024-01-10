@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FPS.Core.Prefabs
+namespace FPS.Prefabs
 {
     public class PrefabsManager : MonoBehaviour, IPrefabsManager
     {

@@ -721,14 +721,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfInitialize: 1
   prefabsProviders:
-  - rid: 3900293661843521536
+  - rid: 8573889666301558784
   references:
     version: 2
     RefIds:
-    - rid: 3900293661843521536
-      type: {class: EntitiesPrefabsProvider, ns: FPS.Core.Prefabs.Entities, asm: FPS.Prefabs}
+    - rid: 8573889666301558784
+      type: {class: EntitiesPrefabsProvider, ns: FPS.Prefabs.Entities, asm: FPS.Prefabs}
       data:
-        prefabs: []
+        prefabs:
+        - {fileID: 7072842864669244373}
 --- !u!1 &1953780092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,6 +1028,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+--- !u!114 &7072842864669244373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2176789534581103551, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
+  m_PrefabInstance: {fileID: 7072842864669244372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8a1b03c588834390161115d9422c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

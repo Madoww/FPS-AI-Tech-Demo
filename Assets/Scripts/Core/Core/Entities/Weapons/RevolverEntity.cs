@@ -1,4 +1,4 @@
-namespace FPS.Core.Entities.Weapons
+namespace FPS.Entities.Weapons
 {
     public class RevolverEntity : WeaponEntity
     { }

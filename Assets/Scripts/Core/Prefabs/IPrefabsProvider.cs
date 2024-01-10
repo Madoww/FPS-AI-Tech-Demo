@@ -1,4 +1,4 @@
-using FPS.Core.Prefabs;
+using FPS.Prefabs;
 using System.Collections.Generic;
 
 public interface IPrefabsProvider

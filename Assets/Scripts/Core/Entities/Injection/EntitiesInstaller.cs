@@ -1,11 +1,10 @@
+using FPS.Common.Injection;
+using FPS.Entities.Management;
 using UnityEngine;
 using Zenject;
 
-namespace FPS.Core.Entities.Injection
+namespace FPS.Entities.Injection
 {
-    using FPS.Common.Injection;
-    using FPS.Core.Entities.Management;
-
     public class EntitiesInstaller : ExposableInstaller
     {
         [SerializeField]

@@ -1,9 +1,9 @@
 using FPS.Common;
-using FPS.Core.Entities;
+using FPS.Entities;
 using System;
 using UnityEngine;
 
-namespace FPS.Core.Presentation.Audio
+namespace FPS.Presentation.Audio
 {
     public class GameEntityAudioPresenter<T> : MonoBehaviour, IInitializable, IDeinitializable where T : GameEntity
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace FPS.Core.Entities.Weapons
+namespace FPS.Entities.Weapons
 {
     public abstract class WeaponEntity : GameEntity
     {
