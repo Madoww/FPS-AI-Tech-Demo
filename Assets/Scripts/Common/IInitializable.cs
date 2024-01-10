@@ -10,4 +10,13 @@ namespace FPS.Common
 
         void Initialize();
     }
+
+    public interface IInitializable<T>
+    {
+        event Action OnInitialized;
+
+        bool IsInitialized { get; }
+
+        void Initialize(T value);
+    }
 }
