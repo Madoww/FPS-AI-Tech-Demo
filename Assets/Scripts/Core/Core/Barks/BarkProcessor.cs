@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FPS.Core.Barks
 {
-    public class BarkProcessor : IBarkProcessor
+    public abstract class BarkProcessor : IBarkProcessor
     {
         public event Action OnInitialized;
         public event Action OnDeinitialized;

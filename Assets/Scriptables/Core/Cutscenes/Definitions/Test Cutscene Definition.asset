@@ -56,23 +56,6 @@ MonoBehaviour:
   - {fileID: 350504876746272580}
   position: {x: -130.97122, y: 32.00006}
   description: 
---- !u!114 &-995718549901366879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 661ac3aeff27bad4db17ec08121a9c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: 
-  guid: 8bd6e096-1cfa-4a27-9184-e1cc8778b934
-  childNodes: []
-  position: {x: 0, y: 0}
-  description: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,9 +73,7 @@ MonoBehaviour:
   - {fileID: -3842427245493968410}
   - {fileID: 350504876746272580}
   - {fileID: -7964325291824650209}
-  - {fileID: -995718549901366879}
-  rootNodeData: {fileID: -1301459172271250206}
-  completeNodeData: {fileID: -995718549901366879}
+  - {fileID: 0}
   displayName: Test Cutscene
 --- !u!114 &350504876746272580
 MonoBehaviour:

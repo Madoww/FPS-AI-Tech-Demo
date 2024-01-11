@@ -125,7 +125,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5485422384271145938}
   - component: {fileID: 471892262342098649}
-  - component: {fileID: 5413897798502479767}
   - component: {fileID: 429515827389179899}
   - component: {fileID: -3311618327811941279}
   m_Layer: 6
@@ -202,14 +201,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5413897798502479767
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6813613370754690331}
-  m_Enabled: 1
 --- !u!114 &429515827389179899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +258,98 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
+--- !u!1 &6924539614476594517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551945939928170184}
+  - component: {fileID: 6042766492293096176}
+  - component: {fileID: 6798569367379266244}
+  - component: {fileID: 6524251187165209558}
+  m_Layer: 6
+  m_Name: Barks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551945939928170184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924539614476594517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7663371931025132076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6042766492293096176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924539614476594517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e95f09a212af241b34b7c3d40c6928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfInitialize: 1
+  processors:
+  - rid: 8573889666301558794
+  references:
+    version: 2
+    RefIds:
+    - rid: 8573889666301558794
+      type: {class: TestBarkProcessor, ns: FPS.Core.Barks.Processors, asm: FPS.Core}
+      data:
+        data:
+          localizedStringReference:
+            m_TableReference:
+              m_TableCollectionName: GUID:bcac39372a9f045449bd9fc21ec6c8d7
+            m_TableEntryReference:
+              m_KeyId: 4111022022656
+              m_Key: 
+            m_FallbackState: 0
+            m_WaitForCompletion: 0
+            m_LocalVariables: []
+          audioName: bark1
+--- !u!114 &6798569367379266244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924539614476594517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b717f351307224fa99bd8027ee537c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barksController: {fileID: 6042766492293096176}
+--- !u!114 &6524251187165209558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924539614476594517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f36b419ee8d5944b1370a5c60f6b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barksController: {fileID: 6042766492293096176}
 --- !u!1 &8928272593043853281
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +359,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7663371931025132076}
-  - component: {fileID: 2973116743628937859}
   - component: {fileID: 1254023595132002047}
   - component: {fileID: 8369899536663018854}
   - component: {fileID: 4259902496274543325}
@@ -295,27 +377,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8928272593043853281}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.49, y: -0.46, z: 2.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 551945939928170184}
   - {fileID: 5485422384271145938}
   - {fileID: 5308049373537070690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2973116743628937859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8928272593043853281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e95f09a212af241b34b7c3d40c6928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1254023595132002047
 MonoBehaviour:
   m_ObjectHideFlags: 0

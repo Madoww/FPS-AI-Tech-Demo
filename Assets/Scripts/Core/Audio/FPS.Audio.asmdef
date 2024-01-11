@@ -1,15 +1,11 @@
 {
-    "name": "FPS.Core",
+    "name": "FPS.Audio",
     "rootNamespace": "",
     "references": [
-        "GUID:e29a487f2c5738e4a89464244f4d423c",
-        "GUID:470f179086cfbf54c85de8954beadd3b",
-        "GUID:8cede36e67a2ddf4b9280534e18637b9",
-        "GUID:696a0953692949b40bec8730e64e1fdd",
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
+        "GUID:696a0953692949b40bec8730e64e1fdd",
         "GUID:0c752da273b17c547ae705acf0f2adf2",
-        "GUID:e3e1e046533259e4e9328b996f1b007f"
+        "GUID:8cede36e67a2ddf4b9280534e18637b9"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
