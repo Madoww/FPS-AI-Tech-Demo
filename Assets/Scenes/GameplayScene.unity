@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 620974581}
   m_Layer: 0
-  m_Name: World
+  m_Name: WorldContext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -611,10 +611,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 620974581}
     m_Modifications:
-    - target: {fileID: 2973116743628937859, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
-      propertyPath: managedReferences[8573889666301558793].data.audioName
-      value: bark1
-      objectReference: {fileID: 0}
     - target: {fileID: 7663371931025132076, guid: 1d5d0da98fd5b9148b724a4242d6efc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.63

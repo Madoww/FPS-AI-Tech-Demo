@@ -359,6 +359,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7663371931025132076}
+  - component: {fileID: 8404564830921190880}
+  - component: {fileID: 5115910340281708139}
+  - component: {fileID: 3294950808396773792}
   - component: {fileID: 1254023595132002047}
   - component: {fileID: 8369899536663018854}
   - component: {fileID: 4259902496274543325}
@@ -385,8 +388,57 @@ Transform:
   - {fileID: 551945939928170184}
   - {fileID: 5485422384271145938}
   - {fileID: 5308049373537070690}
+  - {fileID: 358499343156607826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8404564830921190880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928272593043853281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 5077335638815166450}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &5115910340281708139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928272593043853281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdaaa47aa5851424ea5343b5f6101a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfInitialize: 1
+  handlers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &3294950808396773792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928272593043853281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b7f4e48b35aab4d8aafe5e2c7863e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerEntity: {fileID: 5115910340281708139}
 --- !u!114 &1254023595132002047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +500,73 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &9033471474801801489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358499343156607826}
+  - component: {fileID: 5077335638815166450}
+  - component: {fileID: 2060436099329101469}
+  m_Layer: 6
+  m_Name: Interaction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358499343156607826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033471474801801489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7663371931025132076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5077335638815166450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033471474801801489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced98e100f630b74d9edbfa3b08e232e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bindToParent: 0
+  interactionController: {fileID: 2060436099329101469}
+--- !u!114 &2060436099329101469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033471474801801489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9298e16f9397da4a8b19dc0d75f6ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfInitialzie: 1
+  processors:
+  - rid: 8573889722896875522
+  references:
+    version: 2
+    RefIds:
+    - rid: 8573889722896875522
+      type: {class: PickupInteractionProcessor, ns: FPS.Core.Interaction.Processors, asm: FPS.Core}
 --- !u!1001 &4728876978381377405
 PrefabInstance:
   m_ObjectHideFlags: 0

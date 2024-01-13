@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FPS.Core.Cutscenes
 {
-    [CreateAssetMenu(menuName = "Cutscenes/Cutscenes Holder")]
+    [CreateAssetMenu(menuName = "FPS/Cutscenes/Cutscenes Holder")]
     public class CutscenesHolder : ScriptableObject, ICutscenesHolder
     {
         [SerializeField, ReorderableList]

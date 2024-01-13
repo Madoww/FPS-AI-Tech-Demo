@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FPS.Core.Levels
 {
-    [CreateAssetMenu(menuName = "Levels/Level Data")]
+    [CreateAssetMenu(menuName = "FPS/Levels/Level Data")]
     public class LevelData : ScriptableObject
     {
         public SerializedScene scene;

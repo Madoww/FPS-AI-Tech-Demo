@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FPS.Game.Scenes
 {
-    [CreateAssetMenu(fileName = "Scene Definition", menuName = "Scenes/Scene Definition")]
+    [CreateAssetMenu(menuName = "FPS/Scenes/Scene Definition")]
     public class SceneDefinition : ScriptableObject
     {
         public string displayName;

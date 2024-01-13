@@ -2,7 +2,7 @@ using FPS.Game.Scenes;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scenes/Scenes Holder")]
+[CreateAssetMenu(menuName = "FPS/Scenes/Scenes Holder")]
 public class ScenesHolder : ScriptableObject, IScenesHolder
 {
     public IReadOnlyList<SceneDefinition> SceneDefinitions => sceneDefinitions;
