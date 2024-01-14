@@ -10,7 +10,7 @@ namespace FPS.Game.Injection
         [SerializeField]
         private SceneContext sceneContext;
 
-        [SerializeField]
+        [SerializeField, ReorderableList]
         private GameObjectContext[] objectsToQueue;
 
         private void Awake()

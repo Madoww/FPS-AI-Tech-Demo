@@ -359,7 +359,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7663371931025132076}
-  - component: {fileID: 8404564830921190880}
   - component: {fileID: 5115910340281708139}
   - component: {fileID: 3294950808396773792}
   - component: {fileID: 1254023595132002047}
@@ -391,24 +390,6 @@ Transform:
   - {fileID: 358499343156607826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8404564830921190880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8928272593043853281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 5077335638815166450}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!114 &5115910340281708139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,10 +403,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selfInitialize: 1
-  handlers: []
+  handlers:
+  - rid: 8573889747850100738
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8573889747850100738
+      type: {class: InventoryHandler, ns: FPS.Core.Player.Handlers, asm: FPS.Core}
 --- !u!114 &3294950808396773792
 MonoBehaviour:
   m_ObjectHideFlags: 0

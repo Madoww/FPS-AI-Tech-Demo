@@ -7,5 +7,7 @@ namespace FPS.Core.Character.Items
     {
         [SerializeField]
         private ItemData data;
+
+        public ItemData Data => data;
     }
 }

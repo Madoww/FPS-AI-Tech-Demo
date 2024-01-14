@@ -23,6 +23,11 @@ namespace FPS.Entities
             }
         }
 
+        private void OnDestroy()
+        {
+            Deinitialize();
+        }
+
         private void Reset()
         {
             Guid = System.Guid.NewGuid().ToString();

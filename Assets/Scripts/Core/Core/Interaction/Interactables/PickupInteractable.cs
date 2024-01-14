@@ -9,5 +9,11 @@ namespace FPS.Core.Interaction.Interactables
         private ItemEntity itemEntity;
 
         public ItemEntity ItemEntity => itemEntity;
+
+        protected override void OnInteract()
+        {
+            base.OnInteract();
+            Destroy(itemEntity.gameObject);
+        }
     }
 }

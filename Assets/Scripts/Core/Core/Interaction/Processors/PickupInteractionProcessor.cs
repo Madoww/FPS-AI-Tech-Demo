@@ -1,7 +1,6 @@
 using FPS.Core.Interaction.Interactables;
 using FPS.Core.Player;
 using FPS.Core.Player.Handlers;
-using UnityEngine;
 using Zenject;
 
 namespace FPS.Core.Interaction.Processors
@@ -27,7 +26,10 @@ namespace FPS.Core.Interaction.Processors
                 return;
             }
 
-            Debug.Log("Picked up item");
+            var itemEntity = pickupInteractable.ItemEntity;
+            var itemData = itemEntity.Data;
+            InventoryHandler.AppendItem(itemData);
+            interactable.Interact();
         }
 
         [Inject]

@@ -2,7 +2,7 @@ using System;
 
 namespace FPS.Core.Player
 {
-    public class PlayerHandler : IPlayerHandler
+    public abstract class PlayerHandler : IPlayerHandler
     {
         public event Action OnInitialized;
         public event Action OnDeinitialized;
