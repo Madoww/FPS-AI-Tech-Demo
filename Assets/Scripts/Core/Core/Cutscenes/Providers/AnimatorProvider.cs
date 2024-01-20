@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FPS.Core.Cutscenes.Providers
 {
-    public class AnimatorProvider : ICutsceneDataProvider
+    public class AnimatorProvider : CutsceneDataProvider
     {
         [SerializeField]
         private Animator animator;

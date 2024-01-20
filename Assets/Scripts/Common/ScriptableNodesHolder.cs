@@ -13,6 +13,8 @@ namespace FPS.Common
 
         public virtual void AppendNode(ScriptableNode node)
         {
+            var nodeType = node.GetType();
+            node.displayName = nodeType.Name;
             nodes.Add(node);
             AssetDatabase.AddObjectToAsset(node, this);
             AssetDatabase.SaveAssets();

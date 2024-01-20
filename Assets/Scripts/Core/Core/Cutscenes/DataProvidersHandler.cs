@@ -24,5 +24,25 @@ namespace FPS.Core.Cutscenes
             provider = default(T);
             return false;
         }
+
+        public bool TryGetProvider<T>(string guid, out T provider) where T : ICutsceneDataProvider
+        {
+            foreach (ICutsceneDataProvider dataProvider in dataProviders)
+            {
+                if(dataProvider.ReferenceGuid != guid)
+                {
+                    continue;
+                }
+
+                if (dataProvider is T)
+                {
+                    provider = (T)dataProvider;
+                    return true;
+                }
+            }
+
+            provider = default(T);
+            return false;
+        }
     }
 }

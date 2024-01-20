@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace FPS.Core.Cutscenes.Providers
 {
-    public class NavAgentProvider : ICutsceneDataProvider
+    public class NavAgentProvider : CutsceneDataProvider
     {
         [SerializeField]
         private NavMeshAgent agent;

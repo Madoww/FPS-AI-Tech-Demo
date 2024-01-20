@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FPS.Core.Cutscenes.Providers
 {
-    public class TransformProvider : ICutsceneDataProvider
+    public class TransformProvider : CutsceneDataProvider
     {
         [SerializeField]
         private Transform transform;

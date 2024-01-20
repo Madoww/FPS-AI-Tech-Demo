@@ -40,6 +40,7 @@ namespace FPS.Core.Cutscenes.Factories
                     var cutsceneNodeType = cutsceneNode.GetType();
                     var nodeInstance = Activator.CreateInstance(cutsceneNodeType) as ICutsceneNode;
                     nodeInstance.Setup(nodeData);
+                    nodeInstance.Setup(providersHandler);
                     return nodeInstance;
                 }
             }
@@ -60,8 +61,6 @@ namespace FPS.Core.Cutscenes.Factories
                     nodeInstance.AddChild(childNode);
                 }
 
-                nodeInstance.Setup(childNodeData);
-                nodeInstance.Setup(providersHandler);
                 nodes.Add(nodeInstance);
                 if (nodeInstance is CompleteCutsceneNode)
                 {
