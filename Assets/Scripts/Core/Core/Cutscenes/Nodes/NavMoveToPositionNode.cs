@@ -15,13 +15,13 @@ namespace FPS.Core.Cutscenes.Nodes
         public override void Setup(IDataProvidersHandler providersHandler)
         {
             base.Setup(providersHandler);
-            if (!providersHandler.TryGetProvider<NavAgentProvider>(out var navAgentProvider))
+            if (!providersHandler.TryGetProvider<NavAgentProvider>(Data.guid, out var navAgentProvider))
             {
                 Debug.LogWarning($"{nameof(NavAgentProvider)} not found.");
                 return;
             }
 
-            if (!providersHandler.TryGetProvider<TransformProvider>(out var transformProvider))
+            if (!providersHandler.TryGetProvider<TransformProvider>(Data.guid, out var transformProvider))
             {
                 Debug.LogWarning($"{nameof(TransformProvider)} not found.");
                 return;

@@ -11,7 +11,7 @@ namespace FPS.Core.Cutscenes.Nodes
         public override void Setup(IDataProvidersHandler providersHandler)
         {
             base.Setup(providersHandler);
-            if (!providersHandler.TryGetProvider<AnimatorProvider>(out var animatorProvider))
+            if (!providersHandler.TryGetProvider<AnimatorProvider>(Data.guid, out var animatorProvider))
             {
                 Debug.LogWarning($"{nameof(AnimatorProvider)} not found.");
                 return;

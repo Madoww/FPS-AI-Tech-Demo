@@ -10,10 +10,21 @@ namespace FPS.Core.Cutscenes
         [SerializeReference, ReferencePicker, ReorderableList]
         private List<ICutsceneDataProvider> dataProviders;
 
-        public bool TryGetProvider<T>(out T provider) where T : ICutsceneDataProvider
+        public bool TryGetProvider<T>(string guid, out T provider) where T : ICutsceneDataProvider
+        {
+            return TryGetSpecificProvider<T>(guid, out provider)
+                || TryGetGlobalProvider<T>(out provider);
+        }
+
+        public bool TryGetGlobalProvider<T>(out T provider) where T : ICutsceneDataProvider
         {
             foreach (ICutsceneDataProvider dataProvider in dataProviders)
             {
+                if(dataProvider.IsGuidSpecific)
+                {
+                    continue;
+                }
+
                 if (dataProvider is T)
                 {
                     provider = (T)dataProvider;
@@ -25,7 +36,7 @@ namespace FPS.Core.Cutscenes
             return false;
         }
 
-        public bool TryGetProvider<T>(string guid, out T provider) where T : ICutsceneDataProvider
+        public bool TryGetSpecificProvider<T>(string guid, out T provider) where T : ICutsceneDataProvider
         {
             foreach (ICutsceneDataProvider dataProvider in dataProviders)
             {
