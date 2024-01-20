@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8437607855519942743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1ed88a39d19c7438ca1a6d22241400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: RootNodeData
+  guid: a0b03d7a-6d9b-448d-b548-7380de5412b0
+  childNodes: []
+  position: {x: 223.5, y: 300.5}
+  description: 
 --- !u!114 &-7964325291824650209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,7 +31,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Complete Message
   guid: 9a0fbcb3-8c00-40d1-bd32-0b0461c18d17
-  childNodes: []
+  childNodes:
+  - {fileID: 2611242191598697422}
   position: {x: 234, y: 32.000004}
   description: 
   message: Cutscene complete
@@ -73,7 +91,7 @@ MonoBehaviour:
   - {fileID: -3842427245493968410}
   - {fileID: 350504876746272580}
   - {fileID: -7964325291824650209}
-  - {fileID: 0}
+  - {fileID: 2611242191598697422}
   displayName: Test Cutscene
 --- !u!114 &350504876746272580
 MonoBehaviour:
@@ -92,4 +110,21 @@ MonoBehaviour:
   childNodes:
   - {fileID: -7964325291824650209}
   position: {x: 69, y: 31.999992}
+  description: 
+--- !u!114 &2611242191598697422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661ac3aeff27bad4db17ec08121a9c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Complete
+  guid: 44a622a6-2bd0-4548-8b05-3d98824dbd93
+  childNodes: []
+  position: {x: 463.04, y: 32}
   description: 

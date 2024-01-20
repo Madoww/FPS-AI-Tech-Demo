@@ -8,8 +8,8 @@ namespace FPS.Core.Cutscenes.Factories
 {
     public class DefaultCutscenesFactory : ICutsceneFactory
     {
-        [SerializeReference, ReferencePicker, ReorderableList]
-        private List<ICutsceneNode> cutsceneNodes;
+        [SerializeField]
+        private NodeImplementationsHolder implementationsHolder;
         [SerializeReference, ReferencePicker]
         private IDataProvidersHandler providersHandler;
 
@@ -33,7 +33,8 @@ namespace FPS.Core.Cutscenes.Factories
         private ICutsceneNode GetInstanceForData(CutsceneNodeData nodeData)
         {
             var nodeDataType = nodeData.GetType();
-            foreach (ICutsceneNode cutsceneNode in cutsceneNodes)
+            var implementations = implementationsHolder.ImplementationNodes;
+            foreach (ICutsceneNode cutsceneNode in implementations)
             {
                 if (cutsceneNode.DataType == nodeDataType)
                 {

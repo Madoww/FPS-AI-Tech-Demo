@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c6a5e050443466ea62e7d18c4e4493, type: 3}
+  m_Name: Default Node Implementations Holder
+  m_EditorClassIdentifier: 
+  cutsceneNodes:
+  - rid: 3625701630268932098
+  - rid: 3625701630268932099
+  - rid: 3625701630268932100
+  - rid: 3625701630268932101
+  - rid: 3625701630268932102
+  - rid: 3625701630268932103
+  references:
+    version: 2
+    RefIds:
+    - rid: 3625701630268932098
+      type: {class: AnimationNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 3625701630268932099
+      type: {class: CompleteCutsceneNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 3625701630268932100
+      type: {class: DelayNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 3625701630268932101
+      type: {class: NavMoveToPositionNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 3625701630268932102
+      type: {class: PrintMessageNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
+    - rid: 3625701630268932103
+      type: {class: RootNode, ns: FPS.Core.Cutscenes.Nodes, asm: FPS.Core}
