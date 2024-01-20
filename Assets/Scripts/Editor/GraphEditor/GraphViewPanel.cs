@@ -12,6 +12,7 @@ namespace FPS.Editor.GraphEditor
         public event Action<GraphNodeView> OnNodeSelected;
 
         private ScriptableNodesHolder nodesHolder;
+        private NodePositionsHolder positionsHolder;
 
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
         {
@@ -22,6 +23,7 @@ namespace FPS.Editor.GraphEditor
         public void PopulateView(ScriptableNodesHolder holder)
         {
             nodesHolder = holder;
+            positionsHolder = AssetUtility.GetFirstAsset<NodePositionsHolder>();
             graphViewChanged -= OnGraphViewChanged;
             DeleteElements(graphElements);
             graphViewChanged += OnGraphViewChanged;
@@ -95,7 +97,7 @@ namespace FPS.Editor.GraphEditor
 
         private void CreateNodeView(ScriptableNode node)
         {
-            GraphNodeView nodeView = new GraphNodeView(node);
+            GraphNodeView nodeView = new GraphNodeView(node, positionsHolder);
             nodeView.OnNodeSelected += OnNodeSelected;
             AddElement(nodeView);
         }

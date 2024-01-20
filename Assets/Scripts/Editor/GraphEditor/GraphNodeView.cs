@@ -9,32 +9,33 @@ namespace FPS.Editor.GraphEditor
     {
         public event Action<GraphNodeView> OnNodeSelected;
 
-        public string description;
-
         private Port input;
         private Port output;
         private ScriptableNode nodeDefinition;
+        private NodePositionsHolder nodePositionsHolder;
 
         public Port Input => input;
         public Port Output => output;
         public ScriptableNode NodeDefinition => nodeDefinition;
 
-        public GraphNodeView(ScriptableNode nodeDefinition)
+        public GraphNodeView(ScriptableNode nodeDefinition, NodePositionsHolder nodePositionsHolder)
         {
             this.nodeDefinition = nodeDefinition;
             this.title = nodeDefinition.displayName;
             this.viewDataKey = nodeDefinition.guid;
-            style.left = nodeDefinition.position.x;
-            style.top = nodeDefinition.position.y;
+            this.nodePositionsHolder = nodePositionsHolder;
+            var position = nodePositionsHolder.GetPosition(nodeDefinition);
+            style.left = position.x;
+            style.top = position.y;
             CreateInputPorts();
             CreateOutputPorts();
         }
 
-        public override void SetPosition(Rect newPos)
+        public override void SetPosition(Rect newPosition)
         {
-            base.SetPosition(newPos);
-            nodeDefinition.position.x = newPos.xMin;
-            nodeDefinition.position.y = newPos.yMin;
+            base.SetPosition(newPosition);
+            var position = new Vector2(newPosition.xMin, newPosition.yMin);
+            nodePositionsHolder.StorePosition(nodeDefinition, position);
         }
 
         public override void OnSelected()

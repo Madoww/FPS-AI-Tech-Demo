@@ -9,7 +9,6 @@ namespace FPS.Common
         public string displayName;
         public string guid;
         public List<ScriptableNode> childNodes = new List<ScriptableNode>();
-        public Vector2 position;
 
         private void Reset()
         {
