@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 namespace FPS.UI
 {
-    public class IActivityTarget : MonoBehaviour
+    public interface IActivityTarget
     {
+        event Action OnShow;
+        event Action OnHide;
 
+        bool IsActive { get; }
+
+        void SetActive(bool value);
     }
 }

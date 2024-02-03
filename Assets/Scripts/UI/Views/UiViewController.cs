@@ -1,16 +1,26 @@
 using FPS.Common;
 using System;
+using UnityEngine;
 
 namespace FPS.UI.Views
 {
-    public class UiView : UiObject, IInitializable, IDeinitializable
+    public class UiViewController : MonoBehaviour, IInitializable, IDeinitializable
     {
         public event Action OnInitialized;
         public event Action OnDeinitialized;
-        public event Action<UiView> OnShowView;
-        public event Action<UiView> OnHideView;
+
+        [SerializeField]
+        private UiView view;
+
+        public UiView TargetView => view;
 
         public bool IsInitialized { get; private set; }
+
+        private void Awake()
+        {
+            TargetView.OnInitialized += Initialize;
+            TargetView.OnDeinitialized += Deinitialize;
+        }
 
         public void Initialize()
         {
@@ -41,5 +51,10 @@ namespace FPS.UI.Views
 
         protected virtual void OnDeinitialize()
         { }
+    }
+
+    public class UiViewController<T> : UiViewController where T : UiView
+    {
+        public new T TargetView => (T)base.TargetView;
     }
 }

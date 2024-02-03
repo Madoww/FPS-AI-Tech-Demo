@@ -35,12 +35,17 @@ namespace FPS.Core.Barks
             }
         }
 
+        public void PlayBark(BarkData barkData)
+        {
+            OnBarkTriggered?.Invoke(barkData);
+        }
+
         private void Initialize()
         {
             foreach (var processor in processors)
             {
                 processor.Initialize();
-                processor.OnTrigerred += OnTriggerBark;
+                processor.OnTrigerred += PlayBark;
             }
         }
 
@@ -48,14 +53,9 @@ namespace FPS.Core.Barks
         {
             foreach (var processor in processors)
             {
-                processor.OnTrigerred -= OnTriggerBark;
+                processor.OnTrigerred -= PlayBark;
                 processor.Deinitialize();
             }
-        }
-
-        private void OnTriggerBark(BarkData barkData)
-        {
-            OnBarkTriggered?.Invoke(barkData);
         }
     }
 }

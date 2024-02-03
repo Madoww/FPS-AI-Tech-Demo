@@ -1,40 +1,36 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace FPS.UI
 {
-    public class UiHandler : IUiHandler
+    public class UiHandlerBehaviour : MonoBehaviour, IUiHandler
     {
-        public event Action OnInitialized;
-        public event Action OnDeinitialized;
-
+        public bool IsTickable => false;
         public bool IsInitialized { get; private set; }
 
         public void Initialize()
         {
-            if(IsInitialized)
+            if (IsInitialized)
             {
                 return;
             }
 
             OnInitialize();
             IsInitialized = true;
-            OnInitialized?.Invoke();
         }
 
         public void Deinitialize()
         {
-            if(!IsInitialized)
+            if (!IsInitialized)
             {
                 return;
             }
 
             OnDeinitialize();
             IsInitialized = false;
-            OnDeinitialized?.Invoke();
         }
+
+        public virtual void Tick()
+        { }
 
         protected virtual void OnInitialize()
         { }
