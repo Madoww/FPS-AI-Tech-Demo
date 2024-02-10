@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5521744895386280773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b8bf291225c9c43a58cb416ab368b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: RootNodeData
+  guid: b67806e1-a6b9-46aa-8c41-6680d8f7e601
+  childNodes: []
+  description: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4ffc7cd650b82418996e4920f7fd87, type: 3}
+  m_Name: Witch Behaviour Tree Definition
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5521744895386280773}
+  - {fileID: 7587823318907106131}
+--- !u!114 &7587823318907106131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b73a0f93578bc4dbd9036e644630cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: ActionLogData
+  guid: dc6003f4-330e-4781-83e5-dec1b8169427
+  childNodes: []
+  description: 
+  message: Hello World

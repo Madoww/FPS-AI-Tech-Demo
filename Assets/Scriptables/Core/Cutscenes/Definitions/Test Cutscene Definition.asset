@@ -15,7 +15,6 @@ MonoBehaviour:
   displayName: RootNodeData
   guid: a0b03d7a-6d9b-448d-b548-7380de5412b0
   childNodes: []
-  position: {x: 223.5, y: 300.5}
   description: 
 --- !u!114 &-7964325291824650209
 MonoBehaviour:
@@ -33,7 +32,6 @@ MonoBehaviour:
   guid: 9a0fbcb3-8c00-40d1-bd32-0b0461c18d17
   childNodes:
   - {fileID: 2611242191598697422}
-  position: {x: 234, y: 32.000004}
   description: 
   message: Cutscene complete
 --- !u!114 &-3842427245493968410
@@ -51,7 +49,6 @@ MonoBehaviour:
   displayName: Animation
   guid: 13a434fe-eb4a-444d-8fae-8148ac21f2ff
   childNodes: []
-  position: {x: 69, y: 133.85}
   description: 
   animationClip: {fileID: 1827226128182048838, guid: 84f9ae0f8aadf724993e2ed766105556, type: 3}
   loop: 0
@@ -72,7 +69,6 @@ MonoBehaviour:
   childNodes:
   - {fileID: -3842427245493968410}
   - {fileID: 350504876746272580}
-  position: {x: -130.97122, y: 32.00006}
   description: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -109,7 +105,6 @@ MonoBehaviour:
   guid: c5b29cbd-a10e-4cd9-847f-a9a6772ad144
   childNodes:
   - {fileID: -7964325291824650209}
-  position: {x: 69, y: 31.999992}
   description: 
 --- !u!114 &2611242191598697422
 MonoBehaviour:
@@ -126,5 +121,4 @@ MonoBehaviour:
   displayName: Complete
   guid: 44a622a6-2bd0-4548-8b05-3d98824dbd93
   childNodes: []
-  position: {x: 463.04, y: 32}
   description: 

@@ -1,22 +1,20 @@
-using System.Collections.Generic;
+using FPS.AI.Behaviour.Data;
 
 namespace FPS.AI.Behaviour
 {
-    public class Sequence : Node
+    public class Sequence : BehaviourNode<SequenceData>
     {
-        private IList<Node> nodes;
-
-        public Sequence(IList<Node> nodes, OverrideCondition overrideCondition = OverrideCondition.None)
-        {
-            this.nodes = nodes;
-            OverrideCondition = overrideCondition;
-        }
+        //public Sequence(IList<IBehaviourNode> nodes, OverrideCondition overrideCondition = OverrideCondition.None)
+        //{
+        //    this.nodes = nodes;
+        //    OverrideCondition = overrideCondition;
+        //}
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
-            if (treeState.TryGetRunningChild(this, out Node runningChild))
+            if (treeState.TryGetRunningChild(this, out IBehaviourNode runningChild))
             {
-                var runningChildIndex = nodes.IndexOf(runningChild);
+                var runningChildIndex = Children.IndexOf(runningChild);
                 var higherPriorityNodeState = EvaluateHigherPriorityNodes(treeState, runningChildIndex);
                 if (higherPriorityNodeState == NodeState.Failure
                     || higherPriorityNodeState == NodeState.Running)
@@ -32,12 +30,12 @@ namespace FPS.AI.Behaviour
             }
 
             bool isAnyNodeRunning = false;
-            for (int i = 0; i < nodes.Count; i++)
+            for (int i = 0; i < Children.Count; i++)
             {
-                var node = nodes[i];
+                var node = Children[i];
                 if (runningChild != null)
                 {
-                    var runningChildIndex = nodes.IndexOf(runningChild);
+                    var runningChildIndex = Children.IndexOf(runningChild);
                     i = runningChildIndex;
                     runningChild = null;
                     continue;
@@ -63,7 +61,7 @@ namespace FPS.AI.Behaviour
         {
             for (int i = 0; i < runningChildIndex; i++)
             {
-                var higherPriorityNode = nodes[i];
+                var higherPriorityNode = Children[i];
                 if (higherPriorityNode.OverrideCondition != OverrideCondition.LowerPriority)
                 {
                     continue;

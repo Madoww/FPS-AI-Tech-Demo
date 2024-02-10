@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52331026}
   - component: {fileID: 52331027}
+  - component: {fileID: 52331028}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -173,12 +174,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityHandler:
-    rid: -2
+    rid: 5760108399415787522
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 5760108399415787522
+      type: {class: StandardAnimationActivityHandler, ns: FPS.UI.Misc, asm: FPS.UI}
+      data:
+        animationContext:
+          rid: 5760108399415787523
+    - rid: 5760108399415787523
+      type: {class: FadeAnimationContext, ns: FPS.UI.Animation.Animations, asm: FPS.UI}
+      data:
+        canvasGroup: {fileID: 52331028}
+        duration: 1
+        curve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+--- !u!225 &52331028
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52331025}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &76679906
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   definitions:
-  - showOnInitialize: 0
+  - showOnInitialize: 1
     showImmediately: 0
     view: {fileID: 52331027}
 --- !u!114 &1953780095 stripped

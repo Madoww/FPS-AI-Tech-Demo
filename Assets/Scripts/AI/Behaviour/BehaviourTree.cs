@@ -2,10 +2,10 @@ namespace FPS.AI.Behaviour
 {
     public class BehaviourTree
     {
-        private Node rootNode;
+        private IBehaviourNode rootNode;
         private BehaviourTreeState treeState;
 
-        public BehaviourTree(Node rootNode)
+        public BehaviourTree(IBehaviourNode rootNode)
         {
             this.rootNode = rootNode;
             treeState = new BehaviourTreeState();

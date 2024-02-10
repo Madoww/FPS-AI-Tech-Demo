@@ -1,7 +1,6 @@
 using UnityEngine;
-using FPS.Editor.GraphEditor;
 
-namespace FPS.Editor.Cutscenes
+namespace FPS.Editor.GraphEditor
 {
     using Editor = UnityEditor.Editor;
 

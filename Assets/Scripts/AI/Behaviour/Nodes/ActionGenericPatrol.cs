@@ -1,14 +1,13 @@
+using FPS.AI.Behaviour.Data;
+using FPS.AI.Patrol;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
-namespace FPS.AI.Common
+namespace FPS.AI.Behaviour.Nodes
 {
-    using FPS.AI.Behaviour;
-    using FPS.AI.Patrol;
-
-    public class ActionGenericPatrol : Node
+    public class ActionGenericPatrol : BehaviourNode<ActionGenericPatrolData>
     {
         protected readonly Transform targetTransform;
         protected readonly NavMeshAgent navMeshAgent;
@@ -17,13 +16,6 @@ namespace FPS.AI.Common
         protected int currentWaypointIndex;
         protected int currentPatrolAreaIndex = 0;
         protected float minDistanceToWaypoint = 2f;
-
-        public ActionGenericPatrol(List<PatrolArea> patrolAreas, Transform targetTransform, NavMeshAgent navMeshAgent)
-        {
-            this.targetTransform = targetTransform;
-            this.navMeshAgent = navMeshAgent;
-            this.patrolAreas = patrolAreas;
-        }
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {

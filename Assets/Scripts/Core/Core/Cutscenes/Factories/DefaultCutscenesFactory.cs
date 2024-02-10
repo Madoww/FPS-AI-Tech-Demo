@@ -17,7 +17,7 @@ namespace FPS.Core.Cutscenes.Factories
         {
             if (!cutsceneDefinition.GetNode<RootNodeData>(out var rootNodeData))
             {
-                Debug.LogError("CutsceneDefinition doesn't have a root node.");
+                Debug.LogError($"{nameof(CutsceneDefinition)} doesn't have a root node.");
                 return null;
             }
 

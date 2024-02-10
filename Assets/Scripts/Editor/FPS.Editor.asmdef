@@ -1,0 +1,21 @@
+{
+    "name": "FPS.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8cede36e67a2ddf4b9280534e18637b9",
+        "GUID:73518d5b88aa1f24ba6098cf690c3aee",
+        "GUID:6bd20328ff3cb30418c96bf807e5487a",
+        "GUID:04cf9e05fffe6ca4186eedd1a5bfbaa2",
+        "GUID:696a0953692949b40bec8730e64e1fdd",
+        "GUID:1b845e2499b39be4aab3e6ac2c8aa02a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

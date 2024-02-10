@@ -1,19 +1,16 @@
+using FPS.AI.Behaviour;
+using FPS.AI.Brain;
+using FPS.AI.Monster.Data;
+
 namespace FPS.AI.Monster
 {
-    using FPS.AI.Behaviour;
-    using FPS.AI.Brain;
 
-    public class ConditionIsPlayerSpotted : Node
+    public class ConditionIsPlayerSpotted : BehaviourNode<ConditionIsPlayerSpottedData>
     {
         private AiBrain aiBrain;
         private float certaintyThreshold = 0.2f;
 
         public override OverrideCondition OverrideCondition => OverrideCondition.LowerPriority;
-
-        public ConditionIsPlayerSpotted(AiBrain aiBrain)
-        {
-            this.aiBrain = aiBrain;
-        }
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {

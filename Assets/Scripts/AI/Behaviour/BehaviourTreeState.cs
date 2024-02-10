@@ -6,12 +6,12 @@ namespace FPS.AI.Behaviour
     public class BehaviourTreeState
     {
         private Dictionary<string, object> data;
-        private Dictionary<Node, Node> runningChildByNodes;
+        private Dictionary<IBehaviourNode, IBehaviourNode> runningChildByNodes;
 
         public BehaviourTreeState()
         {
             data = new Dictionary<string, object>();
-            runningChildByNodes = new Dictionary<Node, Node>();
+            runningChildByNodes = new Dictionary<IBehaviourNode, IBehaviourNode>();
         }
 
         public void SetData(string key, object value)
@@ -42,7 +42,7 @@ namespace FPS.AI.Behaviour
             runningChildByNodes.Clear();
         }
 
-        public void RegisterRunningChild(Node parent, Node child)
+        public void RegisterRunningChild(IBehaviourNode parent, IBehaviourNode child)
         {
             if (runningChildByNodes.ContainsKey(parent))
             {
@@ -53,7 +53,7 @@ namespace FPS.AI.Behaviour
             runningChildByNodes.Add(parent, child);
         }
 
-        public void UnregisterRunningChild(Node parent)
+        public void UnregisterRunningChild(IBehaviourNode parent)
         {
             if (!runningChildByNodes.ContainsKey(parent))
             {
@@ -64,7 +64,7 @@ namespace FPS.AI.Behaviour
             runningChildByNodes.Remove(parent);
         }
 
-        public bool TryGetRunningChild(Node parent, out Node runningChild)
+        public bool TryGetRunningChild(IBehaviourNode parent, out IBehaviourNode runningChild)
         {
             if (!runningChildByNodes.ContainsKey(parent))
             {

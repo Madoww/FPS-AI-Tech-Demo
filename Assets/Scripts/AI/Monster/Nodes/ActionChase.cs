@@ -1,18 +1,13 @@
+using FPS.AI.Behaviour;
+using FPS.AI.Monster.Data;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace FPS.AI.Monster
+namespace FPS.AI.Monster.Nodes
 {
-    using FPS.AI.Behaviour;
-
-    public class ActionChase : Node
+    public class ActionChase : BehaviourNode<ActionChaseData>
     {
         private readonly NavMeshAgent navMeshAgent;
-
-        public ActionChase(NavMeshAgent navMeshAgent)
-        {
-            this.navMeshAgent = navMeshAgent;
-        }
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {

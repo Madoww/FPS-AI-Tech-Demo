@@ -1,6 +1,6 @@
 namespace FPS.AI.Behaviour
 {
-    public interface IBehaviourTreeBuilder
+    public interface IBehaviourTreeFactory
     {
         BehaviourTree Build();
     }

@@ -1,19 +1,10 @@
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
+using FPS.AI.Behaviour;
+using FPS.AI.Behaviour.Nodes;
 
-namespace FPS.AI.Monster
+namespace FPS.AI.Monster.Nodes
 {
-    using FPS.AI.Behaviour;
-    using FPS.AI.Common;
-    using FPS.AI.Patrol;
-
     public class ActionPatrol : ActionGenericPatrol
     {
-        public ActionPatrol(List<PatrolArea> patrolAreas, Transform targetTransform, NavMeshAgent navMeshAgent)
-            : base(patrolAreas, targetTransform, navMeshAgent)
-        { }
-
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
             treeState.TryGetData<bool>(Blackboard.IS_PATROLLING, out var isPatrolling);

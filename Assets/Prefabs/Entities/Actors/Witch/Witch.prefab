@@ -736,18 +736,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTreeBuilder:
-    rid: 3900293843968065539
+    rid: 5760108556784500751
   references:
     version: 2
     RefIds:
-    - rid: 3900293843968065539
-      type: {class: MonsterBehaviourTreeBuilder, ns: FPS.AI.Monster, asm: FPS.AI}
+    - rid: 5760108556784500751
+      type: {class: MonsterBehaviourTreeFactory, ns: FPS.AI.Monster, asm: FPS.AI}
       data:
-        aiBrain: {fileID: 6641546530806254910}
-        navMeshAgent: {fileID: 6684399713462055428}
-        playerTransform: {fileID: 0}
-        selfTransform: {fileID: 5925902792157085706}
-        patrolDataProvider: {fileID: 0}
+        treeDefinition: {fileID: 11400000, guid: f68070773045e5942810f60387f7f1f9, type: 2}
+        implementationsHolder: {fileID: 11400000, guid: 5424ff8f420033a4fa088076c8e44079, type: 2}
 --- !u!195 &6684399713462055428
 NavMeshAgent:
   m_ObjectHideFlags: 0

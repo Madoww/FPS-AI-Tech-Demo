@@ -3,16 +3,11 @@ using UnityEngine;
 namespace FPS.AI.Monster
 {
     using FPS.AI.Behaviour;
+    using FPS.AI.Monster.Data;
 
-    public class ActionSearch : Node
+    public class ActionSearch : BehaviourNode<ActionSearchData>
     {
         private Transform target;
-
-        //TODO: Rework temporary testing solution.
-        public ActionSearch(Transform target)
-        {
-            this.target = target;
-        }
 
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {

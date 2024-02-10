@@ -1,21 +1,14 @@
-using System.Collections.Generic;
+using FPS.AI.Behaviour.Data;
 
 namespace FPS.AI.Behaviour
 {
-    public class Selector : Node
+    public class Selector : BehaviourNode<SelectorData>
     {
-        private IList<Node> nodes;
-
-        public Selector(IList<Node> nodes)
-        {
-            this.nodes = nodes;
-        }
-
         public override NodeState Evaluate(BehaviourTreeState treeState)
         {
             if (treeState.TryGetRunningChild(this, out var runningChild))
             {
-                var runningChildIndex = nodes.IndexOf(runningChild);
+                var runningChildIndex = Children.IndexOf(runningChild);
                 var higherPriorityNodeState = EvaluateHigherPriorityNodes(treeState, runningChildIndex);
                 if (higherPriorityNodeState == NodeState.Success
                     || higherPriorityNodeState == NodeState.Running)
@@ -37,12 +30,12 @@ namespace FPS.AI.Behaviour
                 }
             }
 
-            for (int i = 0; i < nodes.Count; i++)
+            for (int i = 0; i < Children.Count; i++)
             {
-                var node = nodes[i];
+                var node = Children[i];
                 if (runningChild != null)
                 {
-                    var runningChildIndex = nodes.IndexOf(runningChild);
+                    var runningChildIndex = Children.IndexOf(runningChild);
                     i = runningChildIndex;
                     runningChild = null;
                     continue;
@@ -67,7 +60,7 @@ namespace FPS.AI.Behaviour
         {
             for (int i = 0; i < runningChildIndex; i++)
             {
-                var higherPriorityNode = nodes[i];
+                var higherPriorityNode = Children[i];
                 if (higherPriorityNode.OverrideCondition != OverrideCondition.LowerPriority)
                 {
                     continue;
